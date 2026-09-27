@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Architecture &amp; Interior Design Studio · The Fifth Wall Islamabad</title>
+  <meta name="description" content="Explore full-spectrum architectural design, CDA &amp; RDA permit drawings, luxury turnkey interior architecture, 3D visualization, landscape design, and bespoke furniture in Islamabad by The Fifth Wall.">
+  <meta name="keywords" content="Architectural services Islamabad, CDA permit drawings, luxury interior architecture, turnkey villa construction, 3D visualization, landscape design Islamabad, DHA Islamabad architects">
+  <meta name="author" content="The Fifth Wall">
+  <link rel="canonical" href="https://thefifthwall.pk/services.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://thefifthwall.pk/services.html">
+  <meta property="og:title" content="Services — Architectural &amp; Interior Design Studio · The Fifth Wall">
+  <meta property="og:description" content="One studio, one vision — from initial structural concept to turnkey interior handover. Complete architectural services in Islamabad.">
+  <meta property="og:image" content="images/house-923-exterior.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Services — Architectural &amp; Interior Design Studio · The Fifth Wall">
+  <meta name="twitter:description" content="Comprehensive architectural and interior design services across Islamabad and Rawalpindi.">
+  <meta name="twitter:image" content="images/house-923-exterior.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/the-fifth-wall-logo-transparent.png">
+
+  <!-- Google Fonts: Cormorant Garamond & Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─── DESIGN TOKENS ───────────────────────────────── */
+    :root {
+      --ch: #1A1A1A;          /* Charcoal Black */
+      --ch-dark: #121212;     /* Deep Void */
+      --co: #E5E3DE;          /* Warm Concrete */
+      --sg: #8A8A8A;          /* Slate Grey */
+      --sg-light: #B4B2AC;    /* Muted Sage */
+      --br: #8C6A3B;          /* Architectural Bronze / Gold */
+      --br-light: #B38E5B;    /* Light Gold */
+      --wh: #FAFAF8;          /* Off White */
+      --pure-wh: #FFFFFF;
+      --border-subtle: rgba(26, 26, 26, 0.13);
+      --border-dark: rgba(255, 255, 255, 0.16);
+      --container-max: 1240px;
+      --pad-x: 32px;
+      --ease: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background: var(--wh);
+      color: var(--ch);
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      background: var(--wh);
+      color: var(--ch);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      color: var(--ch);
+      line-height: 1.15;
+    }
+
+    em {
+      font-style: italic;
+      color: var(--br);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    /* ─── BUTTONS ─────────────────────────────────────── */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--ch);
+      color: var(--wh);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 13px 26px;
+      border-radius: 2px;
+      border: 1px solid var(--ch);
+      cursor: pointer;
+      transition: all 0.3s var(--ease);
+    }
+
+    .btn-cta:hover {
+      background: var(--br);
+      border-color: var(--br);
+      color: var(--wh);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(140, 106, 59, 0.25);
+    }
+
+    .btn-cta-outline {
+      background: transparent;
+      color: var(--ch);
+      border: 1px solid var(--ch);
+    }
+
+    .btn-cta-outline:hover {
+      background: var(--ch);
+      color: var(--wh);
+      border-color: var(--ch);
+    }
+
+    /* ─── HEADER NAVIGATION ───────────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 250, 248, 0.94);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: background 0.3s var(--ease), padding 0.3s var(--ease);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 80px;
+      max-width: var(--container-max);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-img {
+      height: 48px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .nav-menu {
+      display: flex;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-item a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ch);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.2s var(--ease);
+    }
+
+    .nav-item a:hover,
+    .nav-item a.active {
+      color: var(--br);
+    }
+
+    .nav-item a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--br);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .mobile-burger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .mobile-burger span {
+      width: 24px;
+      height: 2px;
+      background: var(--ch);
+      transition: all 0.3s;
+    }
+
+    /* Mobile Drawer */
+    .mobile-drawer-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 199;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s var(--ease);
+    }
+
+    .mobile-drawer-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 320px;
+      max-width: 85vw;
+      background: var(--ch);
+      color: var(--wh);
+      z-index: 200;
+      padding: 36px 28px;
+      transform: translateX(100%);
+      transition: transform 0.35s var(--ease);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .mobile-drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .drawer-logo-img {
+      height: 42px;
+      width: auto;
+    }
+
+    .drawer-close {
+      background: transparent;
+      border: none;
+      color: var(--wh);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    .drawer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .drawer-link {
+      font-size: 1.15rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--co);
+      transition: color 0.2s;
+    }
+
+    .drawer-link:hover, .drawer-link.active {
+      color: var(--br-light);
+    }
+
+    /* ─── ARCHITECTURAL DRAFTING GRID ────────────────── */
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(26, 26, 26, 0.075) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(26, 26, 26, 0.075) 1px, transparent 1px),
+        radial-gradient(circle 1.5px at 0 0, rgba(140, 106, 59, 0.48) 1.5px, transparent 1.5px);
+      background-size: 60px 60px, 60px 60px, 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, #000 70%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, #000 70%, transparent 100%);
+    }
+
+    .hero-grid-lines-dark {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
+        radial-gradient(circle 1.5px at 0 0, rgba(196, 151, 106, 0.45) 1.5px, transparent 1.5px);
+      background-size: 60px 60px, 60px 60px, 60px 60px;
+      pointer-events: none;
+      mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, #000 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, #000 75%, transparent 100%);
+    }
+
+    /* ─── PAGE HERO ───────────────────────────────────── */
+    .page-hero {
+      padding: 90px 0 60px;
+      background: linear-gradient(to bottom, #F4F3F0 0%, var(--wh) 100%);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .breadcrumb-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sg);
+      margin-bottom: 24px;
+    }
+
+    .breadcrumb-row a {
+      color: var(--ch);
+      transition: color 0.2s;
+    }
+
+    .breadcrumb-row a:hover {
+      color: var(--br);
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--br);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: var(--br);
+    }
+
+    .page-hero-title {
+      font-size: clamp(2.8rem, 5.5vw, 4.4rem);
+      margin-bottom: 20px;
+      max-width: 880px;
+    }
+
+    .page-hero-desc {
+      font-size: 1.05rem;
+      color: var(--sg);
+      line-height: 1.75;
+      max-width: 720px;
+      margin-bottom: 32px;
+    }
+
+    .page-hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      padding-top: 36px;
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .stat-box {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      color: var(--ch);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.74rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--sg);
+    }
+
+    /* ─── DETAILED SERVICE SECTIONS ───────────────────── */
+    .services-detail-section {
+      padding: 90px 0;
+    }
+
+    .service-detail-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+      padding: 70px 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .service-detail-card:last-child {
+      border-bottom: none;
+    }
+
+    .service-detail-card.reverse {
+      direction: rtl;
+    }
+
+    .service-detail-card.reverse > * {
+      direction: ltr;
+    }
+
+    .service-media {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      background: var(--ch);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .service-detail-card:hover .service-media img {
+      transform: scale(1.04);
+    }
+
+    .service-info-col {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .service-tag {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--br);
+      font-weight: 500;
+    }
+
+    .service-title {
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      margin-bottom: 4px;
+    }
+
+    .service-desc {
+      font-size: 0.95rem;
+      color: var(--sg);
+      line-height: 1.75;
+    }
+
+    .service-deliverables-title {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ch);
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    .deliverables-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .del-pill {
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+      background: rgba(229, 227, 222, 0.45);
+      color: var(--ch);
+      padding: 6px 14px;
+      border-radius: 2px;
+      border: 1px solid rgba(26, 26, 26, 0.06);
+    }
+
+    /* ─── ARCHITECTURAL MATRIX TABLE ──────────────────── */
+    .matrix-section {
+      padding: 90px 0;
+      background: #F4F3F0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .matrix-table-wrap {
+      overflow-x: auto;
+      margin-top: 40px;
+      background: var(--pure-wh);
+      border-radius: 4px;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .matrix-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.9rem;
+    }
+
+    .matrix-table th, .matrix-table td {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+      border-right: 1px solid rgba(26, 26, 26, 0.08);
+    }
+
+    .matrix-table th:last-child, .matrix-table td:last-child {
+      border-right: none;
+    }
+
+    .matrix-table th {
+      background: var(--ch);
+      color: var(--wh);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+
+    .matrix-table th:first-child {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--sg-light);
+    }
+
+    .matrix-table tr:hover td {
+      background: rgba(250, 250, 248, 0.8);
+    }
+
+    .check-icon {
+      color: var(--br);
+      font-weight: 600;
+    }
+
+    /* ─── ESTIMATOR CALLOUT BANNER ─────────────────────── */
+    .estimator-callout {
+      padding: 80px 0;
+      background: var(--ch);
+      color: var(--wh);
+      text-align: center;
+      position: relative;
+    }
+
+    .estimator-callout h2 {
+      color: var(--wh);
+      font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+      margin-bottom: 16px;
+    }
+
+    .estimator-callout p {
+      color: var(--sg-light);
+      max-width: 620px;
+      margin: 0 auto 36px;
+      font-size: 0.98rem;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────── */
+    .site-footer {
+      background: var(--ch-dark);
+      color: var(--sg-light);
+      padding: 60px 0 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.88rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand .footer-logo-img {
+      height: 48px;
+      width: auto;
+      margin-bottom: 18px;
+    }
+
+    .footer-brand p {
+      line-height: 1.7;
+      max-width: 320px;
+      font-size: 0.86rem;
+    }
+
+    .footer-col-title {
+      font-size: 0.74rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--wh);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: var(--sg-light);
+      font-size: 0.85rem;
+      transition: color 0.2s var(--ease);
+    }
+
+    .footer-links a:hover {
+      color: var(--br-light);
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      font-size: 0.78rem;
+      color: rgba(229, 227, 222, 0.4);
+    }
+
+    .footer-social-icons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .footer-social-icons a {
+      color: var(--sg-light);
+      transition: color 0.2s;
+    }
+
+    .footer-social-icons a:hover {
+      color: var(--br-light);
+    }
+
+    /* ─── FLOATING WHATSAPP ───────────────────────────── */
+    .wa-floating-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      z-index: 99;
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+    }
+
+    .wa-floating-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 30px rgba(37, 211, 102, 0.6);
+    }
+
+    .wa-floating-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: currentColor;
+    }
+
+    /* ─── RESPONSIVE RULES ────────────────────────────── */
+    @media (max-width: 1024px) {
+      .page-hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .service-detail-card, .service-detail-card.reverse {
+        grid-template-columns: 1fr;
+        direction: ltr;
+        gap: 36px;
+      }
+      .desktop-nav, .nav-actions .btn-cta {
+        display: none;
+      }
+      .mobile-burger {
+        display: flex;
+      }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --pad-x: 20px;
+      }
+      .page-hero-stats {
+        grid-template-columns: 1fr;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-link" aria-label="The Fifth Wall Homepage">
+        <img src="images/the-fifth-wall-logo-transparent.png" alt="The Fifth Wall Architecture Studio Logo" class="logo-img" width="980" height="550">
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html#about">Studio</a></li>
+          <li class="nav-item"><a href="services.html" class="active">Services</a></li>
+          <li class="nav-item"><a href="index.html#portfolio">Featured Work</a></li>
+          <li class="nav-item"><a href="cost-estimator.html">Cost Estimator</a></li>
+          <li class="nav-item"><a href="index.html#process">Process</a></li>
+          <li class="nav-item"><a href="index.html#faq">FAQ</a></li>
+          <li class="nav-item"><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta">
+          Start a Project
+        </a>
+        <button class="mobile-burger" id="burgerToggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAVIGATION DRAWER -->
+  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
+    <div>
+      <div class="drawer-top">
+        <a href="index.html" class="drawer-logo-link" aria-label="The Fifth Wall Homepage">
+          <img src="images/the-fifth-wall-logo-white.png" alt="The Fifth Wall Logo" class="drawer-logo-img" width="980" height="550">
+        </a>
+        <button class="drawer-close" id="drawerClose" aria-label="Close Mobile Menu">&times;</button>
+      </div>
+      <ul class="drawer-nav">
+        <li><a href="index.html#about" class="drawer-link">Studio</a></li>
+        <li><a href="services.html" class="drawer-link active">Services</a></li>
+        <li><a href="index.html#portfolio" class="drawer-link">Featured Work</a></li>
+        <li><a href="index.html#transformation" class="drawer-link">Transformation</a></li>
+        <li><a href="cost-estimator.html" class="drawer-link">Cost Estimator</a></li>
+        <li><a href="index.html#process" class="drawer-link">Process</a></li>
+        <li><a href="index.html#faq" class="drawer-link">FAQ</a></li>
+        <li><a href="index.html#contact" class="drawer-link">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta" style="width:100%; justify-content:center; margin-bottom:16px;">
+        WhatsApp Consultation
+      </a>
+      <p style="font-size:0.75rem; color:var(--sg-light); text-align:center;">Islamabad · 33°43'N · 73°04'E</p>
+    </div>
+  </aside>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="hero-grid-lines"></div>
+      <div class="container" style="position:relative; z-index:2;">
+        <nav class="breadcrumb-row" aria-label="Breadcrumb">
+          <a href="index.html">Home</a>
+          <span>/</span>
+          <span>Services</span>
+        </nav>
+
+        <span class="section-eyebrow">Design Disciplines &amp; Deliverables</span>
+        <h1 class="page-hero-title">
+          Architectural Rigour meets <em>Interior Artistry.</em>
+        </h1>
+        <p class="page-hero-desc">
+          We operate as a single unified practice across Islamabad and Rawalpindi. By managing both the structural exterior and internal atmosphere under one standard, your project achieves perfect alignment between light, proportions, and turnkey finishes.
+        </p>
+
+        <div class="page-hero-stats">
+          <div class="stat-box">
+            <span class="stat-num">100%</span>
+            <span class="stat-label">Municipal Approval Success</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">06</span>
+            <span class="stat-label">Core Design Disciplines</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">4K</span>
+            <span class="stat-label">Photorealistic CGI Renders</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-num">Turnkey</span>
+            <span class="stat-label">Site Handover Oversight</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DETAILED SERVICE SECTIONS -->
+    <section class="services-detail-section">
+      <div class="container">
+
+        <!-- 01 Architectural Planning -->
+        <article class="service-detail-card" id="architecture">
+          <div class="service-media">
+            <img src="images/house-923-exterior.jpg" alt="Architectural Planning and Villa Exterior Design in Islamabad" width="1000" height="732" loading="lazy">
+          </div>
+          <div class="service-info-col">
+            <span class="service-tag">01 / ARCHITECTURE</span>
+            <h2 class="service-title">Architectural Planning &amp; Permits</h2>
+            <p class="service-desc">
+              From site zoning evaluations and orientation analysis to full construction working sets. We prepare all structural calculations, MEP coordination drawings, and municipal submission sets to obtain formal approvals without regulatory delays.
+            </p>
+            <h3 class="service-deliverables-title">Deliverables &amp; Documentation:</h3>
+            <div class="deliverables-pills">
+              <span class="del-pill">CDA &amp; RDA Permit Drawings</span>
+              <span class="del-pill">DHA &amp; Bahria Submission Sets</span>
+              <span class="del-pill">Structural Engineering Plans</span>
+              <span class="del-pill">Plumbing &amp; Electrical Layouts</span>
+              <span class="del-pill">Soil Testing &amp; Foundation Specs</span>
+              <span class="del-pill">Full Construction Working Sets</span>
+            </div>
+            <div style="margin-top:16px;">
+              <a href="cost-estimator.html" class="btn-cta btn-cta-outline">Estimate Architectural Cost &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 Turnkey Interior Architecture -->
+        <article class="service-detail-card reverse" id="interiors">
+          <div class="service-media">
+            <img src="images/house-923-tv-lounge.jpg" alt="Turnkey Luxury Interior Architecture in Islamabad" width="1000" height="667" loading="lazy">
+          </div>
+          <div class="service-info-col">
+            <span class="service-tag">02 / INTERIORS</span>
+            <h2 class="service-title">Turnkey Interior Architecture</h2>
+            <p class="service-desc">
+              We design interior volumes that breathe. Ceiling heights, custom pocket doors, architectural recesses, imported travertine and Italian marble dry-lays, layered ambient illumination, and bespoke master suites curated for comfort and sophistication.
+            </p>
+            <h3 class="service-deliverables-title">Deliverables &amp; Documentation:</h3>
+            <div class="deliverables-pills">
+              <span class="del-pill">Reflected Ceiling Plans (RCP)</span>
+              <span class="del-pill">Marble Dry-Lay &amp; Tile Layouts</span>
+              <span class="del-pill">Architectural Lighting Schedules</span>
+              <span class="del-pill">Luxury Kitchen &amp; Bath Detailing</span>
+              <span class="del-pill">HVAC &amp; Concealed Duct Planning</span>
+              <span class="del-pill">Turnkey Material Specifications</span>
+            </div>
+            <div style="margin-top:16px;">
+              <a href="cost-estimator.html" class="btn-cta btn-cta-outline">Calculate Turnkey Finishes &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 03 3D Photorealistic Visualization -->
+        <article class="service-detail-card" id="visualization">
+          <div class="service-media">
+            <img src="images/project-house-923.jpg" alt="Photorealistic 3D Architectural CGI Renderings in Islamabad" width="1000" height="716" loading="lazy">
+          </div>
+          <div class="service-info-col">
+            <span class="service-tag">03 / VISUALIZATION</span>
+            <h2 class="service-title">Photorealistic 3D CGI &amp; Renders</h2>
+            <p class="service-desc">
+              Eliminate guesswork before breaking ground. We generate high-definition photorealistic 3D renders that simulate actual solar angles in Islamabad, exact facade marble veining, nighttime illumination schemes, and internal sightlines.
+            </p>
+            <h3 class="service-deliverables-title">Deliverables &amp; Documentation:</h3>
+            <div class="deliverables-pills">
+              <span class="del-pill">4K Facade Visualizations</span>
+              <span class="del-pill">Day &amp; Twilight Atmospheric Studies</span>
+              <span class="del-pill">Photorealistic Interior CGI</span>
+              <span class="del-pill">Material &amp; Texture Palettes</span>
+              <span class="del-pill">3D Virtual Walkthroughs</span>
+            </div>
+            <div style="margin-top:16px;">
+              <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20commission%203D%20visualization%20for%20my%20project." target="_blank" rel="noopener noreferrer" class="btn-cta">Request 3D Render Package &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 Landscape Architecture -->
+        <article class="service-detail-card reverse" id="landscape">
+          <div class="service-media">
+            <img src="images/project-osama-house.jpg" alt="Landscape and Courtyard Architecture in Islamabad" width="1000" height="667" loading="lazy">
+          </div>
+          <div class="service-info-col">
+            <span class="service-tag">04 / LANDSCAPE</span>
+            <h2 class="service-title">Landscape &amp; Terrace Architecture</h2>
+            <p class="service-desc">
+              Treating the exterior envelope with the same architectural discipline as living rooms. We design courtyard reflections, infinity pools, integrated planters, sunken conversation pits, and rooftop pergolas optimized for Islamabad's seasons.
+            </p>
+            <h3 class="service-deliverables-title">Deliverables &amp; Documentation:</h3>
+            <div class="deliverables-pills">
+              <span class="del-pill">Hardscaping &amp; Stone Paving</span>
+              <span class="del-pill">Courtyard &amp; Terrace Garden Plans</span>
+              <span class="del-pill">Swimming Pool &amp; Water Features</span>
+              <span class="del-pill">Pergolas &amp; Shading Canopies</span>
+              <span class="del-pill">Exterior Architectural Lighting</span>
+            </div>
+            <div style="margin-top:16px;">
+              <a href="https://wa.me/923437761250?text=Hi%2C%20I%20am%20interested%20in%20Landscape%20Architecture." target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-outline">Discuss Landscape Brief &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 05 Bespoke Furniture & FF&E -->
+        <article class="service-detail-card" id="furniture">
+          <div class="service-media">
+            <img src="images/house-923-closet.jpg" alt="Custom Joinery and Bespoke Furniture Design in Islamabad" width="1000" height="667" loading="lazy">
+          </div>
+          <div class="service-info-col">
+            <span class="service-tag">05 / BESPOKE JOINERY</span>
+            <h2 class="service-title">Bespoke Millwork &amp; FF&amp;E</h2>
+            <p class="service-desc">
+              Off-the-shelf retail furniture rarely fits tailored architectural volumes. We design custom built-in wardrobes, monolithic credenzas, concealed television walls, and custom dining sets fabricated from solid oak, ash, and imported brass fittings.
+            </p>
+            <h3 class="service-deliverables-title">Deliverables &amp; Documentation:</h3>
+            <div class="deliverables-pills">
+              <span class="del-pill">Custom Joinery Shop Drawings</span>
+              <span class="del-pill">Wardrobe &amp; Vanity Specifications</span>
+              <span class="del-pill">Solid Wood &amp; Metal Detailing</span>
+              <span class="del-pill">Curated Luxury Furniture Sourcing</span>
+              <span class="del-pill">Hardware &amp; Fixture Schedules</span>
+            </div>
+            <div style="margin-top:16px;">
+              <a href="https://wa.me/923437761250?text=Hi%2C%20I%20am%20interested%20in%20custom%20joinery%20and%20furniture." target="_blank" rel="noopener noreferrer" class="btn-cta btn-cta-outline">Explore Custom Joinery &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 Turnkey Construction Oversight -->
+        <article class="service-detail-card reverse" id="management">
+          <div class="service-media">
+            <img src="images/osama-house-staircase.jpg" alt="Turnkey Construction Management and Site Supervision in Islamabad" width="1000" height="667" loading="lazy">
+          </div>
+          <div class="service-info-col">
+            <span class="service-tag">06 / SITE OVERSIGHT</span>
+            <h2 class="service-title">Turnkey Construction Supervision</h2>
+            <p class="service-desc">
+              Designs remain drawings unless executed with uncompromising field oversight. We conduct periodic site inspections, verify rebar sizing before concrete pours, audit contractor BOQs against actual work, and resolve technical snags on site.
+            </p>
+            <h3 class="service-deliverables-title">Deliverables &amp; Documentation:</h3>
+            <div class="deliverables-pills">
+              <span class="del-pill">Weekly On-Site Inspections</span>
+              <span class="del-pill">Structural Pour Certifications</span>
+              <span class="del-pill">BOQ Bill Auditing &amp; Cost Control</span>
+              <span class="del-pill">Snag Lists &amp; Quality Rectifications</span>
+              <span class="del-pill">Turnkey Handover Verification</span>
+            </div>
+            <div style="margin-top:16px;">
+              <a href="index.html#contact" class="btn-cta">Book Discovery Meeting &rarr;</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL MATRIX TABLE -->
+    <section class="matrix-section">
+      <div class="hero-grid-lines"></div>
+      <div class="container" style="position:relative; z-index:2;">
+        <div style="text-align:center; max-width:680px; margin:0 auto 36px;">
+          <span class="section-eyebrow" style="justify-content:center;">Scope Comparison</span>
+          <h2 style="font-size:clamp(2.2rem, 4.5vw, 3.2rem);">
+            Service Models <em>Compared.</em>
+          </h2>
+          <p style="color:var(--sg); font-size:0.95rem;">
+            Whether you require design drawings for society submission or complete turnkey supervision, our engagement tiers adapt to your requirements.
+          </p>
+        </div>
+
+        <div class="matrix-table-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr>
+                <th>Scope Deliverable</th>
+                <th>Architectural Only</th>
+                <th>Architecture + Interiors</th>
+                <th>Turnkey Master Scope</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CDA / RDA Municipal Approvals &amp; Permits</td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+              </tr>
+              <tr>
+                <td>Structural &amp; Foundation Engineering</td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+              </tr>
+              <tr>
+                <td>4K Photorealistic Exterior 3D Renders</td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+              </tr>
+              <tr>
+                <td>Photorealistic Interior 3D Renders</td>
+                <td style="color:var(--sg);">Optional Add-on</td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+              </tr>
+              <tr>
+                <td>Reflected Ceiling Plans (RCP) &amp; Electrical</td>
+                <td style="color:var(--sg);">Basic MEP</td>
+                <td><span class="check-icon">&#10003; Comprehensive</span></td>
+                <td><span class="check-icon">&#10003; Comprehensive</span></td>
+              </tr>
+              <tr>
+                <td>Bespoke Joinery &amp; Millwork Detailing</td>
+                <td style="color:var(--sg);">&mdash;</td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+                <td><span class="check-icon">&#10003; Included</span></td>
+              </tr>
+              <tr>
+                <td>On-Site Quality Supervision &amp; BOQ Auditing</td>
+                <td style="color:var(--sg);">Milestone Visits</td>
+                <td style="color:var(--sg);">Weekly Oversight</td>
+                <td><span class="check-icon">&#10003; Turnkey Site Management</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESTIMATOR CALLOUT BANNER -->
+    <section class="estimator-callout">
+      <div class="container">
+        <h2>Planning a Build in Islamabad?</h2>
+        <p>
+          Explore turnkey construction and interior investment ballparks across 5 Marla, 7 Marla, 10 Marla, 1 Kanal, 2 Kanal, and farmhouses in sqft.
+        </p>
+        <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
+          <a href="cost-estimator.html" class="btn-cta" style="background:var(--br); border-color:var(--br);">
+            Launch Project Cost Estimator &rarr;
+          </a>
+          <a href="index.html#contact" class="btn-cta btn-cta-outline" style="border-color:var(--wh); color:var(--wh);">
+            Request Studio Consultation
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/the-fifth-wall-logo-white.png" alt="The Fifth Wall Architecture Studio" class="footer-logo-img" width="980" height="550">
+          <p>
+            An Islamabad-based architecture and luxury interior design practice dedicated to unifying structure, materiality, and light under a singular artistic standard.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">Studio Ethos</a></li>
+            <li><a href="services.html">Design Services</a></li>
+            <li><a href="index.html#portfolio">Featured Work</a></li>
+            <li><a href="cost-estimator.html">Cost Estimator</a></li>
+            <li><a href="index.html#process">Methodology</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#architecture">Architectural Planning</a></li>
+            <li><a href="services.html#interiors">Interior Architecture</a></li>
+            <li><a href="services.html#visualization">3D Visualization</a></li>
+            <li><a href="services.html#landscape">Landscape &amp; Terraces</a></li>
+            <li><a href="services.html#furniture">Bespoke Millwork &amp; FF&amp;E</a></li>
+            <li><a href="services.html#management">Turnkey Site Oversight</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Consultation</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/923437761250" target="_blank" rel="noopener noreferrer">WhatsApp: +92 343 776 1250</a></li>
+            <li><a href="mailto:thefifthwall.pk@gmail.com">thefifthwall.pk@gmail.com</a></li>
+            <li><span>Islamabad, Pakistan</span></li>
+            <li><span>Mon &ndash; Sat: 10am &ndash; 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Fifth Wall Studio. All architectural rights reserved.</div>
+        <div class="footer-social-icons">
+          <a href="https://www.behance.net/thefifthwallarch" target="_blank" rel="noopener noreferrer">Behance</a>
+          <a href="https://instagram.com/thefifthwall.pk" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://wa.me/923437761250" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923437761250?text=Hi%20The%20Fifth%20Wall%2C%20I%20would%20like%20to%20consult%20regarding%20your%20design%20services." target="_blank" rel="noopener noreferrer" class="wa-floating-btn" aria-label="Chat with The Fifth Wall on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <!-- Mobile Drawer Toggle Script -->
+  <script>
+    const burgerToggle = document.getElementById('burgerToggle');
+    const mobileDrawer = document.getElementById('mobileDrawer');
+    const drawerBackdrop = document.getElementById('drawerBackdrop');
+    const drawerClose = document.getElementById('drawerClose');
+
+    function openDrawer() {
+      mobileDrawer.classList.add('open');
+      drawerBackdrop.classList.add('open');
+      burgerToggle.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      mobileDrawer.classList.remove('open');
+      drawerBackdrop.classList.remove('open');
+      burgerToggle.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    burgerToggle.addEventListener('click', openDrawer);
+    drawerClose.addEventListener('click', closeDrawer);
+    drawerBackdrop.addEventListener('click', closeDrawer);
+    document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
+  </script>
+</body>
+</html>

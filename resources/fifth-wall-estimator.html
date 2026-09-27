@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Fifth Wall — Budget Estimator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--ch:#1F1F1F;--co:#E5E3DE;--sg:#8A8A8A;--br:#8C6A3B;--wh:#FAFAF8;--off:#F4F3F0;}
+body{font-family:'Jost',sans-serif;font-weight:300;background:var(--off);color:var(--ch);min-height:100vh;}
+
+/* HEADER */
+.header{text-align:center;padding:64px 24px 48px;}
+.eyebrow{font-size:9px;letter-spacing:.38em;text-transform:uppercase;color:var(--br);margin-bottom:18px;}
+.title{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(36px,7vw,72px);line-height:1;color:var(--ch);margin-bottom:16px;}
+.title em{font-style:italic;color:var(--br);}
+.subtitle{font-size:13px;color:var(--sg);line-height:1.7;max-width:440px;margin:0 auto;}
+
+/* PLOT SELECTOR */
+.section-label{font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:var(--sg);text-align:center;margin-bottom:14px;}
+.plot-wrap{max-width:640px;margin:0 auto 56px;padding:0 20px;}
+.plot-row{display:flex;border:1px solid #ddd;background:white;overflow:hidden;}
+.plot-btn{flex:1;padding:16px 8px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.06em;border:none;border-right:1px solid #ddd;cursor:pointer;transition:all .25s;background:white;color:var(--sg);position:relative;}
+.plot-btn:last-child{border-right:none;}
+.plot-btn.active{background:var(--ch);color:var(--co);}
+.plot-btn.active::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:var(--br);}
+
+/* VIBE CARDS */
+.cards-wrap{max-width:1100px;margin:0 auto 56px;padding:0 20px;}
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;}
+@media(max-width:900px){.cards-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:560px){.cards-grid{grid-template-columns:1fr;}}
+
+.vibe-card{position:relative;cursor:pointer;outline:none;border:none;background:none;padding:0;text-align:left;transition:all .35s;}
+.vibe-card::before{content:'';position:absolute;inset:0;border:2px solid transparent;z-index:5;pointer-events:none;transition:border-color .3s;}
+.vibe-card.active::before{border-color:var(--br);}
+
+.card-img{position:relative;overflow:hidden;height:220px;}
+@media(min-width:900px){.card-img{height:280px;}}
+.card-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .7s ease;}
+.vibe-card:hover .card-img img{transform:scale(1.05);}
+.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.25) 55%,transparent 100%);transition:opacity .3s;}
+
+.selected-badge{position:absolute;top:12px;right:12px;background:var(--br);color:white;font-size:8px;letter-spacing:.18em;text-transform:uppercase;padding:4px 10px;z-index:4;opacity:0;transition:opacity .2s;}
+.vibe-card.active .selected-badge{opacity:1;}
+
+.card-text{position:absolute;bottom:0;left:0;right:0;padding:18px 18px 14px;z-index:3;}
+.card-tag{font-size:8px;letter-spacing:.22em;text-transform:uppercase;color:var(--br);margin-bottom:6px;}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:300;color:white;margin-bottom:6px;line-height:1.2;}
+.card-desc{font-size:11px;color:rgba(255,255,255,.7);line-height:1.55;}
+
+.card-footer{background:white;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eee;}
+.card-footer-label{font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--sg);}
+.card-footer-mult{font-size:9px;letter-spacing:.1em;color:var(--sg);}
+.vibe-card.active .card-footer{background:var(--ch);}
+.vibe-card.active .card-footer-label,.vibe-card.active .card-footer-mult{color:rgba(229,227,222,.5);}
+.vibe-card.active .card-footer-mult{color:var(--br);}
+
+/* BUDGET OUTPUT */
+.budget-wrap{max-width:640px;margin:0 auto 36px;padding:0 20px;}
+.budget-box{border-top:1px solid #ddd;border-bottom:1px solid #ddd;padding:48px 24px;text-align:center;background:white;}
+.budget-label{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--sg);margin-bottom:20px;}
+.budget-amount{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,9vw,76px);font-weight:300;color:var(--ch);line-height:1;margin-bottom:8px;}
+.budget-pkr{font-size:11px;letter-spacing:.15em;color:var(--sg);margin-bottom:28px;}
+
+.breakdown{display:flex;border:1px solid #eee;margin-bottom:20px;}
+.breakdown-cell{flex:1;padding:16px;border-right:1px solid #eee;}
+.breakdown-cell:last-child{border-right:none;}
+.breakdown-cell-label{font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--sg);margin-bottom:6px;}
+.breakdown-cell-val{font-size:14px;font-weight:400;color:var(--ch);}
+.budget-disclaimer{font-size:11px;color:var(--sg);line-height:1.7;}
+
+/* CTA */
+.cta-wrap{max-width:640px;margin:0 auto 64px;padding:0 20px;}
+.cta-row{display:flex;gap:10px;flex-wrap:wrap;}
+.cta-btn{flex:1;min-width:200px;padding:17px 20px;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.08em;text-align:center;text-decoration:none;cursor:pointer;transition:all .3s;border:none;}
+.cta-secondary{border:1px solid var(--ch);color:var(--ch);background:white;}
+.cta-secondary:hover{background:var(--off);}
+.cta-primary{background:var(--ch);color:var(--co);}
+.cta-primary:hover{background:var(--br);}
+
+.doc-footer{text-align:center;padding:24px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--sg);}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <p class="eyebrow">The Fifth Wall · Islamabad</p>
+  <h1 class="title">Project <em>Cost Estimator</em></h1>
+  <p class="subtitle">Select your plot size and aesthetic direction. We'll give you an honest ballpark — then we can talk details.</p>
+</div>
+
+<!-- PLOT SELECTOR -->
+<div class="plot-wrap">
+  <p class="section-label">Step 1 — Select Plot Size</p>
+  <div class="plot-row" id="plot-row"></div>
+</div>
+
+<!-- VIBE CARDS -->
+<div class="cards-wrap">
+  <p class="section-label">Step 2 — Choose Your Aesthetic</p>
+  <div class="cards-grid" id="cards-grid"></div>
+</div>
+
+<!-- BUDGET -->
+<div class="budget-wrap">
+  <div class="budget-box">
+    <p class="budget-label">Estimated Project Investment</p>
+    <div class="budget-amount" id="budget-display">₨ 0</div>
+    <p class="budget-pkr" id="budget-sub">PKR · 10 Marla · The Modern Minimalist</p>
+    <div class="breakdown">
+      <div class="breakdown-cell">
+        <div class="breakdown-cell-label">Construction</div>
+        <div class="breakdown-cell-val" id="breakdown-const">—</div>
+      </div>
+      <div class="breakdown-cell">
+        <div class="breakdown-cell-label">Interior &amp; Finishes</div>
+        <div class="breakdown-cell-val" id="breakdown-int">—</div>
+      </div>
+    </div>
+    <p class="budget-disclaimer">This is an indicative estimate based on current market rates in Islamabad. Actual costs vary based on site conditions, material availability and finish specifications. A precise quote follows your discovery consultation.</p>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-wrap">
+  <div class="cta-row">
+    <a id="cta-behance" href="https://www.behance.net/thefifthwallarch" target="_blank" class="cta-btn cta-secondary">View Mood Board on Behance</a>
+    <a id="cta-wa" href="#" target="_blank" class="cta-btn cta-primary">Discuss on WhatsApp →</a>
+  </div>
+</div>
+
+<p class="doc-footer">The Fifth Wall · Architecture + Interior Design · Islamabad, Pakistan</p>
+
+<script>
+const PLOTS = [
+  { id:'5m',  label:'5 Marla',  base:15000000 },
+  { id:'10m', label:'10 Marla', base:25000000 },
+  { id:'1k',  label:'1 Kanal',  base:45000000 },
+  { id:'2k',  label:'2 Kanal',  base:85000000 },
+];
+
+const VIBES = [
+  {
+    id:'minimalist', name:'The Modern Minimalist', tag:'Spatial · Raw · Precise',
+    desc:'Clean lines, fair-face concrete, sleek monolithic finishes. Spatial quality over ornamentation.',
+    mult:1.0,
+    img:'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80',
+    label:'Base rate', multLabel:'×1.00'
+  },
+  {
+    id:'neoclassic', name:'Neo-Classic Luxury', tag:'Marble · Brass · Timeless',
+    desc:'Imported marble, brass accents, intricate woodwork and mouldings. Opulent and timeless.',
+    mult:1.35,
+    img:'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700&q=80',
+    label:'+35% premium', multLabel:'×1.35'
+  },
+  {
+    id:'contemporary', name:'Warm Contemporary', tag:'Wood · Brick · Ambient',
+    desc:'Traditional brickwork, warm woods, adaptive reuse elements and ambient layered lighting.',
+    mult:1.15,
+    img:'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=700&q=80',
+    label:'+15% premium', multLabel:'×1.15'
+  },
+  {
+    id:'industrial', name:'Industrial Loft', tag:'Concrete · Steel · Urban',
+    desc:'Exposed concrete, raw steel joinery, Edison lighting and reclaimed wood. Bold and urban.',
+    mult:1.10,
+    img:'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80',
+    label:'+10% premium', multLabel:'×1.10'
+  },
+  {
+    id:'japandi', name:'Japandi Zen', tag:'Neutral · Natural · Still',
+    desc:'Japanese minimalism meets Scandinavian warmth. Natural linen, muted tones, handcrafted details.',
+    mult:1.05,
+    img:'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=700&q=80',
+    label:'+5% premium', multLabel:'×1.05'
+  },
+  {
+    id:'glam', name:'Maximalist Glam', tag:'Bold · Jewel · Statement',
+    desc:'Rich jewel tones, statement furniture, layered textures and curated art. More is more.',
+    mult:1.30,
+    img:'https://images.unsplash.com/photo-1615873968403-89e068629265?w=700&q=80',
+    label:'+30% premium', multLabel:'×1.30'
+  },
+];
+
+let activePlot = PLOTS[1];
+let activeVibe = VIBES[0];
+let animFrame  = null;
+let currentVal = 0;
+
+function formatPKR(n) {
+  if (n >= 10000000) return '₨ ' + (n/10000000).toFixed(2) + ' Crore';
+  if (n >= 100000)   return '₨ ' + (n/100000).toFixed(2) + ' Lakh';
+  return '₨ ' + n.toLocaleString('en-PK');
+}
+
+function animateTo(target) {
+  if (animFrame) cancelAnimationFrame(animFrame);
+  const from = currentVal;
+  const dur  = 800;
+  const start = performance.now();
+  function tick(now) {
+    const p = Math.min((now - start) / dur, 1);
+    const e = 1 - Math.pow(1 - p, 3);
+    currentVal = Math.round(from + (target - from) * e);
+    document.getElementById('budget-display').textContent = formatPKR(currentVal);
+    document.getElementById('breakdown-const').textContent = formatPKR(Math.round(currentVal * 0.65));
+    document.getElementById('breakdown-int').textContent   = formatPKR(Math.round(currentVal * 0.35));
+    if (p < 1) animFrame = requestAnimationFrame(tick);
+  }
+  animFrame = requestAnimationFrame(tick);
+}
+
+function update() {
+  const target = Math.round(activePlot.base * activeVibe.mult);
+  animateTo(target);
+  document.getElementById('budget-sub').textContent = 'PKR · ' + activePlot.label + ' · ' + activeVibe.name;
+
+  // WhatsApp link
+  const msg = encodeURIComponent('Hi The Fifth Wall! I just used your budget calculator. I love the ' + activeVibe.name + ' aesthetic for my ' + activePlot.label + ' plot. Can we discuss a custom home design?');
+  document.getElementById('cta-wa').href = 'https://wa.me/923437761250?text=' + msg;
+  document.getElementById('cta-behance').textContent = 'View ' + activeVibe.name + ' Mood Board';
+
+  // Update plot buttons
+  document.querySelectorAll('.plot-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.id === activePlot.id);
+  });
+  // Update vibe cards
+  document.querySelectorAll('.vibe-card').forEach(c => {
+    c.classList.toggle('active', c.dataset.id === activeVibe.id);
+  });
+}
+
+// Render plot buttons
+const plotRow = document.getElementById('plot-row');
+PLOTS.forEach(p => {
+  const btn = document.createElement('button');
+  btn.className = 'plot-btn' + (p.id === activePlot.id ? ' active' : '');
+  btn.dataset.id = p.id;
+  btn.textContent = p.label;
+  btn.onclick = () => { activePlot = p; update(); };
+  plotRow.appendChild(btn);
+});
+
+// Render vibe cards
+const grid = document.getElementById('cards-grid');
+VIBES.forEach(v => {
+  const btn = document.createElement('button');
+  btn.className = 'vibe-card' + (v.id === activeVibe.id ? ' active' : '');
+  btn.dataset.id = v.id;
+  btn.innerHTML = `
+    <div class="card-img">
+      <img src="${v.img}" alt="${v.name}" loading="lazy"/>
+      <span class="selected-badge">Selected</span>
+      <div class="card-text">
+        <p class="card-tag">${v.tag}</p>
+        <h3 class="card-name">${v.name}</h3>
+        <p class="card-desc">${v.desc}</p>
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-footer-label">${v.label}</span>
+      <span class="card-footer-mult">${v.multLabel}</span>
+    </div>`;
+  btn.onclick = () => { activeVibe = v; update(); };
+  grid.appendChild(btn);
+});
+
+// Init
+update();
+</script>
+</body>
+</html>
