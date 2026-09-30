@@ -1,6 +1,6 @@
-# Decap CMS &mdash; The Fifth Wall Studio
+# Decap CMS &mdash; The Fifth Wall Studio (Vercel Edition)
 
-This directory configures **Decap CMS** (formerly Netlify CMS), a free, open-source, Git-based Content Management System for your static architectural website.
+This directory configures **Decap CMS** using a standard **GitHub OAuth backend** designed for static sites deployed on **Vercel**.
 
 ---
 
@@ -8,67 +8,76 @@ This directory configures **Decap CMS** (formerly Netlify CMS), a free, open-sou
 
 ```text
 ├── admin/
-│   ├── config.yml      # CMS schema, collections, fields, and backend config
-│   ├── index.html      # Decap CMS web application entry point
+│   ├── config.yml      # CMS schema, collections, fields, and GitHub OAuth config
+│   ├── index.html      # Decap CMS web application entry point (pure Decap script)
 │   └── README.md       # Setup and authentication documentation
+├── api/
+│   ├── auth.js         # Native Vercel Serverless Function to initiate GitHub OAuth
+│   └── callback.js     # Native Vercel Serverless Function to exchange token with GitHub
 ├── content/
 │   └── blog/           # Markdown (.md) articles committed by Decap CMS
-└── images/
-    └── uploads/        # Uploaded cover images and article media
+├── images/
+│   └── uploads/        # Uploaded cover images and article media
+└── vercel.json         # SPA rewrites for /admin/* on Vercel
 ```
 
 ---
 
-## 🔑 Authentication Setup Options
+## 🔑 GitHub OAuth Setup for Vercel
 
-Decap CMS requires authorization to commit new articles and images to your GitHub repository (`hassankhan1902-spec/thefifthwall`). Choose either of the two standard methods below:
+Because this site is hosted on Vercel, it uses standard GitHub OAuth authentication:
 
-### Option A: Netlify Identity + Git Gateway (Recommended & 100% Free)
-If hosting your static site on **Netlify**:
-1. In your Netlify dashboard for this site, go to **Site configuration** &rarr; **Identity**.
-2. Click **Enable Identity**.
-3. Under **Registration preferences**, select **Invite only** (so only you and trusted studio members can create author accounts).
-4. Under **Services** &rarr; **Git Gateway**, click **Enable Git Gateway** (connects Netlify to your GitHub repo `hassankhan1902-spec/thefifthwall`).
-5. In `admin/config.yml`, set:
-   ```yaml
-   backend:
-     name: git-gateway
-     branch: main
-   ```
-6. Visit `https://your-site.com/admin/`, log in using your invite email, and start publishing!
+### Step 1: Create a GitHub OAuth App
+1. Go to your GitHub account: **Settings** &rarr; **Developer Settings** &rarr; **OAuth Apps** &rarr; **New OAuth App**.
+2. Fill in the fields:
+   - **Application name**: `The Fifth Wall CMS`
+   - **Homepage URL**: `https://thefifthwall.pk` (or your Vercel deployment URL)
+   - **Authorization callback URL**:
+     - If using the public proxy: `https://decap-cms-oauth.vercel.app/callback`
+     - Or if using your own Vercel API: `https://your-site.vercel.app/api/callback`
+3. Click **Register application**.
+4. Generate and copy your **Client Secret** and **Client ID**.
 
 ---
 
-### Option B: Direct GitHub Backend (via Decap OAuth Gateway or Cloudflare Worker)
-If using direct GitHub authentication without Netlify:
-1. Register a GitHub OAuth App in **GitHub Settings** &rarr; **Developer Settings** &rarr; **OAuth Apps**.
-2. Deploy a free Decap OAuth server (e.g., using a free Cloudflare Worker, Vercel template, or Netlify function).
+### Step 2: Configure Environment Variables in Vercel (Recommended)
+If using your site's native `/api/auth` and `/api/callback`:
+1. In your **Vercel Project Dashboard**, go to **Settings** &rarr; **Environment Variables**.
+2. Add the following:
+   - `GITHUB_CLIENT_ID` = `your_github_client_id`
+   - `GITHUB_CLIENT_SECRET` = `your_github_client_secret`
 3. In `admin/config.yml`:
    ```yaml
    backend:
      name: github
      repo: hassankhan1902-spec/thefifthwall
      branch: main
-     base_url: https://your-oauth-provider.com
-     auth_endpoint: auth
+     base_url: https://thefifthwall.pk # (or your Vercel domain)
+     auth_endpoint: api/auth
    ```
 
 ---
 
-### Option C: Local Offline Testing (Decap Local Backend)
+### Step 3: Or Use the Public Decap OAuth Proxy
+If you prefer not setting Vercel environment variables:
+1. `admin/config.yml` is already configured with:
+   ```yaml
+   backend:
+     name: github
+     repo: hassankhan1902-spec/thefifthwall
+     branch: main
+     base_url: https://decap-cms-oauth.vercel.app
+     auth_endpoint: auth
+   ```
+2. When registering your GitHub OAuth app, set the **Authorization callback URL** to:
+   `https://decap-cms-oauth.vercel.app/callback`
+
+---
+
+## 💻 Local Offline Testing
 To test Decap CMS locally without committing directly to GitHub:
-1. Run Decap Proxy Server in your terminal:
+1. Run Decap Proxy Server:
    ```bash
    npx decap-server
    ```
-2. Start a local web server (e.g. `python -m http.server 8000` or Live Server).
-3. Open `http://localhost:8000/admin/`. Because `local_backend: true` is configured in `config.yml`, Decap will automatically connect to your local file system!
-
----
-
-## 📝 Included Editorial Features
-
-- **Visual Rich-Text Editor**: Compose headings (`H2`, `H3`), bold/italic formatting, architectural blockquotes, and lists visually or in raw markdown.
-- **Cover Image Uploader**: Drag and drop images or select existing photos stored under `images/uploads/`.
-- **SEO & Social Sharing Metadata**: Dedicated collapsible group for Meta Title, Meta Description, Canonical URL, Keywords, and Social Share Image.
-- **Automatic Slugging**: Posts are saved as `YYYY-MM-DD-article-title.md` directly into `content/blog/`.
+2. Open `http://localhost:3000/admin/`. Because `local_backend: true` is configured in `config.yml`, Decap will connect to your local file system directly.

@@ -2,10 +2,9 @@ backend:
   name: github
   repo: hassankhan1902-spec/thefifthwall
   branch: main
-  # Note: If deploying on Netlify with Netlify Identity and Git Gateway,
-  # you can easily switch to:
-  # name: git-gateway
-  # branch: main
+  # Public Decap OAuth Proxy for Vercel / static sites
+  base_url: https://decap-cms-oauth.vercel.app
+  auth_endpoint: auth
 
 # Local backend for local development when running `npx decap-server`
 local_backend: true
