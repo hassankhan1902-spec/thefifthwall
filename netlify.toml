@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+
+# SPA redirects for Decap CMS admin interface
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/index.html"
+  status = 200

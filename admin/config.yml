@@ -1,0 +1,69 @@
+backend:
+  name: github
+  repo: hassankhan1902-spec/thefifthwall
+  branch: main
+  # Note: If deploying on Netlify with Netlify Identity and Git Gateway,
+  # you can easily switch to:
+  # name: git-gateway
+  # branch: main
+
+# Local backend for local development when running `npx decap-server`
+local_backend: true
+
+# Media / Asset upload paths
+media_folder: "images/uploads"
+public_folder: "images/uploads"
+
+# Studio Branding & Links
+site_url: "https://thefifthwall.pk"
+display_url: "https://thefifthwall.pk"
+logo_url: "../images/the-fifth-wall-logo-transparent.png"
+publish_mode: simple
+
+# Collections
+collections:
+  - name: "blog"
+    label: "Blog Articles"
+    label_singular: "Blog Article"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    extension: "md"
+    format: "frontmatter"
+    summary: "{{title}} ({{category}}) — {{date | date('YYYY-MM-DD')}}"
+    sortable_fields: ["date", "title", "category"]
+    fields:
+      - { label: "Article Title", name: "title", widget: "string", required: true, hint: "Enter a compelling architectural title" }
+      - { label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true }
+      - { label: "Author", name: "author", widget: "string", default: "The Fifth Wall Studio", required: true }
+      - { 
+          label: "Category", 
+          name: "category", 
+          widget: "select", 
+          options: [
+            "Architecture & Planning",
+            "Construction & BOQ",
+            "Byelaws & Permits",
+            "Luxury Interiors",
+            "Materiality & Craft"
+          ],
+          default: "Architecture & Planning",
+          required: true 
+        }
+      - { label: "Cover Image", name: "cover_image", widget: "image", required: true, hint: "Upload or choose a cover photo" }
+      - { label: "Cover Image Alt Text", name: "cover_alt", widget: "string", required: false, default: "Architectural photograph by The Fifth Wall" }
+      - { label: "Excerpt / Teaser", name: "excerpt", widget: "text", rows: 3, required: true, hint: "Brief summary shown on blog cards (2-3 sentences)" }
+      - { label: "Reading Time", name: "read_time", widget: "string", default: "5 min read", required: false }
+      - { label: "Article Body", name: "body", widget: "markdown", required: true, hint: "Full article content with visual rich-text editing" }
+      
+      # SEO & Social Metadata
+      - label: "SEO & Social Metadata"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - { label: "Meta Title", name: "meta_title", widget: "string", required: false, hint: "Title for search engines (50-60 characters)" }
+          - { label: "Meta Description", name: "meta_description", widget: "text", rows: 2, required: false, hint: "Summary for search engine results (150-160 characters)" }
+          - { label: "Canonical URL", name: "canonical_url", widget: "string", required: false }
+          - { label: "Keywords", name: "keywords", widget: "list", required: false, hint: "Keywords for SEO e.g. Islamabad Architecture, CDA Byelaws" }
+          - { label: "Social Preview Image (OG Image)", name: "og_image", widget: "image", required: false, hint: "Image for Facebook/Twitter/LinkedIn previews" }

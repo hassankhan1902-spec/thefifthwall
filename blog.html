@@ -1,0 +1,1749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Journal &amp; Architectural Monographs | The Fifth Wall Architecture</title>
+  <meta name="description" content="Authoritative monographs, CDA & DHA municipal zoning breakdowns, passive solar planning for 1 Kanal villas, and construction cost insights by The Fifth Wall architects in Islamabad.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://thefifthwall.pk/blog.html">
+
+  <!-- Favicons -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-pakistan-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-pakistan-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-pakistan-180.png">
+
+  <!-- Studio Typography: Cormorant Garamond (Headings) & Jost (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Netlify Identity Widget for Decap CMS Integration -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+  <style>
+    /* ─── CSS DESIGN TOKENS ───────────────────────────────── */
+    :root {
+      --bg: #FAFAF8;             /* Studio Warm Ivory Background */
+      --ch: #1F1F1F;             /* Deep Charcoal */
+      --ch-dark: #141414;        /* Monolithic Black */
+      --br: #8C6A3B;             /* Studio Bronze Accent */
+      --br-light: #A6834F;       /* Bronze Hover Highlight */
+      --br-soft: rgba(140, 106, 59, 0.12);
+      --sg: #555552;             /* Stone Grey Body */
+      --sg-light: #8E8D88;       /* Subtle Grey Meta */
+      --pure-wh: #FFFFFF;        /* Alabaster Card White */
+      --card-bg: #FFFFFF;
+      --border-subtle: rgba(31, 31, 31, 0.09);
+      --border-card: rgba(31, 31, 31, 0.08);
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      --max-w: 1280px;
+      --pad-x: 5%;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      background-color: var(--bg);
+      color: var(--ch);
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg);
+      color: var(--ch);
+      line-height: 1.65;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.25s var(--ease);
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    /* ─── SITE HEADER NAVIGATION ──────────────────────── */
+    .site-header {
+      position: sticky;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 900;
+      background: rgba(250, 250, 248, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-subtle);
+      transition: all 0.3s var(--ease);
+    }
+
+    .site-header.scrolled {
+      background: rgba(250, 250, 248, 0.98);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--pad-x);
+    }
+
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .desktop-nav {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      list-style: none;
+      gap: 28px;
+    }
+
+    .nav-item a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--sg);
+      position: relative;
+      padding: 6px 0;
+      transition: color 0.25s var(--ease);
+    }
+
+    .nav-item a:hover,
+    .nav-item a.active {
+      color: var(--br);
+    }
+
+    .nav-item a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--br);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--ch);
+      color: #FFFFFF;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+      border: 1px solid var(--ch);
+    }
+
+    .btn-cta:hover {
+      background: var(--br);
+      border-color: var(--br);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(140, 106, 59, 0.25);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 20px;
+      background: transparent;
+      color: var(--ch);
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: all 0.3s var(--ease);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--br);
+      color: var(--br);
+      background: var(--br-soft);
+    }
+
+    /* ─── JOURNAL HERO SECTION ────────────────────────── */
+    .blog-hero {
+      padding: 70px 0 40px;
+      position: relative;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .hero-grid-lines {
+      position: absolute;
+      inset: 0;
+      background-image: 
+        linear-gradient(to right, rgba(31, 31, 31, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31, 31, 31, 0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .blog-hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+
+    .section-eyebrow {
+      display: inline-block;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--br);
+      font-weight: 600;
+      margin-bottom: 14px;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      width: 18px;
+      height: 1px;
+      background: var(--br);
+    }
+
+    .blog-hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+      line-height: 1.15;
+      color: var(--ch);
+      margin-bottom: 18px;
+      font-weight: 400;
+    }
+
+    .blog-hero-title em {
+      font-style: italic;
+      color: var(--br);
+    }
+
+    .blog-hero-desc {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--sg);
+      max-width: 720px;
+      margin-bottom: 40px;
+    }
+
+    /* ─── CONTROLS & FILTER BAR ───────────────────────── */
+    .blog-controls-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 10px;
+    }
+
+    .category-pills {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+      flex-wrap: wrap;
+    }
+
+    .category-pill {
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      border-radius: 20px;
+      background: var(--pure-wh);
+      color: var(--sg);
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.25s var(--ease);
+    }
+
+    .category-pill:hover {
+      border-color: var(--br);
+      color: var(--ch);
+    }
+
+    .category-pill.active {
+      background: var(--ch);
+      color: #FFFFFF;
+      border-color: var(--ch);
+    }
+
+    .blog-actions-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .search-box-wrap {
+      position: relative;
+      width: 280px;
+    }
+
+    .search-box-wrap input {
+      width: 100%;
+      padding: 9px 14px 9px 36px;
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      background: var(--pure-wh);
+      color: var(--ch);
+      outline: none;
+      transition: all 0.25s var(--ease);
+    }
+
+    .search-box-wrap input:focus {
+      border-color: var(--br);
+      box-shadow: 0 0 0 3px rgba(140, 106, 59, 0.12);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--sg-light);
+      pointer-events: none;
+    }
+
+    /* ─── FEATURED STORY HERO CARD ────────────────────── */
+    .featured-story-wrap {
+      padding: 50px 0 20px;
+    }
+
+    .featured-story-card {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 44px;
+      background: var(--pure-wh);
+      border: 1px solid var(--border-card);
+      border-radius: 4px;
+      overflow: hidden;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
+      cursor: pointer;
+      transition: all 0.35s var(--ease);
+    }
+
+    .featured-story-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+      border-color: rgba(140, 106, 59, 0.35);
+    }
+
+    .featured-story-media {
+      position: relative;
+      min-height: 380px;
+      overflow: hidden;
+      background: #E5E3DE;
+    }
+
+    .featured-story-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .featured-story-card:hover .featured-story-media img {
+      transform: scale(1.04);
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 5px 12px;
+      background: rgba(31, 31, 31, 0.85);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .featured-story-body {
+      padding: 44px 44px 44px 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .article-meta-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--sg-light);
+      margin-bottom: 12px;
+    }
+
+    .article-category-tag {
+      color: var(--br);
+      font-weight: 600;
+    }
+
+    .featured-story-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+      line-height: 1.2;
+      color: var(--ch);
+      margin-bottom: 16px;
+      font-weight: 400;
+      transition: color 0.25s var(--ease);
+    }
+
+    .featured-story-card:hover .featured-story-title {
+      color: var(--br);
+    }
+
+    .featured-story-excerpt {
+      font-size: 0.96rem;
+      line-height: 1.7;
+      color: var(--sg);
+      margin-bottom: 28px;
+    }
+
+    .featured-story-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.78rem;
+    }
+
+    .author-signature {
+      color: var(--ch);
+      font-weight: 500;
+    }
+
+    .read-more-link {
+      color: var(--br);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ─── BLOG ARTICLES GRID ──────────────────────────── */
+    .blog-grid-section {
+      padding: 50px 0 110px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 36px;
+    }
+
+    .blog-card {
+      background: var(--pure-wh);
+      border: 1px solid var(--border-card);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 18px rgba(0, 0, 0, 0.025);
+      transition: all 0.3s var(--ease);
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
+      border-color: rgba(140, 106, 59, 0.35);
+    }
+
+    .blog-card-media {
+      position: relative;
+      height: 230px;
+      overflow: hidden;
+      background: #E5E3DE;
+    }
+
+    .blog-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .blog-card:hover .blog-card-media img {
+      transform: scale(1.05);
+    }
+
+    .blog-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 4px 10px;
+      background: rgba(31, 31, 31, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-weight: 500;
+    }
+
+    .blog-card-content {
+      padding: 28px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .blog-card-title {
+      font-family: var(--font-serif);
+      font-size: 1.48rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      color: var(--ch);
+      font-weight: 500;
+      transition: color 0.2s var(--ease);
+    }
+
+    .blog-card:hover .blog-card-title {
+      color: var(--br);
+    }
+
+    .blog-card-excerpt {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: var(--sg);
+      margin-bottom: 24px;
+      flex-grow: 1;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .blog-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-subtle);
+      font-size: 0.74rem;
+    }
+
+    .blog-card-author {
+      color: var(--sg);
+      font-weight: 500;
+    }
+
+    .blog-card-cta {
+      color: var(--br);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    /* Loading Shimmer State */
+    .loading-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--sg);
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .no-results-state {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 80px 20px;
+      background: var(--pure-wh);
+      border: 1px dashed var(--border-subtle);
+      border-radius: 4px;
+    }
+
+    .no-results-state h3 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      margin-bottom: 8px;
+    }
+
+    .no-results-state p {
+      color: var(--sg);
+      font-size: 0.92rem;
+    }
+
+    /* ─── ARTICLE READER MODAL ────────────────────────── */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 20, 20, 0.84);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s var(--ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 30px var(--pad-x);
+    }
+
+    .modal-backdrop.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-container {
+      background: var(--pure-wh);
+      width: 100%;
+      max-width: 860px;
+      max-height: 90vh;
+      border-radius: 4px;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+      transform: translateY(20px) scale(0.98);
+      transition: transform 0.3s var(--ease);
+    }
+
+    .modal-backdrop.open .modal-container {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50%;
+      font-size: 1.4rem;
+      line-height: 1;
+      color: var(--ch);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.2s;
+    }
+
+    .modal-close-btn:hover {
+      background: var(--ch);
+      color: #FFFFFF;
+      transform: scale(1.06);
+    }
+
+    .reader-hero-media {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background: #E5E3DE;
+    }
+
+    .reader-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .reader-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
+    }
+
+    .reader-content-inner {
+      padding: 44px 50px 60px;
+    }
+
+    .reader-meta-bar {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sg-light);
+      margin-bottom: 16px;
+    }
+
+    .reader-article-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      line-height: 1.2;
+      color: var(--ch);
+      margin-bottom: 24px;
+      font-weight: 400;
+    }
+
+    .reader-author-badge {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      background: #F4F3F0;
+      border-left: 3px solid var(--br);
+      margin-bottom: 36px;
+      border-radius: 2px;
+    }
+
+    .reader-author-badge strong {
+      font-size: 0.90rem;
+      color: var(--ch);
+      display: block;
+    }
+
+    .reader-author-badge span {
+      font-size: 0.76rem;
+      color: var(--sg);
+    }
+
+    .reader-body-text {
+      font-family: var(--font-sans);
+      font-size: 1.04rem;
+      line-height: 1.85;
+      color: #333331;
+    }
+
+    .reader-body-text p {
+      margin-bottom: 20px;
+    }
+
+    .reader-body-text h2,
+    .reader-body-text h3 {
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      margin: 36px 0 16px;
+      color: var(--ch);
+      line-height: 1.25;
+      font-weight: 500;
+    }
+
+    .reader-body-text blockquote {
+      margin: 28px 0;
+      padding: 20px 24px;
+      background: rgba(140, 106, 59, 0.06);
+      border-left: 3px solid var(--br);
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.35rem;
+      line-height: 1.5;
+      color: var(--ch);
+    }
+
+    .reader-body-text ul,
+    .reader-body-text ol {
+      margin: 18px 0 24px 28px;
+    }
+
+    .reader-body-text li {
+      margin-bottom: 8px;
+    }
+
+    .reader-footer-actions {
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ─── SITE FOOTER ─────────────────────────────────── */
+    .site-footer {
+      background: var(--ch-dark);
+      color: var(--sg-light);
+      padding: 70px 0 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 0.88rem;
+      margin-top: auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      margin-bottom: 50px;
+    }
+
+    .footer-brand p {
+      margin-top: 18px;
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: #A3A29E;
+      max-width: 320px;
+    }
+
+    .footer-logo-img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .footer-col-title {
+      font-size: 0.74rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      color: #9C9A94;
+      font-size: 0.85rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--br-light);
+    }
+
+    .footer-bottom {
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #7A7873;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-social-icons {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-social-icons a {
+      color: #A3A29E;
+      transition: color 0.2s;
+    }
+
+    .footer-social-icons a:hover {
+      color: var(--br-light);
+    }
+
+    /* ─── FLOATING WHATSAPP ───────────────────────────── */
+    .wa-floating-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 54px;
+      height: 54px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
+      z-index: 850;
+      transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+    }
+
+    .wa-floating-btn:hover {
+      transform: scale(1.08) translateY(-3px);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.45);
+    }
+
+    .wa-floating-btn svg {
+      width: 28px;
+      height: 28px;
+      fill: #FFFFFF;
+    }
+
+    /* ─── RESPONSIVE BREAKPOINTS ──────────────────────── */
+    @media (max-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 40px;
+      }
+      .featured-story-card {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .featured-story-body {
+        padding: 32px;
+      }
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .desktop-nav {
+        display: none;
+      }
+      .nav-inner {
+        height: 66px;
+      }
+      .blog-grid {
+        grid-template-columns: 1fr;
+      }
+      .reader-content-inner {
+        padding: 30px 24px 40px;
+      }
+      .reader-hero-media {
+        height: 250px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .category-pills {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 6px;
+      }
+      .search-box-wrap {
+        width: 100%;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 36px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SITE HEADER NAVIGATION -->
+  <header class="site-header" id="siteHeader">
+    <div class="nav-inner">
+      <a href="index.html" class="logo-link" aria-label="The Fifth Wall Homepage">
+        <img src="images/the-fifth-wall-logo-transparent.png" alt="The Fifth Wall Architecture Studio Logo" class="logo-img" width="980" height="550">
+      </a>
+
+      <!-- Desktop Nav Menu -->
+      <nav class="desktop-nav" aria-label="Primary Navigation">
+        <ul class="nav-menu">
+          <li class="nav-item"><a href="index.html#about">Studio</a></li>
+          <li class="nav-item"><a href="services.html">Services</a></li>
+          <li class="nav-item"><a href="index.html#portfolio">Featured Work</a></li>
+          <li class="nav-item"><a href="cost-estimator.html">Cost Estimator</a></li>
+          <li class="nav-item"><a href="index.html#process">Process</a></li>
+          <li class="nav-item"><a href="index.html#reviews">Reviews</a></li>
+          <li class="nav-item"><a href="blog.html" class="active">Journal</a></li>
+          <li class="nav-item"><a href="index.html#faq">FAQ</a></li>
+          <li class="nav-item"><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta">
+          Start a Project
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN EDITORIAL CONTENT -->
+  <main>
+    <!-- HERO HEADER -->
+    <section class="blog-hero">
+      <div class="hero-grid-lines" aria-hidden="true"></div>
+      <div class="container">
+        <div class="blog-hero-content">
+          <span class="section-eyebrow">Studio Journal &amp; Architectural Monographs</span>
+          <h1 class="blog-hero-title">
+            Essays on Architecture, <em>Construction &amp; Materiality</em> in Pakistan.
+          </h1>
+          <p class="blog-hero-desc">
+            Direct observations from our Islamabad practice &mdash; covering municipal zoning (CDA, DHA, RDA), construction cost benchmarks, passive solar planning for 1 Kanal villas, and refined interior joinery detailing.
+          </p>
+        </div>
+
+        <!-- CONTROLS & FILTER BAR -->
+        <div class="blog-controls-wrap">
+          <ul class="category-pills" id="categoryFilterList">
+            <li><button class="category-pill active" data-category="all" onclick="filterArticles('all', this)">All Insights (<span id="countAll">0</span>)</button></li>
+            <li><button class="category-pill" data-category="architecture" onclick="filterArticles('architecture', this)">Architecture</button></li>
+            <li><button class="category-pill" data-category="construction" onclick="filterArticles('construction', this)">Construction &amp; BOQ</button></li>
+            <li><button class="category-pill" data-category="byelaws" onclick="filterArticles('byelaws', this)">Byelaws &amp; Permits</button></li>
+            <li><button class="category-pill" data-category="interiors" onclick="filterArticles('interiors', this)">Luxury Interiors</button></li>
+          </ul>
+
+          <div class="blog-actions-bar">
+            <div class="search-box-wrap">
+              <svg class="search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="articleSearchInput" placeholder="Search insights, byelaws, costs..." oninput="handleSearch(this.value)">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED STORY SECTION -->
+    <section class="featured-story-wrap" id="featuredStorySection" style="display: none;">
+      <div class="container">
+        <article class="featured-story-card" id="featuredStoryCard" role="button" tabindex="0">
+          <div class="featured-story-media">
+            <img id="featCoverImg" src="images/house-923-exterior.jpg" alt="Featured Monograph" width="800" height="500">
+            <span class="featured-badge">Featured Monograph</span>
+          </div>
+          <div class="featured-story-body">
+            <div class="article-meta-row">
+              <span class="article-category-tag" id="featCategory">Architecture &amp; Planning</span>
+              <span>&bull;</span>
+              <span id="featDate">October 2026</span>
+              <span>&bull;</span>
+              <span id="featReadTime">6 min read</span>
+            </div>
+            <h2 class="featured-story-title" id="featTitle">Designing 1 Kanal Luxury Residences in Islamabad</h2>
+            <p class="featured-story-excerpt" id="featExcerpt">
+              In Pakistan's capital, modern villa architecture cannot simply mimic Western glass boxes. A truly refined 1 Kanal house demands cantilevered thermal shields, double-height light wells, and acoustic sanctuary.
+            </p>
+            <div class="featured-story-footer">
+              <span class="author-signature" id="featAuthor">The Fifth Wall Studio</span>
+              <span class="read-more-link">Read Monograph &rarr;</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ARTICLES GRID SECTION -->
+    <section class="blog-grid-section">
+      <div class="container">
+        <div class="blog-grid" id="articlesGrid">
+          <div class="loading-state" id="loadingState">
+            Fetching studio monographs from repository...
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- DISTRACTION-FREE ARTICLE READER MODAL -->
+  <div class="modal-backdrop" id="articleReaderModal" role="dialog" aria-modal="true" aria-labelledby="readerArticleTitle">
+    <div class="modal-container">
+      <button class="modal-close-btn" onclick="closeArticleReader()" aria-label="Close Article Reader">&times;</button>
+      
+      <div class="reader-hero-media">
+        <img id="readerHeroImg" src="images/house-923-exterior.jpg" alt="Article Cover Image">
+        <div class="reader-hero-overlay"></div>
+      </div>
+
+      <div class="reader-content-inner">
+        <div class="reader-meta-bar">
+          <span class="article-category-tag" id="readerCategoryTag">Architecture &amp; Planning</span>
+          <span>&bull;</span>
+          <span id="readerDate">October 2026</span>
+          <span>&bull;</span>
+          <span id="readerReadTime">6 min read</span>
+        </div>
+
+        <h1 class="reader-article-title" id="readerArticleTitle">Article Title</h1>
+
+        <div class="reader-author-badge">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" color="var(--br)"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+          <div>
+            <strong id="readerAuthorName">The Fifth Wall Studio</strong>
+            <span>Architectural Monograph &bull; Islamabad, Pakistan</span>
+          </div>
+        </div>
+
+        <div class="reader-body-text" id="readerBodyText">
+          <!-- Live Parsed Markdown Content Injects Here -->
+        </div>
+
+        <div class="reader-footer-actions">
+          <a id="readerWhatsAppCta" href="https://wa.me/923437761250" target="_blank" rel="noopener noreferrer" class="btn-cta">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+            Discuss with the Architects on WhatsApp
+          </a>
+          <button class="btn-outline" onclick="closeArticleReader()">Back to All Insights</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <img src="images/the-fifth-wall-logo-white.png" alt="The Fifth Wall Architecture Studio Logo" class="footer-logo-img" width="980" height="550">
+          <p>
+            An Islamabad-based architecture, turnkey construction, and luxury interior design practice dedicated to unifying structure, materiality, and light across Pakistan.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#about">Studio Ethos</a></li>
+            <li><a href="services.html">Design Services</a></li>
+            <li><a href="index.html#portfolio">Featured Work</a></li>
+            <li><a href="cost-estimator.html">Cost Estimator</a></li>
+            <li><a href="blog.html">Studio Journal</a></li>
+            <li><a href="index.html#reviews">Client Reviews</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Specializations</h4>
+          <ul class="footer-links">
+            <li><a href="services.html#architecture">Architectural Planning</a></li>
+            <li><a href="services.html#interiors">Interior Architecture</a></li>
+            <li><a href="services.html#visualization">3D Visualization</a></li>
+            <li><a href="services.html#management">Turnkey Site Oversight</a></li>
+            <li><a href="services.html#furniture">Bespoke Millwork &amp; FF&amp;E</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title">Consultation</h4>
+          <ul class="footer-links">
+            <li><a href="https://wa.me/923437761250" target="_blank" rel="noopener noreferrer">WhatsApp: +92 343 776 1250</a></li>
+            <li><a href="mailto:thefifthwall.pk@gmail.com">thefifthwall.pk@gmail.com</a></li>
+            <li><span>Islamabad, Pakistan</span></li>
+            <li><span>Mon &ndash; Sat: 10am &ndash; 7pm</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 The Fifth Wall Studio. All architectural rights reserved. &bull; <a href="admin/" style="color: inherit; text-decoration: none; opacity: 0.45; font-size: 0.74rem;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.45'">Decap CMS Portal &rarr;</a></div>
+        <div class="footer-social-icons">
+          <a href="https://www.behance.net/thefifthwallarch" target="_blank" rel="noopener noreferrer">Behance</a>
+          <a href="https://instagram.com/thefifthwall.pk" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://wa.me/923437761250" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a href="https://wa.me/923437761250?text=Hi%20The%20Fifth%20Wall%2C%20I%20am%20reading%20your%20Studio%20Journal%20and%20would%20like%20to%20consult%20on%20a%20project." target="_blank" rel="noopener noreferrer" class="wa-floating-btn" aria-label="Chat with The Fifth Wall on WhatsApp">
+    <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+  </a>
+
+  <!-- ─── CLIENT-SIDE DECAP CMS MARKDOWN LOADER ───────── -->
+  <script>
+    // Configuration & State
+    const GITHUB_REPO = 'hassankhan1902-spec/thefifthwall';
+    const GITHUB_BRANCH = 'main';
+    const CONTENT_DIR = 'content/blog';
+
+    let allArticles = [];
+    let activeCategory = 'all';
+    let searchQuery = '';
+
+    // ── FALLBACK EMBEDDED MONOGRAPHS (Guarantees zero blank screen on local file:/// or network disconnect) ──
+    const FALLBACK_ARTICLES = [
+      {
+        id: '2026-10-01-designing-1-kanal-luxury-residences-in-islamabad',
+        title: 'Designing 1 Kanal Luxury Residences in Islamabad: Climate Orientation, Margalla Daylight & Spatial Drama',
+        category: 'Architecture & Planning',
+        date: 'October 2026',
+        readTime: '6 min read',
+        author: 'The Fifth Wall Studio',
+        coverImg: 'images/house-923-exterior.jpg',
+        excerpt: 'In Pakistan\'s capital, modern villa architecture cannot simply mimic Western glass boxes. Between scorching summer heatwaves and winter morning breezes off the Margalla Hills, a truly refined 1 Kanal house demands cantilevered thermal shields, double-height light wells, and acoustic sanctuary.',
+        content: `
+          <p>Building a 1 Kanal residential villa in Islamabad (typically 50&prime; &times; 90&prime; comprising 4,500 sqft of ground footprint) is one of the most exciting yet challenging architectural undertakings in Pakistan. Too often, homeowners and speculative builders attempt to copy glossy European modernism without understanding Islamabad\'s microclimate.</p>
+          
+          <h2>1. Sun Orientation: Embracing Southern Winter Daylight</h2>
+          <p>Islamabad experiences dramatic seasonal variance &mdash; peak summer temperatures surpassing 44&deg;C followed by crisp winter mornings dipping near freezing. Orienting private family zones and living areas toward southern light allows passive solar heat gain during December and January, cutting HVAC heating loads significantly.</p>
+          
+          <blockquote>"True luxury architecture is never about gratuitous surface ornament; it is the calculated manipulation of natural light, shadow, and thermal equilibrium."</blockquote>
+          
+          <h2>2. Cantilevers as Functional Climate Brise-Soleil</h2>
+          <p>The cantilevered architectural overhangs that define our studio\'s aesthetic are not purely visual statements. Projecting 6 to 8 feet beyond the glazing line, these cast-concrete canopies shade expansive floor-to-ceiling glass during the harsh summer noon while permitting low winter sun to penetrate deep into double-height foyers.</p>
+          
+          <h2>3. Double-Height Foyers &amp; The Stack Effect</h2>
+          <p>By creating a vertical stack effect through high-level clerestory windows, warm air naturally vents out of the upper levels in spring and autumn, pulling cooler ground-level air through landscaped courtyards and water features.</p>
+          
+          <h3>Key Planning Checklist for 1 Kanal Villas:</h3>
+          <ul>
+            <li><strong>Mandatory Setbacks:</strong> Verify CDA/DHA front (15&prime;), rear (7&prime;), and side (5&prime;) clearance before fixing column grids.</li>
+            <li><strong>Basement Ventilation:</strong> Always incorporate dual open-to-sky lightwells with sub-soil sump pumps.</li>
+            <li><strong>Thermal Breaks:</strong> Specify double-glazed low-E aluminum fenestration (minimum 24mm DGU) to prevent thermal bridge condensation.</li>
+          </ul>
+        `
+      },
+      {
+        id: '2026-09-15-turnkey-contracting-vs-item-rate-grey-structure',
+        title: 'Turnkey Contracting vs. Item-Rate Grey Structure: The True Cost of Building in Pakistan',
+        category: 'Construction & BOQ',
+        date: 'September 2026',
+        readTime: '7 min read',
+        author: 'The Fifth Wall Studio',
+        coverImg: 'images/project-naval-anchorage.jpg',
+        excerpt: 'Why "cheap" labor contractors consistently lead to 30% budget overruns in Islamabad and Lahore, and how comprehensive Architectural BOQ Auditing protects homebuilders from bait-and-switch material grading.',
+        content: `
+          <p>When embarking on an architectural residence in Pakistan, prospective commissioners face a crucial strategic choice: award the construction contract as a Turnkey execution (Architecture + Grey + Finishes managed under one roof) or hire separate sub-contractors on an item-rate grey structure arrangement.</p>
+
+          <h2>The Illusion of Cheap Labor Rates</h2>
+          <p>Many homeowners are initially seduced by contractors quoting low square-foot rates for grey structure (e.g. ₨ 2,800 to ₨ 3,200 per sqft). However, these item-rate quotes almost always exclude scaffolding, water-proofing additives, electrical conduit quality guarantees, and steel rebar wastage margins.</p>
+
+          <blockquote>"When design and construction are severed, contractors blame the architect for complex drawings, and the architect blames the contractor for sloppy tolerances. Turnkey delivery unifies accountability."</blockquote>
+
+          <h2>The Turnkey Advantage: Guaranteed Price &amp; Specification</h2>
+          <p>In a comprehensive turnkey contract with The Fifth Wall Studio, our engineering team manages the complete Bills of Quantities (BOQ) with milestone-based payment schedules tied to independent structural inspections:</p>
+          <ul>
+            <li><strong>Mughal / Amreli Grade 60 Steel:</strong> Zero compromise on structural rebar yield strength.</li>
+            <li><strong>Fauji / Bestway OPC Cement:</strong> Batch-tested cylinder crushing tests for roof slabs and foundations.</li>
+            <li><strong>Shadow-Gap Joinery &amp; Level-5 Skim Coating:</strong> Executed by specialized studio master craftsmen rather than daily casual labor.</li>
+          </ul>
+        `
+      },
+      {
+        id: '2026-08-20-navigating-cda-rda-dha-building-regulations-2026',
+        title: 'Navigating CDA, RDA & DHA Building Regulations (2026 Edition): Avoid Costly Permitting Delays',
+        category: 'Byelaws & Permits',
+        date: 'August 2026',
+        readTime: '5 min read',
+        author: 'The Fifth Wall Studio',
+        coverImg: 'images/vibe-minimalist.jpg',
+        excerpt: 'A definitive architect\'s guide to mandatory setback dimensions, maximum covered area calculations, basement damp-proofing compliance, and solar rooftop byelaws across Islamabad and Rawalpindi.',
+        content: `
+          <p>Securing municipal approval from the Capital Development Authority (CDA), Rawalpindi Development Authority (RDA), or Defense Housing Authority (DHA) is a critical milestone before any excavation begins. Minor deviations in setback lines or covered area calculations can halt construction for months.</p>
+
+          <h2>Critical Byelaw Thresholds:</h2>
+          <ul>
+            <li><strong>Maximum Height Limits:</strong> DHA standard residential villas allow 30&prime; to 35&prime; total structure height from road crest, whereas CDA sectors (F-6, F-7, F-8, E-7) permit specific mumty and parapet variations based on sector zoning.</li>
+            <li><strong>Basement Footprint:</strong> Basements must strictly respect boundary setbacks; building beyond the sanctioned plinth line risks heavy non-compoundable demolition notices.</li>
+            <li><strong>Solar &amp; Rainwater Harvesting:</strong> 2026 regulations mandate rooftop rainwater percolation pits and dedicated solar conduit pathways for residential plots over 10 Marla.</li>
+          </ul>
+
+          <p>Our studio prepares complete CDA/DHA submission dossiers &mdash; including registered structural engineer stamps, soil test borehole logs, and plumbing schematics &mdash; achieving 100% first-pass approval compliance for our clients.</p>
+        `
+      },
+      {
+        id: '2026-07-10-monolithic-travertine-and-rift-cut-walnut',
+        title: 'Monolithic Travertine & Rift-Cut Walnut: Sourcing Tactile Materiality for Pakistani Interiors',
+        category: 'Luxury Interiors',
+        date: 'July 2026',
+        readTime: '4 min read',
+        author: 'The Fifth Wall Studio',
+        coverImg: 'images/osama-house-lounge.jpg',
+        excerpt: 'Moving past sterile gloss tiles. How pairing raw Pakistani limestone, Honed Ziarat White marble, and dark-grain American walnut elevates residential interiors from showroom generic to sculptural tranquility.',
+        content: `
+          <p>For decades, residential luxury in Pakistan was synonymous with high-gloss porcelain tiles, heavy gold moldings, and faux ceilings. The contemporary architectural renaissance in Islamabad embraces the quiet power of organic, tactile materiality.</p>
+
+          <h2>The Beauty of Indigenous Stone</h2>
+          <p>Pakistan possesses some of the world\'s most remarkable natural stone quarries. Honed Ziarat White from Balochistan, Taunsa limestone, and Khuzdar onyx possess organic veining that rivals Italian Carrara when cut and book-matched with architectural precision.</p>
+
+          <blockquote>"When you run your hand across a honed travertine vanity wall or open a floor-to-ceiling walnut pocket door, you immediately feel the difference between authentic craftsmanship and superficial veneers."</blockquote>
+
+          <h2>Acoustic Warmth with Custom Millwork</h2>
+          <p>Polished marble floors reflect sound harshness. To create serene, museum-quality acoustic warmth, our interior studio balances stone floors with slatted acoustic walnut paneling, fluted timber dividers, and textured mineral limewash plaster.</p>
+        `
+      },
+      {
+        id: '2026-06-05-seismic-zone-2b-3-engineering-in-islamabad',
+        title: 'Seismic Zone 2B/3 Engineering in Islamabad: Structural Intelligence Behind Elegant Cantilevers',
+        category: 'Architecture & Planning',
+        date: 'June 2026',
+        readTime: '6 min read',
+        author: 'The Fifth Wall Studio',
+        coverImg: 'images/office-g9-executive.jpg',
+        excerpt: 'Dramatic architectural overhangs require disciplined structural calculation. How our practice collaborates with senior structural engineers to ensure floating stairs and dramatic canopies resist tectonic motion safely.',
+        content: `
+          <p>Islamabad is situated in proximity to major fault zones, placing the twin cities within Seismic Zone 2B and Zone 3 under the Building Code of Pakistan. This geographical reality makes structural engineering an artistic partner to architectural expression.</p>
+
+          <h2>Designing the Floating Cantilever</h2>
+          <p>Clients often admire our floating concrete stairs and 10-foot second-storey bedroom projections. Achieving these daring structural gestures without awkward ground columns requires post-tensioned beam design, high-strength concrete mixes (3,000 to 4,000 PSI), and continuous rebar anchorage into central shear cores.</p>
+
+          <p>Every Fifth Wall design undergoes rigorous finite element analysis (ETABS) modeling to verify wind load resistance, soil bearing capacity, and seismic ductility before a single shovel enters the earth.</p>
+        `
+      }
+    ];
+
+    // ── MAIN CLIENT-SIDE FETCH FUNCTION ──
+    async function fetchDecapBlogArticles() {
+      let fileList = [];
+
+      // 1. Try to fetch dynamic list from GitHub API (captures new Decap CMS commits live)
+      try {
+        const ghApiUrl = `https://api.github.com/repos/${GITHUB_REPO}/contents/${CONTENT_DIR}?ref=${GITHUB_BRANCH}`;
+        const ghRes = await fetch(ghApiUrl, { headers: { 'Accept': 'application/vnd.github.v3+json' } });
+        if (ghRes.ok) {
+          const items = await ghRes.json();
+          fileList = items.filter(f => f.name.endsWith('.md')).map(f => f.name);
+        }
+      } catch (err) {
+        // Network or CORS limitation (e.g. running locally)
+      }
+
+      // 2. If GitHub API returned nothing, fetch from local content/blog/index.json
+      if (!fileList || fileList.length === 0) {
+        try {
+          const indexRes = await fetch(`${CONTENT_DIR}/index.json`);
+          if (indexRes.ok) {
+            fileList = await indexRes.json();
+          }
+        } catch (e) {
+          // Predefined manifest of known markdown files
+          fileList = [
+            '2026-10-01-designing-1-kanal-luxury-residences-in-islamabad.md',
+            '2026-09-15-turnkey-contracting-vs-item-rate-grey-structure.md',
+            '2026-08-20-navigating-cda-rda-dha-building-regulations-2026.md',
+            '2026-07-10-monolithic-travertine-and-rift-cut-walnut.md',
+            '2026-06-05-seismic-zone-2b-3-engineering-in-islamabad.md'
+          ];
+        }
+      }
+
+      // 3. Fetch each markdown file and parse
+      const fetchedArticles = [];
+      for (const fileName of fileList) {
+        try {
+          const fileRes = await fetch(`${CONTENT_DIR}/${fileName}`);
+          if (fileRes.ok) {
+            const rawMarkdown = await fileRes.text();
+            const parsed = parseDecapMarkdown(rawMarkdown, fileName);
+            if (parsed) fetchedArticles.push(parsed);
+          }
+        } catch (err) {
+          console.warn(`Could not fetch ${fileName}:`, err);
+        }
+      }
+
+      // 4. Update UI: Use fetched articles, or seamlessly use embedded fallback
+      if (fetchedArticles.length > 0) {
+        // Sort chronologically descending
+        fetchedArticles.sort((a, b) => new Date(b.rawDate || b.date) - new Date(a.rawDate || a.date));
+        allArticles = fetchedArticles;
+      } else {
+        allArticles = FALLBACK_ARTICLES;
+      }
+
+      renderArticlesToUI(allArticles);
+    }
+
+    // ── LIGHTWEIGHT MARKDOWN & YAML PARSER ──
+    function parseDecapMarkdown(rawText, fileName) {
+      if (!rawText) return null;
+
+      // Extract frontmatter between --- and ---
+      const frontmatterRegex = /^---\r?\n([\s\S]*?)\r?\n---\r?\n([\s\S]*)$/;
+      const match = rawText.match(frontmatterRegex);
+
+      let metadata = {};
+      let bodyText = rawText;
+
+      if (match) {
+        metadata = parseSimpleYaml(match[1]);
+        bodyText = match[2];
+      }
+
+      const slug = fileName.replace(/\.md$/, '');
+      const coverUrl = cleanImageUrl(metadata.cover_image);
+
+      return {
+        id: slug,
+        title: metadata.title || slug.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/-/g, ' '),
+        category: metadata.category || 'Architecture & Planning',
+        date: formatHumanDate(metadata.date),
+        rawDate: metadata.date,
+        readTime: metadata.read_time || estimateReadingTime(bodyText),
+        author: metadata.author || 'The Fifth Wall Studio',
+        coverImg: coverUrl || 'images/house-923-exterior.jpg',
+        excerpt: metadata.excerpt || bodyText.slice(0, 180).replace(/[#*`>]/g, '').trim() + '...',
+        content: parseMarkdownBodyToHtml(bodyText)
+      };
+    }
+
+    // Parse YAML key-value pairs
+    function parseSimpleYaml(yamlString) {
+      const output = {};
+      const lines = yamlString.split('\n');
+
+      lines.forEach(line => {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) return;
+
+        const colonIndex = line.indexOf(':');
+        if (colonIndex > 0 && !trimmed.startsWith('-')) {
+          const key = line.slice(0, colonIndex).trim();
+          let value = line.slice(colonIndex + 1).trim();
+
+          // Strip surrounding quotes
+          if ((value.startsWith('"') && value.endsWith('"')) || (value.startsWith("'") && value.endsWith("'"))) {
+            value = value.slice(1, -1);
+          }
+          output[key] = value;
+        }
+      });
+      return output;
+    }
+
+    // Convert markdown body to clean semantic HTML
+    function parseMarkdownBodyToHtml(md) {
+      if (!md) return '';
+      const lines = md.split('\n');
+      let html = '';
+      let inList = false;
+
+      lines.forEach(rawLine => {
+        const line = rawLine.trim();
+
+        if (line.startsWith('### ')) {
+          if (inList) { html += '</ul>'; inList = false; }
+          html += `<h3>${escapeHtml(line.slice(4))}</h3>`;
+        } else if (line.startsWith('## ')) {
+          if (inList) { html += '</ul>'; inList = false; }
+          html += `<h2>${escapeHtml(line.slice(3))}</h2>`;
+        } else if (line.startsWith('# ')) {
+          if (inList) { html += '</ul>'; inList = false; }
+          html += `<h2>${escapeHtml(line.slice(2))}</h2>`;
+        } else if (line.startsWith('> ')) {
+          if (inList) { html += '</ul>'; inList = false; }
+          html += `<blockquote>${formatInlineMarkdown(line.slice(2))}</blockquote>`;
+        } else if (line.startsWith('* ') || line.startsWith('- ')) {
+          if (!inList) { html += '<ul>'; inList = true; }
+          html += `<li>${formatInlineMarkdown(line.slice(2))}</li>`;
+        } else if (line.length > 0) {
+          if (inList) { html += '</ul>'; inList = false; }
+          html += `<p>${formatInlineMarkdown(line)}</p>`;
+        }
+      });
+
+      if (inList) html += '</ul>';
+      return html;
+    }
+
+    function formatInlineMarkdown(str) {
+      let res = escapeHtml(str);
+      res = res.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+      res = res.replace(/\*(.*?)\*/g, '<em>$1</em>');
+      res = res.replace(/`([^`]+)`/g, '<code>$1</code>');
+      return res;
+    }
+
+    function cleanImageUrl(url) {
+      if (!url) return '';
+      // Strip leading slash if relative
+      if (url.startsWith('/images/')) return url.slice(1);
+      return url;
+    }
+
+    function formatHumanDate(dateStr) {
+      if (!dateStr) return 'Recent Monograph';
+      try {
+        const d = new Date(dateStr);
+        if (isNaN(d.getTime())) return dateStr;
+        return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+      } catch (e) {
+        return dateStr;
+      }
+    }
+
+    function estimateReadingTime(text) {
+      if (!text) return '4 min read';
+      const words = text.split(/\s+/).filter(Boolean).length;
+      const mins = Math.max(1, Math.ceil(words / 180));
+      return `${mins} min read`;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    // ── RENDER ARTICLES TO UI ──
+    function renderArticlesToUI(articles) {
+      const grid = document.getElementById('articlesGrid');
+      const countAll = document.getElementById('countAll');
+      if (countAll) countAll.textContent = articles.length;
+
+      if (!articles || articles.length === 0) {
+        grid.innerHTML = `
+          <div class="no-results-state">
+            <h3>No Articles Found</h3>
+            <p>Publish an architectural monograph via Decap CMS (/admin/) to display it here.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Populate Featured Hero (first article)
+      const featured = articles[0];
+      populateFeaturedHero(featured);
+
+      // Populate Grid (subsequent articles)
+      grid.innerHTML = '';
+      articles.forEach((art, idx) => {
+        const card = createBlogCard(art, idx === 0);
+        grid.appendChild(card);
+      });
+
+      applyFilters();
+    }
+
+    function populateFeaturedHero(art) {
+      const featSection = document.getElementById('featuredStorySection');
+      if (!featSection || !art) return;
+
+      document.getElementById('featCoverImg').src = art.coverImg;
+      document.getElementById('featCoverImg').alt = art.title;
+      document.getElementById('featCategory').textContent = art.category;
+      document.getElementById('featDate').textContent = art.date;
+      document.getElementById('featReadTime').textContent = art.readTime;
+      document.getElementById('featTitle').textContent = art.title;
+      document.getElementById('featExcerpt').textContent = art.excerpt;
+      document.getElementById('featAuthor').textContent = art.author;
+
+      const card = document.getElementById('featuredStoryCard');
+      card.onclick = () => openArticleReader(art.id);
+
+      featSection.style.display = 'block';
+    }
+
+    function createBlogCard(art, isFeatured) {
+      const el = document.createElement('article');
+      el.className = 'blog-card';
+      el.id = `card-${art.id}`;
+      el.setAttribute('data-category', mapCategoryToKey(art.category));
+      el.setAttribute('role', 'button');
+      el.setAttribute('tabindex', '0');
+      el.setAttribute('aria-label', `Read article: ${art.title}`);
+
+      el.addEventListener('click', () => {
+        openArticleReader(art.id);
+      });
+
+      el.innerHTML = `
+        <div class="blog-card-media">
+          <img src="${escapeHtml(art.coverImg)}" alt="${escapeHtml(art.title)}" loading="lazy">
+          <span class="blog-card-badge">${escapeHtml(art.category)}</span>
+        </div>
+        <div class="blog-card-content">
+          <div class="article-meta-row">
+            <span>${escapeHtml(art.date)}</span>
+            <span>&bull;</span>
+            <span class="article-read-time">${escapeHtml(art.readTime)}</span>
+          </div>
+          <h3 class="blog-card-title">${escapeHtml(art.title)}</h3>
+          <p class="blog-card-excerpt">${escapeHtml(art.excerpt)}</p>
+          <div class="blog-card-footer">
+            <span class="blog-card-author">${escapeHtml(art.author)}</span>
+            <span class="blog-card-cta">Read Article &rarr;</span>
+          </div>
+        </div>
+      `;
+      return el;
+    }
+
+    function mapCategoryToKey(cat) {
+      const lower = (cat || '').toLowerCase();
+      if (lower.includes('arch')) return 'architecture';
+      if (lower.includes('const') || lower.includes('boq')) return 'construction';
+      if (lower.includes('byelaw') || lower.includes('permit') || lower.includes('cda') || lower.includes('dha')) return 'byelaws';
+      if (lower.includes('interior')) return 'interiors';
+      return 'architecture';
+    }
+
+    // ── SEARCH & FILTERING ──
+    function filterArticles(category, btnEl) {
+      activeCategory = category;
+      document.querySelectorAll('.category-pill').forEach(btn => btn.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+      applyFilters();
+    }
+
+    function handleSearch(query) {
+      searchQuery = query.toLowerCase().trim();
+      applyFilters();
+    }
+
+    function applyFilters() {
+      const cards = document.querySelectorAll('.blog-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const cat = card.dataset.category || '';
+        const title = card.querySelector('.blog-card-title')?.textContent.toLowerCase() || '';
+        const excerpt = card.querySelector('.blog-card-excerpt')?.textContent.toLowerCase() || '';
+
+        const matchesCat = activeCategory === 'all' || cat.includes(activeCategory);
+        const matchesSearch = !searchQuery || title.includes(searchQuery) || excerpt.includes(searchQuery);
+
+        if (matchesCat && matchesSearch) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Filter featured story banner
+      const featSection = document.getElementById('featuredStorySection');
+      if (featSection) {
+        if (activeCategory === 'all' && !searchQuery) {
+          featSection.style.display = 'block';
+        } else {
+          featSection.style.display = 'none';
+        }
+      }
+    }
+
+    // ── ARTICLE READER MODAL ──
+    const readerModal = document.getElementById('articleReaderModal');
+
+    function openArticleReader(articleId) {
+      const article = allArticles.find(a => a.id === articleId);
+      if (!article) return;
+
+      document.getElementById('readerHeroImg').src = article.coverImg;
+      document.getElementById('readerHeroImg').alt = article.title;
+      document.getElementById('readerCategoryTag').textContent = article.category;
+      document.getElementById('readerDate').textContent = article.date;
+      document.getElementById('readerReadTime').textContent = article.readTime;
+      document.getElementById('readerArticleTitle').textContent = article.title;
+      document.getElementById('readerAuthorName').textContent = article.author || 'The Fifth Wall Studio';
+      document.getElementById('readerBodyText').innerHTML = article.content;
+
+      // Dynamic WhatsApp Consultation CTA
+      const waMsg = encodeURIComponent(`Hi The Fifth Wall! I read your monograph "${article.title}" on your Studio Journal and would like to discuss this topic for my project.`);
+      document.getElementById('readerWhatsAppCta').href = `https://wa.me/923437761250?text=${waMsg}`;
+
+      readerModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      history.replaceState(null, '', `#read-${article.id}`);
+    }
+
+    function closeArticleReader() {
+      if (!readerModal) return;
+      readerModal.classList.remove('open');
+      document.body.style.overflow = '';
+      if (location.hash.startsWith('#read-')) {
+        history.replaceState(null, '', 'blog.html');
+      }
+    }
+
+    // Modal Keyboard ESC and Backdrop Listeners
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeArticleReader();
+    });
+
+    if (readerModal) {
+      readerModal.addEventListener('click', (e) => {
+        if (e.target === readerModal) closeArticleReader();
+      });
+    }
+
+    // ── MOBILE HEADER RETRACT ON SCROLL ──
+    const siteHeader = document.getElementById('siteHeader');
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > 40) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+      lastScrollY = currentY;
+    }, { passive: true });
+
+    // ── INITIALIZE ON LOAD ──
+    document.addEventListener('DOMContentLoaded', () => {
+      fetchDecapBlogArticles().then(() => {
+        if (location.hash && location.hash.startsWith('#read-')) {
+          const id = location.hash.replace('#read-', '');
+          setTimeout(() => openArticleReader(id), 250);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

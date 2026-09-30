@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Project Cost Estimator — Turnkey Construction &amp; Interior Architecture · The Fifth Wall Islamabad</title>
-  <meta name="description" content="Calculate realistic turnkey construction and interior architectural costs for 5 Marla, 7 Marla, 10 Marla, 1 Kanal, 2 Kanal, and 4 Kanal+ villas in Islamabad. CDA &amp; DHA compliant ballpark rates in sqft.">
-  <meta name="keywords" content="construction cost estimator Islamabad, villa building cost DHA Islamabad, interior design budget Pakistan, architectural cost calculator sqft, CDA sector construction rates, turnkey cost per sqft">
+  <title>Project Cost Estimator — Turnkey Construction &amp; Luxury Architecture · Nationwide Pakistan · The Fifth Wall</title>
+  <meta name="description" content="Calculate realistic turnkey construction and interior architectural investment ballparks for 5 Marla, 7 Marla, 10 Marla, 1 Kanal, 2 Kanal, and 4 Kanal+ residential footprints across Pakistan in sqft.">
+  <meta name="keywords" content="construction cost estimator pakistan, villa building cost lahore islamabad, interior design budget Pakistan, architectural cost calculator sqft, turnkey cost per sqft pakistan">
   <meta name="author" content="The Fifth Wall">
   <link rel="canonical" href="https://thefifthwall.pk/cost-estimator.html">
 
@@ -13,37 +13,41 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thefifthwall.pk/cost-estimator.html">
   <meta property="og:title" content="Project Cost Estimator — Turnkey Construction &amp; Interior Architecture · The Fifth Wall">
-  <meta property="og:description" content="Instant ballpark investment calculator for luxury residential architecture and interior fit-outs in Islamabad. Standardized in sqft.">
+  <meta property="og:description" content="Instant ballpark investment calculator for luxury residential architecture and turnkey construction across Pakistan. Standardized in sqft.">
   <meta property="og:image" content="images/house-923-exterior.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Project Cost Estimator — The Fifth Wall Islamabad">
-  <meta name="twitter:description" content="Instant turnkey construction &amp; luxury interior cost modeling in sqft for Islamabad villas.">
+  <meta name="twitter:title" content="Project Cost Estimator — The Fifth Wall Pakistan">
+  <meta name="twitter:description" content="Instant turnkey construction &amp; luxury interior cost modeling in sqft for residential builds across Pakistan.">
   <meta name="twitter:image" content="images/house-923-exterior.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/the-fifth-wall-logo-transparent.png">
+  <!-- Favicon: National Flag of Pakistan -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon-pakistan.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-pakistan-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-pakistan-180.png">
+  <link rel="shortcut icon" href="favicon.ico">
 
   <!-- Google Fonts: Cormorant Garamond & Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── DESIGN TOKENS ───────────────────────────────── */
+    /* ─── DESIGN TOKENS (THE FIFTH WALL BRAND SYSTEM) ─── */
     :root {
-      --ch: #1A1A1A;          /* Charcoal Black */
-      --ch-dark: #121212;     /* Deep Void */
-      --co: #E5E3DE;          /* Warm Concrete */
-      --sg: #8A8A8A;          /* Slate Grey */
-      --sg-light: #B4B2AC;    /* Muted Sage */
-      --br: #8C6A3B;          /* Architectural Bronze / Gold */
-      --br-light: #B38E5B;    /* Light Gold */
-      --wh: #FAFAF8;          /* Off White */
+      --ch: #1F1F1F;          /* Brand Charcoal (#1F1F1F) */
+      --ch-dark: #141414;     /* Deep Void Charcoal */
+      --co: #E5E3DE;          /* Brand Concrete (#E5E3DE) */
+      --sg: #8A8A8A;          /* Brand Stone Grey (#8A8A8A) */
+      --sg-light: #B4B2AC;    /* Muted Sage / Soft Stone */
+      --br: #8C6A3B;          /* Brand Architectural Bronze (#8C6A3B) */
+      --br-light: #B28D5A;    /* Burnished Brass */
+      --wh: #FAFAF8;          /* Brand Alabaster White (#FAFAF8) */
+      --off: #F4F3F0;         /* Brand Warm Canvas (#F4F3F0) */
       --pure-wh: #FFFFFF;
-      --border-subtle: rgba(26, 26, 26, 0.13);
-      --border-dark: rgba(255, 255, 255, 0.16);
+      --border-subtle: rgba(31, 31, 31, 0.12);
+      --border-dark: rgba(229, 227, 222, 0.2);
       --container-max: 1240px;
       --pad-x: 32px;
       --ease: cubic-bezier(0.25, 1, 0.5, 1);
@@ -232,109 +236,19 @@
       gap: 16px;
     }
 
-    .mobile-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-    }
-
-    .mobile-burger span {
-      width: 24px;
-      height: 2px;
-      background: var(--ch);
-      transition: all 0.3s;
-    }
-
-    /* Mobile Drawer */
-    .mobile-drawer-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 199;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s var(--ease);
-    }
-
-    .mobile-drawer-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 320px;
-      max-width: 85vw;
-      background: var(--ch);
-      color: var(--wh);
-      z-index: 200;
-      padding: 36px 28px;
-      transform: translateX(100%);
-      transition: transform 0.35s var(--ease);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .mobile-drawer.open {
-      transform: translateX(0);
-    }
-
-    .drawer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .drawer-logo-img {
-      height: 42px;
-      width: auto;
-    }
-
-    .drawer-close {
-      background: transparent;
-      border: none;
-      color: var(--wh);
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .drawer-nav {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .drawer-link {
-      font-size: 1.15rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--co);
-      transition: color 0.2s;
-    }
-
-    .drawer-link:hover, .drawer-link.active {
-      color: var(--br-light);
+    section[id] {
+      scroll-margin-top: 115px;
     }
 
     /* ─── ARCHITECTURAL DRAFTING GRID ────────────────── */
     .hero-grid-lines {
       position: absolute;
       inset: 0;
+      opacity: 0.35;
       background-image: 
-        linear-gradient(to right, rgba(26, 26, 26, 0.075) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(26, 26, 26, 0.075) 1px, transparent 1px),
-        radial-gradient(circle 1.5px at 0 0, rgba(140, 106, 59, 0.48) 1.5px, transparent 1.5px);
+        linear-gradient(to right, rgba(31, 31, 31, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31, 31, 31, 0.04) 1px, transparent 1px),
+        radial-gradient(circle 1px at 0 0, rgba(140, 106, 59, 0.2) 1px, transparent 1px);
       background-size: 60px 60px, 60px 60px, 60px 60px;
       pointer-events: none;
       mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, #000 70%, transparent 100%);
@@ -344,10 +258,11 @@
     .hero-grid-lines-dark {
       position: absolute;
       inset: 0;
+      opacity: 0.3;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        radial-gradient(circle 1.5px at 0 0, rgba(196, 151, 106, 0.45) 1.5px, transparent 1.5px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle 1px at 0 0, rgba(196, 151, 106, 0.2) 1px, transparent 1px);
       background-size: 60px 60px, 60px 60px, 60px 60px;
       pointer-events: none;
       mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, #000 75%, transparent 100%);
@@ -559,7 +474,7 @@
       width: 20px;
       height: 20px;
       border-radius: 50%;
-      border: 1.5px solid rgba(26, 26, 26, 0.2);
+      border: 1.5px solid rgba(31, 31, 31, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -618,7 +533,7 @@
       letter-spacing: 0.04em;
       color: var(--sg);
       padding-top: 10px;
-      border-top: 1px dashed rgba(26, 26, 26, 0.1);
+      border-top: 1px dashed rgba(31, 31, 31, 0.1);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -794,7 +709,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid rgba(26, 26, 26, 0.06);
+      border-top: 1px solid rgba(31, 31, 31, 0.06);
       transition: background-color 0.25s var(--ease);
     }
 
@@ -884,7 +799,7 @@
 
     .budget-breakdown-row {
       display: flex;
-      border: 1px solid rgba(26, 26, 26, 0.08);
+      border: 1px solid rgba(31, 31, 31, 0.08);
       border-radius: 2px;
       margin-bottom: 24px;
       overflow: hidden;
@@ -894,7 +809,7 @@
     .breakdown-col {
       flex: 1;
       padding: 18px 16px;
-      border-right: 1px solid rgba(26, 26, 26, 0.08);
+      border-right: 1px solid rgba(31, 31, 31, 0.08);
       display: flex;
       flex-direction: column;
       gap: 4px;
@@ -1226,6 +1141,11 @@
       fill: currentColor;
     }
 
+    /* ─── MOBILE STICKY ESTIMATE BAR (DESKTOP HIDDEN) ── */
+    .mobile-sticky-estimate-bar {
+      display: none;
+    }
+
     /* ─── RESPONSIVE RULES ────────────────────────────── */
     @media (max-width: 1024px) {
       .plot-cards-grid {
@@ -1243,11 +1163,99 @@
     }
 
     @media (max-width: 860px) {
-      .desktop-nav, .nav-actions .btn-cta {
+      .site-header {
+        padding: 10px var(--pad-x) 8px;
+        background: rgba(250, 250, 248, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: padding 0.28s var(--ease), background-color 0.28s var(--ease);
+      }
+      .site-header.scrolled {
+        padding: 8px var(--pad-x) 8px;
+      }
+      .site-header.header-retracted {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+      .site-header.header-retracted .logo-link,
+      .site-header.header-retracted .nav-actions {
+        opacity: 0;
+        pointer-events: none;
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateY(-8px);
+        overflow: hidden;
+      }
+      .logo-link, .nav-actions {
+        transition: opacity 0.24s var(--ease), transform 0.24s var(--ease), max-height 0.24s var(--ease);
+        max-height: 48px;
+      }
+      .nav-inner {
+        flex-wrap: wrap;
+        row-gap: 8px;
+      }
+      .logo-link {
+        order: 1;
+      }
+      .logo-img {
+        height: 36px;
+      }
+      .nav-actions {
+        order: 2;
+      }
+      .nav-actions .btn-cta {
+        display: inline-flex;
+        padding: 7px 14px;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        border-radius: 20px;
+      }
+      .desktop-nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 2px 0 4px;
+      }
+      .desktop-nav::-webkit-scrollbar {
         display: none;
       }
-      .mobile-burger {
+      .nav-menu {
         display: flex;
+        align-items: center;
+        gap: 6px;
+        width: max-content;
+        padding: 0 2px;
+      }
+      .nav-item a {
+        font-size: 0.70rem;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        padding: 5px 12px;
+        background: rgba(31, 31, 31, 0.04);
+        border: 1px solid rgba(31, 31, 31, 0.08);
+        border-radius: 20px;
+        color: var(--ch);
+        display: inline-block;
+      }
+      .nav-item a::after {
+        display: none;
+      }
+      .nav-item a:hover,
+      .nav-item a.active {
+        background: var(--ch);
+        color: var(--wh);
+        border-color: var(--ch);
+      }
+      .mobile-burger,
+      .mobile-drawer,
+      .mobile-drawer-backdrop {
+        display: none !important;
       }
       .plot-spec-banner {
         grid-template-columns: repeat(2, 1fr);
@@ -1258,6 +1266,63 @@
       .faq-layout {
         grid-template-columns: 1fr;
         gap: 36px;
+      }
+      /* Mobile Sticky Bottom Estimate Bar */
+      .mobile-sticky-estimate-bar {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 98;
+        background: rgba(31, 31, 31, 0.96);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        padding: 12px var(--pad-x);
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.25);
+        gap: 12px;
+      }
+      .mobile-sticky-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--sg-light);
+        margin-bottom: 2px;
+        font-family: 'Jost', sans-serif;
+      }
+      .mobile-sticky-val {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.35rem;
+        font-weight: 500;
+        color: var(--br-light);
+        line-height: 1;
+      }
+      .mobile-sticky-cta {
+        display: inline-flex;
+        align-items: center;
+        padding: 9px 16px;
+        background: var(--br);
+        color: var(--wh);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        border-radius: 4px;
+        white-space: nowrap;
+        text-decoration: none;
+        transition: background 0.2s var(--ease);
+      }
+      .mobile-sticky-cta:hover {
+        background: var(--br-light);
+      }
+      .wa-floating-btn {
+        bottom: 76px !important;
+      }
+      .estimator-budget-wrap {
+        scroll-margin-top: 110px;
       }
     }
 
@@ -1288,7 +1353,7 @@
       }
       .breakdown-col {
         border-right: none;
-        border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+        border-bottom: 1px solid rgba(31, 31, 31, 0.08);
       }
       .breakdown-col:last-child {
         border-bottom: none;
@@ -1322,6 +1387,7 @@
           <li class="nav-item"><a href="index.html#portfolio">Featured Work</a></li>
           <li class="nav-item"><a href="cost-estimator.html" class="active">Cost Estimator</a></li>
           <li class="nav-item"><a href="index.html#process">Process</a></li>
+          <li class="nav-item"><a href="index.html#reviews">Reviews</a></li>
           <li class="nav-item"><a href="index.html#faq">FAQ</a></li>
           <li class="nav-item"><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -1331,43 +1397,9 @@
         <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta">
           Start a Project
         </a>
-        <button class="mobile-burger" id="burgerToggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </header>
-
-  <!-- MOBILE NAVIGATION DRAWER -->
-  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <div>
-      <div class="drawer-top">
-        <a href="index.html" class="drawer-logo-link" aria-label="The Fifth Wall Homepage">
-          <img src="images/the-fifth-wall-logo-white.png" alt="The Fifth Wall Logo" class="drawer-logo-img" width="980" height="550">
-        </a>
-        <button class="drawer-close" id="drawerClose" aria-label="Close Mobile Menu">&times;</button>
-      </div>
-      <ul class="drawer-nav">
-        <li><a href="index.html#about" class="drawer-link">Studio</a></li>
-        <li><a href="services.html" class="drawer-link">Services</a></li>
-        <li><a href="index.html#portfolio" class="drawer-link">Featured Work</a></li>
-        <li><a href="index.html#transformation" class="drawer-link">Transformation</a></li>
-        <li><a href="cost-estimator.html" class="drawer-link active">Cost Estimator</a></li>
-        <li><a href="index.html#process" class="drawer-link">Process</a></li>
-        <li><a href="index.html#faq" class="drawer-link">FAQ</a></li>
-        <li><a href="index.html#contact" class="drawer-link">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta" style="width:100%; justify-content:center; margin-bottom:16px;">
-        WhatsApp Consultation
-      </a>
-      <p style="font-size:0.75rem; color:var(--sg-light); text-align:center;">Islamabad · 33°43'N · 73°04'E</p>
-    </div>
-  </aside>
 
   <main>
     <!-- PAGE HERO -->
@@ -1385,12 +1417,12 @@
           Turnkey Construction &amp; Interior <em>Cost Estimator.</em>
         </h1>
         <p class="page-hero-desc">
-          Accurate architectural planning starts with financial clarity. Select your plot footprint and interior design aesthetic to generate an instant, realistic turnkey investment benchmark for high-end residential projects in Islamabad and Rawalpindi.
+          Accurate architectural planning starts with financial clarity. Select your plot footprint and interior design aesthetic to generate an instant, realistic turnkey investment benchmark for high-end residential projects across Islamabad, Rawalpindi, Lahore, and nationwide in Pakistan.
         </p>
 
         <div class="page-hero-stats">
           <div class="stat-box">
-            <span class="stat-num">₨ 6,800+</span>
+            <span class="stat-num" data-counter="6800" data-prefix="₨ " data-suffix="+">₨ 6,800+</span>
             <span class="stat-label">Avg Turnkey Rate / sqft</span>
           </div>
           <div class="stat-box">
@@ -1398,8 +1430,8 @@
             <span class="stat-label">Structure vs Finishes Split</span>
           </div>
           <div class="stat-box">
-            <span class="stat-num">100%</span>
-            <span class="stat-label">CDA &amp; DHA Byelaw Compliance</span>
+            <span class="stat-num" data-counter="100" data-suffix="%">100%</span>
+            <span class="stat-label">Nationwide Byelaw &amp; Zoning Compliance</span>
           </div>
           <div class="stat-box">
             <span class="stat-num">0 PKR</span>
@@ -1557,7 +1589,7 @@
             </div>
             <div class="plot-spec-item">
               <span class="plot-spec-label">Zoning Byelaws Compliance</span>
-              <span class="plot-spec-val" id="spec-bylaw">Standard CDA Sectors &amp; DHA Islamabad Villa</span>
+              <span class="plot-spec-val" id="spec-bylaw">Standard 10 Marla Zoning &amp; Society Bylaws</span>
             </div>
           </div>
         </div>
@@ -1679,7 +1711,7 @@
         </div>
 
         <!-- STEP 3: BUDGET OUTPUT BOX -->
-        <div class="estimator-budget-wrap">
+        <div class="estimator-budget-wrap" id="estimator-result">
           <div class="budget-card">
             <p class="budget-card-label">Estimated Project Investment</p>
             <div class="budget-amount" id="budget-display">₨ 2.85 Crore</div>
@@ -1700,7 +1732,7 @@
             </div>
 
             <p class="budget-disclaimer-text">
-              * Indicative turnkey estimate based on prevailing market rates in Islamabad (CDA Sectors, DHA &amp; Naval Anchorage). Actual costs vary according to soil conditions, imported vs local marble specifications, and custom joinery requirements. A precise BOQ follows your discovery consultation.
+              * Indicative turnkey benchmark based on prevailing construction market rates across major Pakistani urban centers (Islamabad, Rawalpindi, Lahore, and premier societies). Actual costs vary according to soil conditions, imported vs local marble specifications, and custom joinery requirements. A precise BOQ follows your discovery consultation.
             </p>
 
             <div class="estimator-actions-row">
@@ -1724,7 +1756,7 @@
           <span class="section-eyebrow" style="justify-content:center;">Financial Framework</span>
           <h2>What Drives Your <em>Turnkey Cost per sqft?</em></h2>
           <p style="color:var(--sg); font-size:0.95rem; line-height:1.7;">
-            We believe in complete transparency. Residential investment in Islamabad is driven by four primary architectural tiers. Here is how your capital is deployed across the build cycle:
+            We believe in complete transparency. Residential investment across Pakistan is driven by four primary architectural tiers. Here is how your capital is deployed across the build cycle:
           </p>
         </div>
 
@@ -1818,7 +1850,7 @@
               </button>
               <div class="faq-answer">
                 <p>
-                  Our online estimator is calibrated against live contractor tenders, material procurement logs, and market rates across Islamabad (CDA Sectors, DHA Islamabad, and Naval Anchorage). It provides an accurate ±8% benchmark for turnkey delivery. Following our initial site and design discovery meeting, we deliver a line-item Bill of Quantities (BOQ) with fixed prices.
+                  Our online estimator is calibrated against live contractor tenders, material procurement logs, and market rates across major urban centers in Pakistan (Islamabad, Rawalpindi, Lahore, and premier societies). It provides an accurate &plusmn;8% benchmark for turnkey delivery. Following our initial site and design discovery meeting, we deliver a line-item Bill of Quantities (BOQ) with fixed prices.
                 </p>
               </div>
             </div>
@@ -1897,6 +1929,17 @@
         </div>
       </div>
     </section>
+
+    <!-- MOBILE STICKY ESTIMATE BAR -->
+    <div class="mobile-sticky-estimate-bar" id="mobileStickyBar">
+      <div class="mobile-sticky-left">
+        <div class="mobile-sticky-label">Estimated Investment</div>
+        <div class="mobile-sticky-val" id="mobileStickyVal">₨ 2.85 Crore</div>
+      </div>
+      <a href="#estimator-result" class="mobile-sticky-cta" onclick="document.getElementById('estimator-result').scrollIntoView({behavior:'smooth'}); return false;">
+        View Breakdown &rarr;
+      </a>
+    </div>
   </main>
 
   <!-- FOOTER -->
@@ -1919,6 +1962,8 @@
             <li><a href="index.html#portfolio">Featured Work</a></li>
             <li><a href="cost-estimator.html">Cost Estimator</a></li>
             <li><a href="index.html#process">Methodology</a></li>
+            <li><a href="index.html#reviews">Client Reviews</a></li>
+            <li><a href="index.html#faq">FAQ</a></li>
             <li><a href="index.html#contact">Contact</a></li>
           </ul>
         </div>
@@ -1975,30 +2020,6 @@
     // Update copyright year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Mobile Drawer Toggle
-    const burgerToggle = document.getElementById('burgerToggle');
-    const drawerClose = document.getElementById('drawerClose');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-
-    function openDrawer() {
-      mobileDrawer.classList.add('open');
-      drawerBackdrop.classList.add('open');
-      burgerToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeDrawer() {
-      mobileDrawer.classList.remove('open');
-      drawerBackdrop.classList.remove('open');
-      burgerToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
-    }
-
-    if (burgerToggle) burgerToggle.addEventListener('click', openDrawer);
-    if (drawerClose) drawerClose.addEventListener('click', closeDrawer);
-    if (drawerBackdrop) drawerBackdrop.addEventListener('click', closeDrawer);
-
     // FAQ Accordion functionality
     const faqItems = document.querySelectorAll('#estimatorFaq .faq-item');
     faqItems.forEach(item => {
@@ -2045,7 +2066,7 @@
         plotSqft: 2450,
         coveredSqft: 4200,
         covered: '4,200 sqft (Double Storey + Mumty + Servant)',
-        bylaw: 'Standard CDA Sectors & DHA Islamabad Villa',
+        bylaw: 'Standard 10 Marla Zoning & Society Bylaws',
         base: 28500000
       },
       {
@@ -2055,7 +2076,7 @@
         plotSqft: 4500,
         coveredSqft: 7200,
         covered: '7,200 sqft (Basement + G + 1 + Mumty)',
-        bylaw: 'Naval Anchorage, DHA & CDA Sectors (F/G/E)',
+        bylaw: 'Standard 1 Kanal Bylaws (DHA, CDA, LDA & Nationwide)',
         base: 49500000
       },
       {
@@ -2112,9 +2133,11 @@
         const budgetDisp = document.getElementById('budget-display');
         const constDisp  = document.getElementById('breakdown-const');
         const intDisp    = document.getElementById('breakdown-int');
+        const stickyDisp = document.getElementById('mobileStickyVal');
         if (budgetDisp) budgetDisp.textContent = formatPKR(currentVal);
         if (constDisp)  constDisp.textContent  = formatPKR(Math.round(currentVal * 0.65));
         if (intDisp)    intDisp.textContent    = formatPKR(Math.round(currentVal * 0.35));
+        if (stickyDisp) stickyDisp.textContent = formatPKR(currentVal);
         if (p < 1) animFrame = requestAnimationFrame(tick);
       }
       animFrame = requestAnimationFrame(tick);
@@ -2123,6 +2146,9 @@
     function updateEstimator() {
       const target = Math.round(activePlot.base * activeVibe.mult);
       animateTo(target);
+
+      const stickyDisp = document.getElementById('mobileStickyVal');
+      if (stickyDisp) stickyDisp.textContent = formatPKR(target);
 
       const pureDims = activePlot.dims.split('·')[0].trim();
       const ratePerSqft = Math.round(target / activePlot.coveredSqft);
@@ -2212,6 +2238,81 @@
         }
       });
     });
+
+    // Header Scroll Behavior
+    const siteHeader = document.getElementById('siteHeader');
+    let lastScrollY = window.scrollY;
+    const scrollDeltaThreshold = 8;
+
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > 40) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+
+      // Smart Mobile Retract on scroll down / reveal on scroll up
+      if (window.innerWidth <= 860) {
+        if (currentY > 110 && currentY > lastScrollY + scrollDeltaThreshold) {
+          siteHeader.classList.add('header-retracted');
+        } else if (currentY < lastScrollY - scrollDeltaThreshold || currentY < 60) {
+          siteHeader.classList.remove('header-retracted');
+        }
+      } else {
+        siteHeader.classList.remove('header-retracted');
+      }
+
+      lastScrollY = currentY;
+    }, { passive: true });
+
+    // ── ANIMATED MILESTONE STAT COUNTERS ──
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-counter]');
+      if (!counters.length) return;
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseFloat(el.getAttribute('data-counter'));
+            const prefix = el.getAttribute('data-prefix') || '';
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1600;
+            const startTime = performance.now();
+
+            const update = (now) => {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const easeOut = 1 - Math.pow(1 - progress, 3);
+              const currentVal = Math.floor(easeOut * target);
+              const displayVal = currentVal >= 1000 ? currentVal.toLocaleString() : currentVal;
+              el.innerHTML = `${prefix}${displayVal}<em>${suffix}</em>`;
+
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              } else {
+                const finalVal = target >= 1000 ? target.toLocaleString() : target;
+                el.innerHTML = `${prefix}${finalVal}<em>${suffix}</em>`;
+              }
+            };
+
+            requestAnimationFrame(update);
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.25 });
+
+      counters.forEach(c => observer.observe(c));
+    }
+
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      animateCounters();
+    } else {
+      document.addEventListener('DOMContentLoaded', () => {
+        animateCounters();
+      });
+    }
 
     // Initialize Estimator
     updateEstimator();

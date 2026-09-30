@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services — Architecture &amp; Interior Design Studio · The Fifth Wall Islamabad</title>
-  <meta name="description" content="Explore full-spectrum architectural design, CDA &amp; RDA permit drawings, luxury turnkey interior architecture, 3D visualization, landscape design, and bespoke furniture in Islamabad by The Fifth Wall.">
-  <meta name="keywords" content="Architectural services Islamabad, CDA permit drawings, luxury interior architecture, turnkey villa construction, 3D visualization, landscape design Islamabad, DHA Islamabad architects">
+  <title>Services — Architecture &amp; Luxury Interior Studio · Nationwide Pakistan · The Fifth Wall</title>
+  <meta name="description" content="Full-spectrum architectural design, municipal permit drawings, luxury turnkey interior architecture, 3D visualization, and bespoke joinery nationwide across Pakistan by The Fifth Wall.">
+  <meta name="keywords" content="Architectural services pakistan, luxury interior architecture pakistan, CDA RDA permit drawings, turnkey villa construction islamabad lahore, 3D visualization pakistan, landscape design, nationwide architects pakistan">
   <meta name="author" content="The Fifth Wall">
   <link rel="canonical" href="https://thefifthwall.pk/services.html">
 
@@ -13,37 +13,41 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thefifthwall.pk/services.html">
   <meta property="og:title" content="Services — Architectural &amp; Interior Design Studio · The Fifth Wall">
-  <meta property="og:description" content="One studio, one vision — from initial structural concept to turnkey interior handover. Complete architectural services in Islamabad.">
+  <meta property="og:description" content="One studio, one vision — from initial structural concept to turnkey interior handover. Complete architectural &amp; interior services nationwide across Pakistan.">
   <meta property="og:image" content="images/house-923-exterior.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Services — Architectural &amp; Interior Design Studio · The Fifth Wall">
-  <meta name="twitter:description" content="Comprehensive architectural and interior design services across Islamabad and Rawalpindi.">
+  <meta name="twitter:description" content="Comprehensive architectural and luxury interior design services across Islamabad and nationwide in Pakistan.">
   <meta name="twitter:image" content="images/house-923-exterior.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="images/the-fifth-wall-logo-transparent.png">
+  <!-- Favicon: National Flag of Pakistan -->
+  <link rel="icon" type="image/svg+xml" href="images/favicon-pakistan.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-pakistan-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon-pakistan-180.png">
+  <link rel="shortcut icon" href="favicon.ico">
 
   <!-- Google Fonts: Cormorant Garamond & Jost -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    /* ─── DESIGN TOKENS ───────────────────────────────── */
+    /* ─── DESIGN TOKENS (THE FIFTH WALL BRAND SYSTEM) ─── */
     :root {
-      --ch: #1A1A1A;          /* Charcoal Black */
-      --ch-dark: #121212;     /* Deep Void */
-      --co: #E5E3DE;          /* Warm Concrete */
-      --sg: #8A8A8A;          /* Slate Grey */
-      --sg-light: #B4B2AC;    /* Muted Sage */
-      --br: #8C6A3B;          /* Architectural Bronze / Gold */
-      --br-light: #B38E5B;    /* Light Gold */
-      --wh: #FAFAF8;          /* Off White */
+      --ch: #1F1F1F;          /* Brand Charcoal (#1F1F1F) */
+      --ch-dark: #141414;     /* Deep Void Charcoal */
+      --co: #E5E3DE;          /* Brand Concrete (#E5E3DE) */
+      --sg: #8A8A8A;          /* Brand Stone Grey (#8A8A8A) */
+      --sg-light: #B4B2AC;    /* Muted Sage / Soft Stone */
+      --br: #8C6A3B;          /* Brand Architectural Bronze (#8C6A3B) */
+      --br-light: #B28D5A;    /* Burnished Brass */
+      --wh: #FAFAF8;          /* Brand Alabaster White (#FAFAF8) */
+      --off: #F4F3F0;         /* Brand Warm Canvas (#F4F3F0) */
       --pure-wh: #FFFFFF;
-      --border-subtle: rgba(26, 26, 26, 0.13);
-      --border-dark: rgba(255, 255, 255, 0.16);
+      --border-subtle: rgba(31, 31, 31, 0.12);
+      --border-dark: rgba(229, 227, 222, 0.2);
       --container-max: 1240px;
       --pad-x: 32px;
       --ease: cubic-bezier(0.25, 1, 0.5, 1);
@@ -218,109 +222,19 @@
       gap: 16px;
     }
 
-    .mobile-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 6px;
-    }
-
-    .mobile-burger span {
-      width: 24px;
-      height: 2px;
-      background: var(--ch);
-      transition: all 0.3s;
-    }
-
-    /* Mobile Drawer */
-    .mobile-drawer-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      backdrop-filter: blur(4px);
-      z-index: 199;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.3s var(--ease);
-    }
-
-    .mobile-drawer-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .mobile-drawer {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 320px;
-      max-width: 85vw;
-      background: var(--ch);
-      color: var(--wh);
-      z-index: 200;
-      padding: 36px 28px;
-      transform: translateX(100%);
-      transition: transform 0.35s var(--ease);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .mobile-drawer.open {
-      transform: translateX(0);
-    }
-
-    .drawer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 40px;
-    }
-
-    .drawer-logo-img {
-      height: 42px;
-      width: auto;
-    }
-
-    .drawer-close {
-      background: transparent;
-      border: none;
-      color: var(--wh);
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    .drawer-nav {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-
-    .drawer-link {
-      font-size: 1.15rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--co);
-      transition: color 0.2s;
-    }
-
-    .drawer-link:hover, .drawer-link.active {
-      color: var(--br-light);
+    section[id] {
+      scroll-margin-top: 115px;
     }
 
     /* ─── ARCHITECTURAL DRAFTING GRID ────────────────── */
     .hero-grid-lines {
       position: absolute;
       inset: 0;
+      opacity: 0.35;
       background-image: 
-        linear-gradient(to right, rgba(26, 26, 26, 0.075) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(26, 26, 26, 0.075) 1px, transparent 1px),
-        radial-gradient(circle 1.5px at 0 0, rgba(140, 106, 59, 0.48) 1.5px, transparent 1.5px);
+        linear-gradient(to right, rgba(31, 31, 31, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(31, 31, 31, 0.04) 1px, transparent 1px),
+        radial-gradient(circle 1px at 0 0, rgba(140, 106, 59, 0.2) 1px, transparent 1px);
       background-size: 60px 60px, 60px 60px, 60px 60px;
       pointer-events: none;
       mask-image: radial-gradient(ellipse 95% 85% at 50% 45%, #000 70%, transparent 100%);
@@ -330,10 +244,11 @@
     .hero-grid-lines-dark {
       position: absolute;
       inset: 0;
+      opacity: 0.3;
       background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.07) 1px, transparent 1px),
-        radial-gradient(circle 1.5px at 0 0, rgba(196, 151, 106, 0.45) 1.5px, transparent 1.5px);
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        radial-gradient(circle 1px at 0 0, rgba(196, 151, 106, 0.2) 1px, transparent 1px);
       background-size: 60px 60px, 60px 60px, 60px 60px;
       pointer-events: none;
       mask-image: radial-gradient(ellipse 95% 85% at 50% 50%, #000 75%, transparent 100%);
@@ -523,7 +438,7 @@
       color: var(--ch);
       padding: 6px 14px;
       border-radius: 2px;
-      border: 1px solid rgba(26, 26, 26, 0.06);
+      border: 1px solid rgba(31, 31, 31, 0.06);
     }
 
     /* ─── ARCHITECTURAL MATRIX TABLE ──────────────────── */
@@ -554,8 +469,8 @@
 
     .matrix-table th, .matrix-table td {
       padding: 18px 24px;
-      border-bottom: 1px solid rgba(26, 26, 26, 0.12);
-      border-right: 1px solid rgba(26, 26, 26, 0.08);
+      border-bottom: 1px solid rgba(31, 31, 31, 0.12);
+      border-right: 1px solid rgba(31, 31, 31, 0.08);
     }
 
     .matrix-table th:last-child, .matrix-table td:last-child {
@@ -731,11 +646,99 @@
         direction: ltr;
         gap: 36px;
       }
-      .desktop-nav, .nav-actions .btn-cta {
+      .site-header {
+        padding: 10px var(--pad-x) 8px;
+        background: rgba(250, 250, 248, 0.98);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.04);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: padding 0.28s var(--ease), background-color 0.28s var(--ease);
+      }
+      .site-header.scrolled {
+        padding: 8px var(--pad-x) 8px;
+      }
+      .site-header.header-retracted {
+        padding-top: 6px;
+        padding-bottom: 6px;
+      }
+      .site-header.header-retracted .logo-link,
+      .site-header.header-retracted .nav-actions {
+        opacity: 0;
+        pointer-events: none;
+        max-height: 0;
+        margin: 0;
+        padding: 0;
+        transform: translateY(-8px);
+        overflow: hidden;
+      }
+      .logo-link, .nav-actions {
+        transition: opacity 0.24s var(--ease), transform 0.24s var(--ease), max-height 0.24s var(--ease);
+        max-height: 48px;
+      }
+      .nav-inner {
+        flex-wrap: wrap;
+        row-gap: 8px;
+      }
+      .logo-link {
+        order: 1;
+      }
+      .logo-img {
+        height: 36px;
+      }
+      .nav-actions {
+        order: 2;
+      }
+      .nav-actions .btn-cta {
+        display: inline-flex;
+        padding: 7px 14px;
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        border-radius: 20px;
+      }
+      .desktop-nav {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        padding: 2px 0 4px;
+      }
+      .desktop-nav::-webkit-scrollbar {
         display: none;
       }
-      .mobile-burger {
+      .nav-menu {
         display: flex;
+        align-items: center;
+        gap: 6px;
+        width: max-content;
+        padding: 0 2px;
+      }
+      .nav-item a {
+        font-size: 0.70rem;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        padding: 5px 12px;
+        background: rgba(31, 31, 31, 0.04);
+        border: 1px solid rgba(31, 31, 31, 0.08);
+        border-radius: 20px;
+        color: var(--ch);
+        display: inline-block;
+      }
+      .nav-item a::after {
+        display: none;
+      }
+      .nav-item a:hover,
+      .nav-item a.active {
+        background: var(--ch);
+        color: var(--wh);
+        border-color: var(--ch);
+      }
+      .mobile-burger,
+      .mobile-drawer,
+      .mobile-drawer-backdrop {
+        display: none !important;
       }
     }
 
@@ -775,6 +778,7 @@
           <li class="nav-item"><a href="index.html#portfolio">Featured Work</a></li>
           <li class="nav-item"><a href="cost-estimator.html">Cost Estimator</a></li>
           <li class="nav-item"><a href="index.html#process">Process</a></li>
+          <li class="nav-item"><a href="index.html#reviews">Reviews</a></li>
           <li class="nav-item"><a href="index.html#faq">FAQ</a></li>
           <li class="nav-item"><a href="index.html#contact">Contact</a></li>
         </ul>
@@ -784,43 +788,9 @@
         <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta">
           Start a Project
         </a>
-        <button class="mobile-burger" id="burgerToggle" aria-label="Toggle Mobile Menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
       </div>
     </div>
   </header>
-
-  <!-- MOBILE NAVIGATION DRAWER -->
-  <div class="mobile-drawer-backdrop" id="drawerBackdrop"></div>
-  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
-    <div>
-      <div class="drawer-top">
-        <a href="index.html" class="drawer-logo-link" aria-label="The Fifth Wall Homepage">
-          <img src="images/the-fifth-wall-logo-white.png" alt="The Fifth Wall Logo" class="drawer-logo-img" width="980" height="550">
-        </a>
-        <button class="drawer-close" id="drawerClose" aria-label="Close Mobile Menu">&times;</button>
-      </div>
-      <ul class="drawer-nav">
-        <li><a href="index.html#about" class="drawer-link">Studio</a></li>
-        <li><a href="services.html" class="drawer-link active">Services</a></li>
-        <li><a href="index.html#portfolio" class="drawer-link">Featured Work</a></li>
-        <li><a href="index.html#transformation" class="drawer-link">Transformation</a></li>
-        <li><a href="cost-estimator.html" class="drawer-link">Cost Estimator</a></li>
-        <li><a href="index.html#process" class="drawer-link">Process</a></li>
-        <li><a href="index.html#faq" class="drawer-link">FAQ</a></li>
-        <li><a href="index.html#contact" class="drawer-link">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <a href="https://wa.me/923437761250?text=Hi%2C%20I%20would%20like%20to%20consult%20The%20Fifth%20Wall%20regarding%20an%20architectural%20or%20interior%20project." target="_blank" rel="noopener noreferrer" class="btn-cta" style="width:100%; justify-content:center; margin-bottom:16px;">
-        WhatsApp Consultation
-      </a>
-      <p style="font-size:0.75rem; color:var(--sg-light); text-align:center;">Islamabad · 33°43'N · 73°04'E</p>
-    </div>
-  </aside>
 
   <main>
     <!-- PAGE HERO -->
@@ -838,16 +808,16 @@
           Architectural Rigour meets <em>Interior Artistry.</em>
         </h1>
         <p class="page-hero-desc">
-          We operate as a single unified practice across Islamabad and Rawalpindi. By managing both the structural exterior and internal atmosphere under one standard, your project achieves perfect alignment between light, proportions, and turnkey finishes.
+          Headquartered in Islamabad and undertaking commissions nationwide across Pakistan, we operate as a unified architectural and luxury interior practice. By managing both the structural exterior and internal atmosphere under one standard, your project achieves perfect alignment between light, proportions, and turnkey finishes.
         </p>
 
         <div class="page-hero-stats">
           <div class="stat-box">
-            <span class="stat-num">100%</span>
+            <span class="stat-num" data-counter="100" data-suffix="%">100%</span>
             <span class="stat-label">Municipal Approval Success</span>
           </div>
           <div class="stat-box">
-            <span class="stat-num">06</span>
+            <span class="stat-num" data-counter="6" data-prefix="0">06</span>
             <span class="stat-label">Core Design Disciplines</span>
           </div>
           <div class="stat-box">
@@ -1097,9 +1067,9 @@
     <!-- ESTIMATOR CALLOUT BANNER -->
     <section class="estimator-callout">
       <div class="container">
-        <h2>Planning a Build in Islamabad?</h2>
+        <h2>Planning an Architectural Build or Luxury Interior?</h2>
         <p>
-          Explore turnkey construction and interior investment ballparks across 5 Marla, 7 Marla, 10 Marla, 1 Kanal, 2 Kanal, and farmhouses in sqft.
+          Whether building in Islamabad, Rawalpindi, Lahore, or nationwide across Pakistan, explore turnkey construction and interior investment ballparks across 5 Marla, 7 Marla, 10 Marla, 1 Kanal, 2 Kanal, and farmhouses in sqft.
         </p>
         <div style="display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
           <a href="cost-estimator.html" class="btn-cta" style="background:var(--br); border-color:var(--br);">
@@ -1132,6 +1102,7 @@
             <li><a href="index.html#portfolio">Featured Work</a></li>
             <li><a href="cost-estimator.html">Cost Estimator</a></li>
             <li><a href="index.html#process">Methodology</a></li>
+            <li><a href="index.html#reviews">Client Reviews</a></li>
             <li><a href="index.html#faq">FAQ</a></li>
           </ul>
         </div>
@@ -1175,31 +1146,81 @@
     <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
   </a>
 
-  <!-- Mobile Drawer Toggle Script -->
+  <!-- Header Scroll Behavior & Stat Counters -->
   <script>
-    const burgerToggle = document.getElementById('burgerToggle');
-    const mobileDrawer = document.getElementById('mobileDrawer');
-    const drawerBackdrop = document.getElementById('drawerBackdrop');
-    const drawerClose = document.getElementById('drawerClose');
+    const siteHeader = document.getElementById('siteHeader');
+    let lastScrollY = window.scrollY;
+    const scrollDeltaThreshold = 8;
 
-    function openDrawer() {
-      mobileDrawer.classList.add('open');
-      drawerBackdrop.classList.add('open');
-      burgerToggle.setAttribute('aria-expanded', 'true');
-      document.body.style.overflow = 'hidden';
+    window.addEventListener('scroll', () => {
+      const currentY = window.scrollY;
+      if (currentY > 40) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+
+      // Smart Mobile Retract on scroll down / reveal on scroll up
+      if (window.innerWidth <= 860) {
+        if (currentY > 110 && currentY > lastScrollY + scrollDeltaThreshold) {
+          siteHeader.classList.add('header-retracted');
+        } else if (currentY < lastScrollY - scrollDeltaThreshold || currentY < 60) {
+          siteHeader.classList.remove('header-retracted');
+        }
+      } else {
+        siteHeader.classList.remove('header-retracted');
+      }
+
+      lastScrollY = currentY;
+    }, { passive: true });
+
+    // ── ANIMATED MILESTONE STAT COUNTERS ──
+    function animateCounters() {
+      const counters = document.querySelectorAll('[data-counter]');
+      if (!counters.length) return;
+
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseFloat(el.getAttribute('data-counter'));
+            const prefix = el.getAttribute('data-prefix') || '';
+            const suffix = el.getAttribute('data-suffix') || '';
+            const duration = 1600;
+            const startTime = performance.now();
+
+            const update = (now) => {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const easeOut = 1 - Math.pow(1 - progress, 3);
+              const currentVal = Math.floor(easeOut * target);
+              const displayVal = currentVal >= 1000 ? currentVal.toLocaleString() : currentVal;
+              el.innerHTML = `${prefix}${displayVal}<em>${suffix}</em>`;
+
+              if (progress < 1) {
+                requestAnimationFrame(update);
+              } else {
+                const finalVal = target >= 1000 ? target.toLocaleString() : target;
+                el.innerHTML = `${prefix}${finalVal}<em>${suffix}</em>`;
+              }
+            };
+
+            requestAnimationFrame(update);
+            obs.unobserve(el);
+          }
+        });
+      }, { threshold: 0.25 });
+
+      counters.forEach(c => observer.observe(c));
     }
 
-    function closeDrawer() {
-      mobileDrawer.classList.remove('open');
-      drawerBackdrop.classList.remove('open');
-      burgerToggle.setAttribute('aria-expanded', 'false');
-      document.body.style.overflow = '';
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      animateCounters();
+    } else {
+      document.addEventListener('DOMContentLoaded', () => {
+        animateCounters();
+      });
     }
-
-    burgerToggle.addEventListener('click', openDrawer);
-    drawerClose.addEventListener('click', closeDrawer);
-    drawerBackdrop.addEventListener('click', closeDrawer);
-    document.querySelectorAll('.drawer-link').forEach(l => l.addEventListener('click', closeDrawer));
   </script>
 </body>
 </html>

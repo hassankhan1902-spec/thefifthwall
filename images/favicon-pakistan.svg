@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <!-- Rounded squircle clip for modern high-end favicon aesthetic -->
+    <clipPath id="squircle">
+      <rect width="64" height="64" rx="14" ry="14" />
+    </clipPath>
+  </defs>
+
+  <!-- Flag container with rounded squircle clipping -->
+  <g clip-path="url(#squircle)">
+    <!-- Pakistan Dark Green field (Pantone 3425 C / #01411C) -->
+    <rect width="64" height="64" fill="#01411C" />
+    
+    <!-- White Vertical Hoist Stripe (1/4 width = 16px) -->
+    <rect width="16" height="64" fill="#FFFFFF" />
+
+    <!-- Crescent Moon: Mathematically computed arcs -->
+    <path fill="#FFFFFF" d="M 34.75,17.61 A 15,15 0 1,0 53.39,36.25 A 13.2,13.2 0 1,1 34.75,17.61 Z" />
+
+    <!-- Five-pointed star tilted -45° pointing toward upper fly corner -->
+    <polygon fill="#FFFFFF" points="50.38,20.12 48.42,24.12 51.52,27.31 47.11,26.68 45.03,30.62 44.27,26.23 39.88,25.47 43.82,23.39 43.19,18.98 46.38,22.08" />
+
+    <!-- Subtle outline border to ensure clean edge definition on light browser chrome -->
+    <rect width="64" height="64" fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="1.2" rx="14" ry="14" />
+  </g>
+</svg>
