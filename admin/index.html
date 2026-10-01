@@ -4,6 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <title>The Fifth Wall &mdash; Studio Content Manager</title>
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
   <link rel="cms-config-url" type="text/yaml" href="config.yml">
@@ -18,25 +21,116 @@
       color: #f4f3f0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
+    .token-bar {
+      position: fixed;
+      bottom: 16px;
+      right: 16px;
+      z-index: 99999;
+      background: rgba(26, 26, 26, 0.95);
+      border: 1px solid #8C6A3B;
+      padding: 10px 18px;
+      border-radius: 6px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      font-size: 13px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+    .token-bar button {
+      background: #8C6A3B;
+      color: #FAFAF8;
+      border: none;
+      padding: 6px 14px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      border-radius: 3px;
+      font-weight: 500;
+    }
+    .token-bar button:hover {
+      background: #a37c45;
+    }
   </style>
 
   <script>
     (function() {
-      // Strictly hardcoded Production URLs for GitHub PKCE flow
+      // 1. Completely neutralize Netlify Identity
+      delete window.netlifyIdentity;
+      try {
+        Object.defineProperty(window, 'netlifyIdentity', {
+          get: function() { return undefined; },
+          set: function() {},
+          configurable: false
+        });
+      } catch (e) {}
+
+      // 2. Strictly hardcoded URLs for GitHub PKCE flow
       const SITE_URL = 'https://www.thefifthwallarchitecture.com';
       const CALLBACK_URL = 'https://www.thefifthwallarchitecture.com/admin/';
+      const GITHUB_CLIENT_ID = 'Ov23liAe14yMQXRZJ3nk';
 
-      // Canonical domain & trailing slash enforcement for production
+      // 3. Canonical domain enforcement for live site
       if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
         const currentClean = window.location.origin + window.location.pathname;
         if (currentClean !== CALLBACK_URL) {
-          // Normalize to https://www.thefifthwallarchitecture.com/admin/ while preserving query params (OAuth code/state)
           window.location.replace(CALLBACK_URL + window.location.search + window.location.hash);
           return;
         }
       }
 
-      // Intercept URLSearchParams to guarantee redirect_uri is strictly the hardcoded callback
+      // 4. Handle incoming GitHub OAuth redirect callback (?code=...)
+      const urlParams = new URLSearchParams(window.location.search);
+      const authCode = urlParams.get('code');
+      if (authCode) {
+        // Exchange code for token via Vercel serverless PKCE endpoint
+        fetch('/api/pkce-token', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            code: authCode,
+            client_id: GITHUB_CLIENT_ID,
+            redirect_uri: CALLBACK_URL
+          })
+        })
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data && data.access_token) {
+            localStorage.setItem('decap-cms-user', JSON.stringify({ token: data.access_token }));
+            window.location.replace(CALLBACK_URL);
+          } else {
+            const errMsg = (data && (data.error_description || data.error)) || 'Failed to authenticate';
+            alert('GitHub Authentication: ' + errMsg);
+            window.location.replace(CALLBACK_URL);
+          }
+        })
+        .catch(function(err) {
+          alert('Authentication error: ' + err.message);
+          window.location.replace(CALLBACK_URL);
+        });
+        return;
+      }
+
+      // 5. Intercept Decap CMS internal fallback that attempts to open Netlify pop-up
+      const _origOpen = window.open;
+      window.open = function(url, title, features) {
+        if (typeof url === 'string' && (url.indexOf('api.netlify.com') !== -1 || title === 'Netlify Authorization')) {
+          // Bypass Netlify completely and launch GitHub OAuth directly
+          const state = Math.random().toString(36).substring(2);
+          sessionStorage.setItem('oauth_state', state);
+
+          const githubUrl = 'https://github.com/login/oauth/authorize?client_id=' + GITHUB_CLIENT_ID +
+            '&redirect_uri=' + encodeURIComponent(CALLBACK_URL) +
+            '&scope=repo' +
+            '&state=' + state;
+
+          window.location.href = githubUrl;
+          return null;
+        }
+        return _origOpen.apply(this, arguments);
+      };
+
+      // 6. Guarantee redirect_uri across any URLSearchParams usage
       const OrigURLSearchParams = window.URLSearchParams;
       window.URLSearchParams = class extends OrigURLSearchParams {
         constructor(init) {
@@ -65,7 +159,7 @@
         }
       };
 
-      // Intercept fetch requests to guarantee token exchange uses hardcoded callback
+      // 7. Intercept fetch requests to guarantee token exchange uses hardcoded callback
       const origFetch = window.fetch;
       window.fetch = function(resource, init) {
         if (init && init.body && typeof init.body === 'string' && init.body.indexOf('redirect_uri=') !== -1) {
@@ -77,7 +171,34 @@
   </script>
 </head>
 <body>
-  <!-- Decap CMS Core Script (Standard GitHub OAuth / PKCE) -->
+  <!-- Fallback Token Bar (Shown only if not logged in) -->
+  <div class="token-bar" id="tokenBar" style="display: none;">
+    <span style="color:#b5b4af;">Quick Login:</span>
+    <button onclick="promptToken()">Enter GitHub Token</button>
+  </div>
+
+  <script>
+    function promptToken() {
+      const token = prompt('Enter your GitHub Personal Access Token (classic token with "repo" scope):');
+      if (token && token.trim()) {
+        localStorage.setItem('decap-cms-user', JSON.stringify({ token: token.trim() }));
+        window.location.reload();
+      }
+    }
+
+    // Show token bar only if user is not already logged in
+    window.addEventListener('load', function() {
+      setTimeout(function() {
+        const user = localStorage.getItem('decap-cms-user');
+        if (!user) {
+          const bar = document.getElementById('tokenBar');
+          if (bar) bar.style.display = 'flex';
+        }
+      }, 500);
+    });
+  </script>
+
+  <!-- Decap CMS Core Script (Pure GitHub Backend) -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>
