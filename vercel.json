@@ -4,10 +4,6 @@
     {
       "source": "/admin",
       "destination": "/admin/index.html"
-    },
-    {
-      "source": "/admin/:match*",
-      "destination": "/admin/index.html"
     }
   ]
 }
