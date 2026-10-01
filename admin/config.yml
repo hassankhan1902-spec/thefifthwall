@@ -2,9 +2,7 @@ backend:
   name: github
   repo: hassankhan1902-spec/thefifthwall
   branch: main
-  # Public Decap OAuth Proxy for Vercel / static sites
-  base_url: https://decap-cms-oauth.vercel.app
-  auth_endpoint: auth
+  app_id: Ov23liAe14yMQXRZJ3nk
 
 # Local backend for local development when running `npx decap-server`
 local_backend: true

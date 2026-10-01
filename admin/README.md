@@ -23,54 +23,21 @@ This directory configures **Decap CMS** using a standard **GitHub OAuth backend*
 
 ---
 
-## 🔑 GitHub OAuth Setup for Vercel
+## 🔑 GitHub OAuth Setup (PKCE Flow)
 
-Because this site is hosted on Vercel, it uses standard GitHub OAuth authentication:
+The CMS uses GitHub's native **PKCE (Proof Key for Code Exchange)** authentication flow. This bypasses external third-party OAuth proxies completely, communicating directly between your browser and GitHub.
 
-### Step 1: Create a GitHub OAuth App
-1. Go to your GitHub account: **Settings** &rarr; **Developer Settings** &rarr; **OAuth Apps** &rarr; **New OAuth App**.
-2. Fill in the fields:
-   - **Application name**: `The Fifth Wall CMS`
-   - **Homepage URL**: `https://thefifthwall.pk` (or your Vercel deployment URL)
+### GitHub OAuth App Settings:
+1. In your GitHub account, go to **Settings** &rarr; **Developer Settings** &rarr; **OAuth Apps** &rarr; open your OAuth app (`Ov23liAe14yMQXRZJ3nk`).
+2. Verify the following fields:
+   - **Homepage URL**: `https://thefifthwall.pk` (or your Vercel URL)
    - **Authorization callback URL**:
-     - If using the public proxy: `https://decap-cms-oauth.vercel.app/callback`
-     - Or if using your own Vercel API: `https://your-site.vercel.app/api/callback`
-3. Click **Register application**.
-4. Generate and copy your **Client Secret** and **Client ID**.
-
----
-
-### Step 2: Configure Environment Variables in Vercel (Recommended)
-If using your site's native `/api/auth` and `/api/callback`:
-1. In your **Vercel Project Dashboard**, go to **Settings** &rarr; **Environment Variables**.
-2. Add the following:
-   - `GITHUB_CLIENT_ID` = `your_github_client_id`
-   - `GITHUB_CLIENT_SECRET` = `your_github_client_secret`
-3. In `admin/config.yml`:
-   ```yaml
-   backend:
-     name: github
-     repo: hassankhan1902-spec/thefifthwall
-     branch: main
-     base_url: https://thefifthwall.pk # (or your Vercel domain)
-     auth_endpoint: api/auth
-   ```
-
----
-
-### Step 3: Or Use the Public Decap OAuth Proxy
-If you prefer not setting Vercel environment variables:
-1. `admin/config.yml` is already configured with:
-   ```yaml
-   backend:
-     name: github
-     repo: hassankhan1902-spec/thefifthwall
-     branch: main
-     base_url: https://decap-cms-oauth.vercel.app
-     auth_endpoint: auth
-   ```
-2. When registering your GitHub OAuth app, set the **Authorization callback URL** to:
-   `https://decap-cms-oauth.vercel.app/callback`
+     Set this directly to your admin dashboard URL:
+     ```
+     https://thefifthwall.pk/admin/
+     ```
+     *(If accessing on Vercel preview or custom domain, ensure the domain matches your callback URL, e.g., `https://thefifthwall.vercel.app/admin/`)*
+3. Save changes.
 
 ---
 
