@@ -89,24 +89,24 @@
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             code: authCode,
-            client_id: GITHUB_CLIENT_ID,
-            redirect_uri: CALLBACK_URL
+            client_id: 'Ov23liAe14yMQXRZJ3nk',
+            redirect_uri: 'https://www.thefifthwallarchitecture.com/admin/'
           })
         })
         .then(function(res) { return res.json(); })
         .then(function(data) {
           if (data && data.access_token) {
             localStorage.setItem('decap-cms-user', JSON.stringify({ token: data.access_token }));
-            window.location.replace(CALLBACK_URL);
+            window.location.replace('https://www.thefifthwallarchitecture.com/admin/');
           } else {
             const errMsg = (data && (data.error_description || data.error)) || 'Failed to authenticate';
             alert('GitHub Authentication: ' + errMsg);
-            window.location.replace(CALLBACK_URL);
+            window.location.replace('https://www.thefifthwallarchitecture.com/admin/');
           }
         })
         .catch(function(err) {
           alert('Authentication error: ' + err.message);
-          window.location.replace(CALLBACK_URL);
+          window.location.replace('https://www.thefifthwallarchitecture.com/admin/');
         });
         return;
       }
@@ -128,15 +128,9 @@
             }
 
             // Strictly enforce client_id, callback, and scopes
-            if (!targetUrl.searchParams.get('client_id')) {
-              targetUrl.searchParams.set('client_id', GITHUB_CLIENT_ID);
-            }
-            if (!targetUrl.searchParams.get('redirect_uri')) {
-              targetUrl.searchParams.set('redirect_uri', CALLBACK_URL);
-            }
-            if (!targetUrl.searchParams.get('scope')) {
-              targetUrl.searchParams.set('scope', 'repo');
-            }
+            targetUrl.searchParams.set('client_id', 'Ov23liAe14yMQXRZJ3nk');
+            targetUrl.searchParams.set('redirect_uri', 'https://www.thefifthwallarchitecture.com/admin/');
+            targetUrl.searchParams.set('scope', 'repo');
             if (!targetUrl.searchParams.get('state')) {
               targetUrl.searchParams.set('state', state);
             }
