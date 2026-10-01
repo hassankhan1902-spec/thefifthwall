@@ -111,21 +111,39 @@
         return;
       }
 
-      // 5. Intercept Decap CMS internal fallback that attempts to open Netlify pop-up
+      // 5. Intercept Decap CMS internal authorization requests
       const _origOpen = window.open;
       window.open = function(url, title, features) {
-        if (typeof url === 'string' && (url.indexOf('api.netlify.com') !== -1 || title === 'Netlify Authorization')) {
-          // Bypass Netlify completely and launch GitHub OAuth directly
-          const state = Math.random().toString(36).substring(2);
-          sessionStorage.setItem('oauth_state', state);
+        if (typeof url === 'string') {
+          // Catch Netlify popups OR GitHub OAuth requests
+          if (url.indexOf('api.netlify.com') !== -1 || title === 'Netlify Authorization' || url.indexOf('github.com/login/oauth') !== -1) {
+            const state = Math.random().toString(36).substring(2);
+            sessionStorage.setItem('oauth_state', state);
 
-          const githubUrl = 'https://github.com/login/oauth/authorize?client_id=' + GITHUB_CLIENT_ID +
-            '&redirect_uri=' + encodeURIComponent(CALLBACK_URL) +
-            '&scope=repo' +
-            '&state=' + state;
+            let targetUrl;
+            try {
+              targetUrl = new URL(url.indexOf('github.com') !== -1 ? url : 'https://github.com/login/oauth/authorize');
+            } catch (e) {
+              targetUrl = new URL('https://github.com/login/oauth/authorize');
+            }
 
-          window.location.href = githubUrl;
-          return null;
+            // Strictly enforce client_id, callback, and scopes
+            if (!targetUrl.searchParams.get('client_id')) {
+              targetUrl.searchParams.set('client_id', GITHUB_CLIENT_ID);
+            }
+            if (!targetUrl.searchParams.get('redirect_uri')) {
+              targetUrl.searchParams.set('redirect_uri', CALLBACK_URL);
+            }
+            if (!targetUrl.searchParams.get('scope')) {
+              targetUrl.searchParams.set('scope', 'repo');
+            }
+            if (!targetUrl.searchParams.get('state')) {
+              targetUrl.searchParams.set('state', state);
+            }
+
+            window.location.href = targetUrl.toString();
+            return null;
+          }
         }
         return _origOpen.apply(this, arguments);
       };
