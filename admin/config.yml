@@ -2,10 +2,8 @@ backend:
   name: github
   repo: hassankhan1902-spec/thefifthwall
   branch: main
-  app_id: Ov23liAe14yMQXRZJ3nk
-
-# Local backend for local development when running `npx decap-server`
-local_backend: true
+  client_id: Ov23liAe14yMQXRZJ3nk
+  auth_type: pkce
 
 # Media / Asset upload paths
 media_folder: "images/uploads"
