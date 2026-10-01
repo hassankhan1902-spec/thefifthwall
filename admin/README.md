@@ -30,13 +30,12 @@ The CMS uses GitHub's native **PKCE (Proof Key for Code Exchange)** authenticati
 ### GitHub OAuth App Settings:
 1. In your GitHub account, go to **Settings** &rarr; **Developer Settings** &rarr; **OAuth Apps** &rarr; open your OAuth app (`Ov23liAe14yMQXRZJ3nk`).
 2. Verify the following fields:
-   - **Homepage URL**: `https://thefifthwall.pk` (or your Vercel URL)
+   - **Homepage URL**: `https://www.thefifthwallarchitecture.com`
    - **Authorization callback URL**:
      Set this directly to your admin dashboard URL:
      ```
-     https://thefifthwall.pk/admin/
+     https://www.thefifthwallarchitecture.com/admin/
      ```
-     *(If accessing on Vercel preview or custom domain, ensure the domain matches your callback URL, e.g., `https://thefifthwall.vercel.app/admin/`)*
 3. Save changes.
 
 ---

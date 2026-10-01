@@ -1,5 +1,5 @@
 export default function handler(req, res) {
-  const host = req.headers.host || 'thefifthwall.pk';
+  const host = req.headers.host || 'www.thefifthwallarchitecture.com';
   const protocol = host.includes('localhost') ? 'http' : 'https';
   const clientId = process.env.OAUTH_GITHUB_CLIENT_ID || process.env.GITHUB_CLIENT_ID;
 

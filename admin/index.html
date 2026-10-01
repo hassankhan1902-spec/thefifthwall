@@ -19,9 +19,65 @@
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     }
   </style>
+
+  <script>
+    (function() {
+      // Strictly hardcoded Production URLs for GitHub PKCE flow
+      const SITE_URL = 'https://www.thefifthwallarchitecture.com';
+      const CALLBACK_URL = 'https://www.thefifthwallarchitecture.com/admin/';
+
+      // Canonical domain & trailing slash enforcement for production
+      if (window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        const currentClean = window.location.origin + window.location.pathname;
+        if (currentClean !== CALLBACK_URL) {
+          // Normalize to https://www.thefifthwallarchitecture.com/admin/ while preserving query params (OAuth code/state)
+          window.location.replace(CALLBACK_URL + window.location.search + window.location.hash);
+          return;
+        }
+      }
+
+      // Intercept URLSearchParams to guarantee redirect_uri is strictly the hardcoded callback
+      const OrigURLSearchParams = window.URLSearchParams;
+      window.URLSearchParams = class extends OrigURLSearchParams {
+        constructor(init) {
+          if (init && typeof init === 'object' && !(init instanceof OrigURLSearchParams) && !Array.isArray(init)) {
+            if ('redirect_uri' in init) {
+              init = Object.assign({}, init, { redirect_uri: CALLBACK_URL });
+            }
+          } else if (Array.isArray(init)) {
+            init = init.map(function(pair) {
+              return pair[0] === 'redirect_uri' ? [pair[0], CALLBACK_URL] : pair;
+            });
+          }
+          super(init);
+        }
+        set(name, value) {
+          if (name === 'redirect_uri') {
+            return super.set(name, CALLBACK_URL);
+          }
+          return super.set(name, value);
+        }
+        append(name, value) {
+          if (name === 'redirect_uri') {
+            return super.append(name, CALLBACK_URL);
+          }
+          return super.append(name, value);
+        }
+      };
+
+      // Intercept fetch requests to guarantee token exchange uses hardcoded callback
+      const origFetch = window.fetch;
+      window.fetch = function(resource, init) {
+        if (init && init.body && typeof init.body === 'string' && init.body.indexOf('redirect_uri=') !== -1) {
+          init.body = init.body.replace(/redirect_uri=[^&]+/g, 'redirect_uri=' + encodeURIComponent(CALLBACK_URL));
+        }
+        return origFetch.apply(this, arguments);
+      };
+    })();
+  </script>
 </head>
 <body>
-  <!-- Decap CMS Core Script (Standard GitHub OAuth) -->
+  <!-- Decap CMS Core Script (Standard GitHub OAuth / PKCE) -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
 </body>
 </html>

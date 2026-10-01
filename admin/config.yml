@@ -12,8 +12,8 @@ media_folder: "images/uploads"
 public_folder: "images/uploads"
 
 # Studio Branding & Links
-site_url: "https://thefifthwall.pk"
-display_url: "https://thefifthwall.pk"
+site_url: "https://www.thefifthwallarchitecture.com"
+display_url: "https://www.thefifthwallarchitecture.com"
 logo_url: "../images/the-fifth-wall-logo-transparent.png"
 publish_mode: simple
 
