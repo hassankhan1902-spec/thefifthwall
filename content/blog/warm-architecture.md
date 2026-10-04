@@ -1,3 +1,10 @@
+---
+title: "Your Blog Post Title"
+date: 2026-10-05
+draft: false
+image: lucid-origin_Positive_Prompt_An_ultra-realistic_architectural_photograph_of_a_luxury_modern_l-0
+---
+
 Warm Architectural Minimalism: How to Design a Modern Luxury Home in Islamabad
 For decades, luxury home design in Pakistan leaned heavily toward ornate chandeliers, glossy marble, and gilded classical mouldings. Today, a quieter and more grounded design movement is sweeping through prime residential enclaves across Islamabad, Rawalpindi, and Lahore: Warm Architectural Minimalism.
 
