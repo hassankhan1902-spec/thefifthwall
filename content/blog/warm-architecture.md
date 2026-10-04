@@ -1,5 +1,5 @@
 ---
-title: "Your Blog Post Title"
+title: "Warm Architectural Minimalism: How to Design a Modern Luxury Home in Islamabad"
 date: 2026-10-05
 draft: false
 image: lucid-origin_Positive_Prompt_An_ultra-realistic_architectural_photograph_of_a_luxury_modern_l-0
