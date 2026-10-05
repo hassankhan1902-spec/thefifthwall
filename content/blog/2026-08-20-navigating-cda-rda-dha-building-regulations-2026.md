@@ -3,8 +3,6 @@ title: "Navigating CDA, RDA & DHA Building Regulations (2026 Edition): Avoid Cos
 date: 2026-08-20
 author: "The Fifth Wall Studio"
 category: "Byelaws & Permits"
-cover_image: "images/vibe-minimalist.jpg"
-cover_alt: "Architectural residential plans for CDA approval"
 excerpt: "A definitive architect's guide to mandatory setback dimensions, maximum covered area calculations, basement damp-proofing compliance, and solar rooftop byelaws across Islamabad and Rawalpindi."
 read_time: "5 min read"
 seo:

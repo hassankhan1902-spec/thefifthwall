@@ -45,8 +45,6 @@ collections:
           default: "Architecture & Planning",
           required: true 
         }
-      - { label: "Cover Image", name: "cover_image", widget: "image", required: true, hint: "Upload or choose a cover photo" }
-      - { label: "Cover Image Alt Text", name: "cover_alt", widget: "string", required: false, default: "Architectural photograph by The Fifth Wall" }
       - { label: "Excerpt / Teaser", name: "excerpt", widget: "text", rows: 3, required: true, hint: "Brief summary shown on blog cards (2-3 sentences)" }
       - { label: "Reading Time", name: "read_time", widget: "string", default: "5 min read", required: false }
       - { label: "Article Body", name: "body", widget: "markdown", required: true, hint: "Full article content with visual rich-text editing" }

@@ -366,66 +366,51 @@
 
     /* ─── FEATURED STORY HERO CARD ────────────────────── */
     .featured-story-wrap {
-      padding: 50px 0 20px;
+      padding: 40px 0 20px;
     }
 
     .featured-story-card {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 44px;
       background: var(--pure-wh);
       border: 1px solid var(--border-card);
+      border-left: 4px solid var(--br);
       border-radius: 4px;
-      overflow: hidden;
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.03);
       cursor: pointer;
       transition: all 0.35s var(--ease);
+      padding: 48px 52px;
     }
 
     .featured-story-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
-      border-color: rgba(140, 106, 59, 0.35);
-    }
-
-    .featured-story-media {
-      position: relative;
-      min-height: 380px;
-      overflow: hidden;
-      background: #E5E3DE;
-    }
-
-    .featured-story-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.6s var(--ease);
-    }
-
-    .featured-story-card:hover .featured-story-media img {
-      transform: scale(1.04);
-    }
-
-    .featured-badge {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      padding: 5px 12px;
-      background: rgba(31, 31, 31, 0.85);
-      backdrop-filter: blur(8px);
-      color: #FFFFFF;
-      font-size: 0.68rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      font-weight: 500;
+      border-color: var(--border-card);
+      border-left-color: var(--br-light);
     }
 
     .featured-story-body {
-      padding: 44px 44px 44px 0;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+    }
+
+    .featured-meta-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .featured-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(140, 106, 59, 0.1);
+      color: var(--br);
+      border: 1px solid rgba(140, 106, 59, 0.25);
+      font-size: 0.7rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-weight: 600;
     }
 
     .article-meta-row {
@@ -503,6 +488,7 @@
     .blog-card {
       background: var(--pure-wh);
       border: 1px solid var(--border-card);
+      border-left: 3px solid transparent;
       border-radius: 4px;
       overflow: hidden;
       display: flex;
@@ -515,47 +501,37 @@
     .blog-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
-      border-color: rgba(140, 106, 59, 0.35);
-    }
-
-    .blog-card-media {
-      position: relative;
-      height: 230px;
-      overflow: hidden;
-      background: #E5E3DE;
-    }
-
-    .blog-card-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s var(--ease);
-    }
-
-    .blog-card:hover .blog-card-media img {
-      transform: scale(1.05);
-    }
-
-    .blog-card-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 4px 10px;
-      background: rgba(31, 31, 31, 0.85);
-      backdrop-filter: blur(6px);
-      color: #FFFFFF;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      border-radius: 2px;
-      font-weight: 500;
+      border-color: var(--border-card);
+      border-left-color: var(--br);
     }
 
     .blog-card-content {
-      padding: 28px 24px 24px;
+      padding: 34px 30px 26px;
       display: flex;
       flex-direction: column;
       flex-grow: 1;
+    }
+
+    .blog-card-top-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+
+    .blog-card-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      background: rgba(140, 106, 59, 0.08);
+      color: var(--br);
+      border: 1px solid rgba(140, 106, 59, 0.2);
+      font-size: 0.68rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-weight: 600;
     }
 
     .blog-card-title {
@@ -579,7 +555,7 @@
       margin-bottom: 24px;
       flex-grow: 1;
       display: -webkit-box;
-      -webkit-line-clamp: 3;
+      -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
@@ -705,27 +681,8 @@
       transform: scale(1.06);
     }
 
-    .reader-hero-media {
-      position: relative;
-      width: 100%;
-      height: 380px;
-      background: #E5E3DE;
-    }
-
-    .reader-hero-media img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .reader-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 60%);
-    }
-
     .reader-content-inner {
-      padding: 44px 50px 60px;
+      padding: 56px 56px 60px;
     }
 
     .reader-meta-bar {
@@ -941,11 +898,7 @@
         gap: 40px;
       }
       .featured-story-card {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-      .featured-story-body {
-        padding: 32px;
+        padding: 36px 32px;
       }
       .blog-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -963,10 +916,7 @@
         grid-template-columns: 1fr;
       }
       .reader-content-inner {
-        padding: 30px 24px 40px;
-      }
-      .reader-hero-media {
-        height: 250px;
+        padding: 36px 24px 40px;
       }
     }
 
@@ -1063,17 +1013,16 @@
     <section class="featured-story-wrap" id="featuredStorySection" style="display: none;">
       <div class="container">
         <article class="featured-story-card" id="featuredStoryCard" role="button" tabindex="0">
-          <div class="featured-story-media">
-            <img id="featCoverImg" src="images/house-923-exterior.jpg" alt="Featured Monograph" width="800" height="500">
-            <span class="featured-badge">Featured Monograph</span>
-          </div>
           <div class="featured-story-body">
-            <div class="article-meta-row">
-              <span class="article-category-tag" id="featCategory">Architecture &amp; Planning</span>
-              <span>&bull;</span>
-              <span id="featDate">October 2026</span>
-              <span>&bull;</span>
-              <span id="featReadTime">6 min read</span>
+            <div class="featured-meta-header">
+              <span class="featured-badge">Featured Monograph</span>
+              <div class="article-meta-row" style="margin-bottom: 0;">
+                <span class="article-category-tag" id="featCategory">Architecture &amp; Planning</span>
+                <span>&bull;</span>
+                <span id="featDate">October 2026</span>
+                <span>&bull;</span>
+                <span id="featReadTime">6 min read</span>
+              </div>
             </div>
             <h2 class="featured-story-title" id="featTitle">Designing 1 Kanal Luxury Residences in Islamabad</h2>
             <p class="featured-story-excerpt" id="featExcerpt">
@@ -1105,11 +1054,6 @@
     <div class="modal-container">
       <button class="modal-close-btn" onclick="closeArticleReader()" aria-label="Close Article Reader">&times;</button>
       
-      <div class="reader-hero-media">
-        <img id="readerHeroImg" src="images/house-923-exterior.jpg" alt="Article Cover Image">
-        <div class="reader-hero-overlay"></div>
-      </div>
-
       <div class="reader-content-inner">
         <div class="reader-meta-bar">
           <span class="article-category-tag" id="readerCategoryTag">Architecture &amp; Planning</span>
@@ -1220,13 +1164,36 @@
     // ── FALLBACK EMBEDDED MONOGRAPHS (Guarantees zero blank screen on local file:/// or network disconnect) ──
     const FALLBACK_ARTICLES = [
       {
+        id: '2026-10-02-navigating-cda-building-byelaws-islamabad',
+        title: 'Navigating CDA Building Byelaws: A Guide for Custom Homeowners in Islamabad',
+        category: 'Byelaws & Permits',
+        date: 'October 2026',
+        readTime: '6 min read',
+        author: 'The Fifth Wall Studio',
+        excerpt: 'Demystify Islamabad\'s Capital Development Authority regulations. Learn how integrated architectural planning safeguards your luxury residential investment from costly delays.',
+        content: `
+          <p>Designing a luxury residence or custom farmhouse across Islamabad’s premier enclaves—from the established sectors of F-10 to gated communities in DHA and Naval Anchorage—requires more than just exceptional aesthetic vision. It demands rigorous adherence to local municipal frameworks.</p>
+          <p>At <strong>The Fifth Wall Architecture Studio</strong>, we believe that true architectural excellence includes seamless regulatory execution. Understanding the Capital Development Authority (CDA) or Rawalpindi Development Authority (RDA) building codes from day one protects your investment and ensures uninterrupted construction timelines.</p>
+          <h2>The Intersection of Design and Municipal Rigor</h2>
+          <p>Too often, homeowners experience frustrating delays because structural concepts are drawn without accounting for local zoning caps, set-backs, or height restrictions. Our unified philosophy—<em>one architect, one integrated vision</em>—eliminates this friction.</p>
+          <p>By coordinating structural engineering and municipal permit assistance concurrently with initial schematic layouts, we ensure your spatial goals harmonize perfectly with local governance.</p>
+          <h3>Key Considerations for Your Islamabad Build:</h3>
+          <ul>
+            <li><strong>Covered Area &amp; F.A.R. Compliance:</strong> Knowing your exact allowable floor area ratio prevents costly layout revisions during the approval phase.</li>
+            <li><strong>Set-Back Regulations:</strong> Proper spatial planning for front, rear, and side lawns ensures maximum light penetration and privacy while staying fully compliant.</li>
+            <li><strong>Structural &amp; Engineering Submissions:</strong> Detailed engineering calculations required by local authorities guarantee structural integrity against regional seismic considerations.</li>
+          </ul>
+          <h2>Streamlining Your Journey From Concept to Completion</h2>
+          <p>Building your dream home or commercial space should be an inspiring milestone, not a bureaucratic hurdle. By managing everything from initial drafting tables to final municipal sign-offs under one roof, we provide the turnkey assurance your project deserves.</p>
+        `
+      },
+      {
         id: '2026-10-01-designing-1-kanal-luxury-residences-in-islamabad',
         title: 'Designing 1 Kanal Luxury Residences in Islamabad: Climate Orientation, Margalla Daylight & Spatial Drama',
         category: 'Architecture & Planning',
         date: 'October 2026',
         readTime: '6 min read',
         author: 'The Fifth Wall Studio',
-        coverImg: 'images/house-923-exterior.jpg',
         excerpt: 'In Pakistan\'s capital, modern villa architecture cannot simply mimic Western glass boxes. Between scorching summer heatwaves and winter morning breezes off the Margalla Hills, a truly refined 1 Kanal house demands cantilevered thermal shields, double-height light wells, and acoustic sanctuary.',
         content: `
           <p>Building a 1 Kanal residential villa in Islamabad (typically 50&prime; &times; 90&prime; comprising 4,500 sqft of ground footprint) is one of the most exciting yet challenging architectural undertakings in Pakistan. Too often, homeowners and speculative builders attempt to copy glossy European modernism without understanding Islamabad\'s microclimate.</p>
@@ -1257,7 +1224,6 @@
         date: 'September 2026',
         readTime: '7 min read',
         author: 'The Fifth Wall Studio',
-        coverImg: 'images/project-naval-anchorage.jpg',
         excerpt: 'Why "cheap" labor contractors consistently lead to 30% budget overruns in Islamabad and Lahore, and how comprehensive Architectural BOQ Auditing protects homebuilders from bait-and-switch material grading.',
         content: `
           <p>When embarking on an architectural residence in Pakistan, prospective commissioners face a crucial strategic choice: award the construction contract as a Turnkey execution (Architecture + Grey + Finishes managed under one roof) or hire separate sub-contractors on an item-rate grey structure arrangement.</p>
@@ -1283,7 +1249,6 @@
         date: 'August 2026',
         readTime: '5 min read',
         author: 'The Fifth Wall Studio',
-        coverImg: 'images/vibe-minimalist.jpg',
         excerpt: 'A definitive architect\'s guide to mandatory setback dimensions, maximum covered area calculations, basement damp-proofing compliance, and solar rooftop byelaws across Islamabad and Rawalpindi.',
         content: `
           <p>Securing municipal approval from the Capital Development Authority (CDA), Rawalpindi Development Authority (RDA), or Defense Housing Authority (DHA) is a critical milestone before any excavation begins. Minor deviations in setback lines or covered area calculations can halt construction for months.</p>
@@ -1305,7 +1270,6 @@
         date: 'July 2026',
         readTime: '4 min read',
         author: 'The Fifth Wall Studio',
-        coverImg: 'images/osama-house-lounge.jpg',
         excerpt: 'Moving past sterile gloss tiles. How pairing raw Pakistani limestone, Honed Ziarat White marble, and dark-grain American walnut elevates residential interiors from showroom generic to sculptural tranquility.',
         content: `
           <p>For decades, residential luxury in Pakistan was synonymous with high-gloss porcelain tiles, heavy gold moldings, and faux ceilings. The contemporary architectural renaissance in Islamabad embraces the quiet power of organic, tactile materiality.</p>
@@ -1326,7 +1290,6 @@
         date: 'June 2026',
         readTime: '6 min read',
         author: 'The Fifth Wall Studio',
-        coverImg: 'images/office-g9-executive.jpg',
         excerpt: 'Dramatic architectural overhangs require disciplined structural calculation. How our practice collaborates with senior structural engineers to ensure floating stairs and dramatic canopies resist tectonic motion safely.',
         content: `
           <p>Islamabad is situated in proximity to major fault zones, placing the twin cities within Seismic Zone 2B and Zone 3 under the Building Code of Pakistan. This geographical reality makes structural engineering an artistic partner to architectural expression.</p>
@@ -1365,6 +1328,7 @@
         } catch (e) {
           // Predefined manifest of known markdown files
           fileList = [
+            '2026-10-02-navigating-cda-building-byelaws-islamabad.md',
             '2026-10-01-designing-1-kanal-luxury-residences-in-islamabad.md',
             '2026-09-15-turnkey-contracting-vs-item-rate-grey-structure.md',
             '2026-08-20-navigating-cda-rda-dha-building-regulations-2026.md',
@@ -1418,7 +1382,6 @@
       }
 
       const slug = fileName.replace(/\.md$/, '');
-      const coverUrl = cleanImageUrl(metadata.cover_image);
 
       return {
         id: slug,
@@ -1428,7 +1391,6 @@
         rawDate: metadata.date,
         readTime: metadata.read_time || estimateReadingTime(bodyText),
         author: metadata.author || 'The Fifth Wall Studio',
-        coverImg: coverUrl || 'images/house-923-exterior.jpg',
         excerpt: metadata.excerpt || bodyText.slice(0, 180).replace(/[#*`>]/g, '').trim() + '...',
         content: parseMarkdownBodyToHtml(bodyText)
       };
@@ -1570,8 +1532,6 @@
       const featSection = document.getElementById('featuredStorySection');
       if (!featSection || !art) return;
 
-      document.getElementById('featCoverImg').src = art.coverImg;
-      document.getElementById('featCoverImg').alt = art.title;
       document.getElementById('featCategory').textContent = art.category;
       document.getElementById('featDate').textContent = art.date;
       document.getElementById('featReadTime').textContent = art.readTime;
@@ -1599,15 +1559,14 @@
       });
 
       el.innerHTML = `
-        <div class="blog-card-media">
-          <img src="${escapeHtml(art.coverImg)}" alt="${escapeHtml(art.title)}" loading="lazy">
-          <span class="blog-card-badge">${escapeHtml(art.category)}</span>
-        </div>
         <div class="blog-card-content">
-          <div class="article-meta-row">
-            <span>${escapeHtml(art.date)}</span>
-            <span>&bull;</span>
-            <span class="article-read-time">${escapeHtml(art.readTime)}</span>
+          <div class="blog-card-top-row">
+            <span class="blog-card-badge">${escapeHtml(art.category)}</span>
+            <div class="article-meta-row" style="margin-bottom: 0;">
+              <span>${escapeHtml(art.date)}</span>
+              <span>&bull;</span>
+              <span class="article-read-time">${escapeHtml(art.readTime)}</span>
+            </div>
           </div>
           <h3 class="blog-card-title">${escapeHtml(art.title)}</h3>
           <p class="blog-card-excerpt">${escapeHtml(art.excerpt)}</p>
@@ -1680,8 +1639,6 @@
       const article = allArticles.find(a => a.id === articleId);
       if (!article) return;
 
-      document.getElementById('readerHeroImg').src = article.coverImg;
-      document.getElementById('readerHeroImg').alt = article.title;
       document.getElementById('readerCategoryTag').textContent = article.category;
       document.getElementById('readerDate').textContent = article.date;
       document.getElementById('readerReadTime').textContent = article.readTime;

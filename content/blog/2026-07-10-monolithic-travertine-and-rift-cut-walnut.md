@@ -3,8 +3,6 @@ title: "Monolithic Travertine & Rift-Cut Walnut: Sourcing Tactile Materiality fo
 date: 2026-07-10
 author: "The Fifth Wall Studio"
 category: "Luxury Interiors"
-cover_image: "images/osama-house-lounge.jpg"
-cover_alt: "Living lounge featuring honed travertine and slatted walnut"
 excerpt: "Moving past sterile gloss tiles. How pairing raw Pakistani limestone, Honed Ziarat White marble, and dark-grain American walnut elevates residential interiors from showroom generic to sculptural tranquility."
 read_time: "4 min read"
 seo:

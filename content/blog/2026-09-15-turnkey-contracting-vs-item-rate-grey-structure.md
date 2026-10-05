@@ -3,8 +3,6 @@ title: "Turnkey Contracting vs. Item-Rate Grey Structure: The True Cost of Build
 date: 2026-09-15
 author: "The Fifth Wall Studio"
 category: "Construction & BOQ"
-cover_image: "images/project-naval-anchorage.jpg"
-cover_alt: "Naval Anchorage turnkey residential construction site"
 excerpt: "Why 'cheap' labor contractors consistently lead to 30% budget overruns in Islamabad and Lahore, and how comprehensive Architectural BOQ Auditing protects homebuilders from bait-and-switch material grading."
 read_time: "7 min read"
 seo:

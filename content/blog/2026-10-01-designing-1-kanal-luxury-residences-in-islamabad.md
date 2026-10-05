@@ -3,8 +3,6 @@ title: "Designing 1 Kanal Luxury Residences in Islamabad: Climate Orientation, M
 date: 2026-10-01
 author: "The Fifth Wall Studio"
 category: "Architecture & Planning"
-cover_image: "images/house-923-exterior.jpg"
-cover_alt: "House 923 Modern Luxury Villa in Islamabad"
 excerpt: "In Pakistan's capital, modern villa architecture cannot simply mimic Western glass boxes. Between scorching summer heatwaves and winter morning breezes off the Margalla Hills, a truly refined 1 Kanal house demands cantilevered thermal shields, double-height light wells, and acoustic sanctuary."
 read_time: "6 min read"
 seo:

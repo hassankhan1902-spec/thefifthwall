@@ -3,8 +3,6 @@ title: "Seismic Zone 2B/3 Engineering in Islamabad: Structural Intelligence Behi
 date: 2026-06-05
 author: "The Fifth Wall Studio"
 category: "Architecture & Planning"
-cover_image: "images/office-g9-executive.jpg"
-cover_alt: "Structural overhang and cantilevered ceiling architecture"
 excerpt: "Dramatic architectural overhangs require disciplined structural calculation. How our practice collaborates with senior structural engineers to ensure floating stairs and dramatic canopies resist tectonic motion safely."
 read_time: "6 min read"
 seo:
