@@ -387,6 +387,50 @@
       border-left-color: var(--br-light);
     }
 
+    .featured-story-card.has-cover {
+      display: grid;
+      grid-template-columns: 1.22fr 1fr;
+      gap: 44px;
+      padding: 0;
+      border-left: 1px solid var(--border-card);
+      overflow: hidden;
+    }
+
+    .featured-story-media {
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      background: #E5E3DE;
+    }
+
+    .featured-story-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease);
+    }
+
+    .featured-story-card.has-cover:hover .featured-story-media img {
+      transform: scale(1.04);
+    }
+
+    .featured-story-card.has-cover .featured-badge {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      padding: 5px 12px;
+      background: rgba(31, 31, 31, 0.85);
+      backdrop-filter: blur(8px);
+      color: #FFFFFF;
+      border: none;
+      font-size: 0.68rem;
+    }
+
+    .featured-story-card.has-cover .featured-story-body {
+      padding: 44px 44px 44px 0;
+      justify-content: center;
+    }
+
     .featured-story-body {
       display: flex;
       flex-direction: column;
@@ -503,6 +547,44 @@
       box-shadow: 0 16px 36px rgba(0, 0, 0, 0.07);
       border-color: var(--border-card);
       border-left-color: var(--br);
+    }
+
+    .blog-card.has-cover .blog-card-media {
+      position: relative;
+      height: 240px;
+      overflow: hidden;
+      background: #E5E3DE;
+    }
+
+    .blog-card.has-cover .blog-card-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s var(--ease);
+    }
+
+    .blog-card.has-cover:hover .blog-card-media img {
+      transform: scale(1.05);
+    }
+
+    .blog-card.has-cover .blog-card-badge {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      padding: 4px 10px;
+      background: rgba(31, 31, 31, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      font-weight: 500;
+      border: none;
+    }
+
+    .blog-card.has-cover .blog-card-content {
+      padding: 26px 24px 22px;
     }
 
     .blog-card-content {
@@ -679,6 +761,26 @@
       background: var(--ch);
       color: #FFFFFF;
       transform: scale(1.06);
+    }
+
+    .reader-hero-media {
+      position: relative;
+      width: 100%;
+      height: 380px;
+      background: #E5E3DE;
+      overflow: hidden;
+    }
+
+    .reader-hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .reader-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 60%);
     }
 
     .reader-content-inner {
@@ -900,6 +1002,17 @@
       .featured-story-card {
         padding: 36px 32px;
       }
+      .featured-story-card.has-cover {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 0;
+      }
+      .featured-story-card.has-cover .featured-story-media {
+        min-height: 280px;
+      }
+      .featured-story-card.has-cover .featured-story-body {
+        padding: 32px;
+      }
       .blog-grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -917,6 +1030,9 @@
       }
       .reader-content-inner {
         padding: 36px 24px 40px;
+      }
+      .reader-hero-media {
+        height: 250px;
       }
     }
 
@@ -1013,8 +1129,12 @@
     <section class="featured-story-wrap" id="featuredStorySection" style="display: none;">
       <div class="container">
         <article class="featured-story-card" id="featuredStoryCard" role="button" tabindex="0">
+          <div class="featured-story-media" id="featMediaWrap" style="display: none;">
+            <img id="featCoverImg" src="" alt="Featured Monograph" width="800" height="500">
+            <span class="featured-badge">Featured Monograph</span>
+          </div>
           <div class="featured-story-body">
-            <div class="featured-meta-header">
+            <div class="featured-meta-header" id="featHeaderNoCover">
               <span class="featured-badge">Featured Monograph</span>
               <div class="article-meta-row" style="margin-bottom: 0;">
                 <span class="article-category-tag" id="featCategory">Architecture &amp; Planning</span>
@@ -1023,6 +1143,13 @@
                 <span>&bull;</span>
                 <span id="featReadTime">6 min read</span>
               </div>
+            </div>
+            <div class="article-meta-row" id="featMetaCover" style="display: none; margin-bottom: 14px;">
+              <span class="article-category-tag" id="featCategoryCover">Architecture &amp; Planning</span>
+              <span>&bull;</span>
+              <span id="featDateCover">October 2026</span>
+              <span>&bull;</span>
+              <span id="featReadTimeCover">6 min read</span>
             </div>
             <h2 class="featured-story-title" id="featTitle">Designing 1 Kanal Luxury Residences in Islamabad</h2>
             <p class="featured-story-excerpt" id="featExcerpt">
@@ -1054,6 +1181,11 @@
     <div class="modal-container">
       <button class="modal-close-btn" onclick="closeArticleReader()" aria-label="Close Article Reader">&times;</button>
       
+      <div class="reader-hero-media" id="readerMediaWrap" style="display: none;">
+        <img id="readerHeroImg" src="" alt="Article Cover Image">
+        <div class="reader-hero-overlay"></div>
+      </div>
+
       <div class="reader-content-inner">
         <div class="reader-meta-bar">
           <span class="article-category-tag" id="readerCategoryTag">Architecture &amp; Planning</span>
@@ -1170,6 +1302,8 @@
         date: 'October 2026',
         readTime: '7 min read',
         author: 'The Fifth Wall Studio',
+        coverImg: 'images/warm-minimalism-cover.jpg',
+        coverAlt: 'Warm Architectural Minimalism luxury modern living lounge with fireplace and outdoor courtyard in Islamabad',
         excerpt: 'For decades, luxury home design in Pakistan leaned heavily toward ornate chandeliers and glossy marble. Discover how warm minimalism combines raw limestone, fluted timber, and climate-smart space planning across Islamabad.',
         content: `
           <p>For decades, luxury home design in Pakistan leaned heavily toward ornate chandeliers, glossy marble, and gilded classical mouldings. Today, a quieter and more grounded design movement is sweeping through prime residential enclaves across Islamabad, Rawalpindi, and Lahore: <strong>Warm Architectural Minimalism</strong>.</p>
@@ -1409,6 +1543,9 @@
       }
 
       const slug = fileName.replace(/\.md$/, '');
+      const rawCover = metadata.cover_image || metadata.image || metadata.cover || '';
+      const coverImg = cleanImageUrl(rawCover);
+      const coverAlt = metadata.cover_alt || metadata.alt || metadata.title || 'Monograph Cover';
 
       return {
         id: slug,
@@ -1419,6 +1556,8 @@
         readTime: metadata.read_time || estimateReadingTime(bodyText),
         author: metadata.author || 'The Fifth Wall Studio',
         excerpt: metadata.excerpt || bodyText.slice(0, 180).replace(/[#*`>]/g, '').trim() + '...',
+        coverImg: coverImg,
+        coverAlt: coverAlt,
         content: parseMarkdownBodyToHtml(bodyText)
       };
     }
@@ -1557,24 +1696,48 @@
 
     function populateFeaturedHero(art) {
       const featSection = document.getElementById('featuredStorySection');
+      const card = document.getElementById('featuredStoryCard');
+      const mediaWrap = document.getElementById('featMediaWrap');
+      const coverImg = document.getElementById('featCoverImg');
+      const headerNoCover = document.getElementById('featHeaderNoCover');
+      const metaCover = document.getElementById('featMetaCover');
       if (!featSection || !art) return;
 
-      document.getElementById('featCategory').textContent = art.category;
-      document.getElementById('featDate').textContent = art.date;
-      document.getElementById('featReadTime').textContent = art.readTime;
+      if (art.coverImg) {
+        card.classList.add('has-cover');
+        if (mediaWrap) mediaWrap.style.display = 'block';
+        if (coverImg) {
+          coverImg.src = art.coverImg;
+          coverImg.alt = art.coverAlt || art.title;
+        }
+        if (headerNoCover) headerNoCover.style.display = 'none';
+        if (metaCover) {
+          metaCover.style.display = 'flex';
+          document.getElementById('featCategoryCover').textContent = art.category;
+          document.getElementById('featDateCover').textContent = art.date;
+          document.getElementById('featReadTimeCover').textContent = art.readTime;
+        }
+      } else {
+        card.classList.remove('has-cover');
+        if (mediaWrap) mediaWrap.style.display = 'none';
+        if (headerNoCover) headerNoCover.style.display = 'flex';
+        if (metaCover) metaCover.style.display = 'none';
+        document.getElementById('featCategory').textContent = art.category;
+        document.getElementById('featDate').textContent = art.date;
+        document.getElementById('featReadTime').textContent = art.readTime;
+      }
+
       document.getElementById('featTitle').textContent = art.title;
       document.getElementById('featExcerpt').textContent = art.excerpt;
       document.getElementById('featAuthor').textContent = art.author;
 
-      const card = document.getElementById('featuredStoryCard');
       card.onclick = () => openArticleReader(art.id);
-
       featSection.style.display = 'block';
     }
 
     function createBlogCard(art, isFeatured) {
       const el = document.createElement('article');
-      el.className = 'blog-card';
+      el.className = art.coverImg ? 'blog-card has-cover' : 'blog-card';
       el.id = `card-${art.id}`;
       el.setAttribute('data-category', mapCategoryToKey(art.category));
       el.setAttribute('role', 'button');
@@ -1585,16 +1748,37 @@
         openArticleReader(art.id);
       });
 
-      el.innerHTML = `
-        <div class="blog-card-content">
-          <div class="blog-card-top-row">
+      let mediaHtml = '';
+      if (art.coverImg) {
+        mediaHtml = `
+          <div class="blog-card-media">
+            <img src="${escapeHtml(art.coverImg)}" alt="${escapeHtml(art.coverAlt || art.title)}" loading="lazy">
             <span class="blog-card-badge">${escapeHtml(art.category)}</span>
-            <div class="article-meta-row" style="margin-bottom: 0;">
-              <span>${escapeHtml(art.date)}</span>
-              <span>&bull;</span>
-              <span class="article-read-time">${escapeHtml(art.readTime)}</span>
-            </div>
           </div>
+        `;
+      }
+
+      const topRowHtml = art.coverImg ? `
+        <div class="article-meta-row" style="margin-bottom: 12px;">
+          <span>${escapeHtml(art.date)}</span>
+          <span>&bull;</span>
+          <span class="article-read-time">${escapeHtml(art.readTime)}</span>
+        </div>
+      ` : `
+        <div class="blog-card-top-row">
+          <span class="blog-card-badge">${escapeHtml(art.category)}</span>
+          <div class="article-meta-row" style="margin-bottom: 0;">
+            <span>${escapeHtml(art.date)}</span>
+            <span>&bull;</span>
+            <span class="article-read-time">${escapeHtml(art.readTime)}</span>
+          </div>
+        </div>
+      `;
+
+      el.innerHTML = `
+        ${mediaHtml}
+        <div class="blog-card-content">
+          ${topRowHtml}
           <h3 class="blog-card-title">${escapeHtml(art.title)}</h3>
           <p class="blog-card-excerpt">${escapeHtml(art.excerpt)}</p>
           <div class="blog-card-footer">
@@ -1665,6 +1849,17 @@
     function openArticleReader(articleId) {
       const article = allArticles.find(a => a.id === articleId);
       if (!article) return;
+
+      const readerMediaWrap = document.getElementById('readerMediaWrap');
+      const readerHeroImg = document.getElementById('readerHeroImg');
+
+      if (article.coverImg && readerMediaWrap && readerHeroImg) {
+        readerHeroImg.src = article.coverImg;
+        readerHeroImg.alt = article.coverAlt || article.title;
+        readerMediaWrap.style.display = 'block';
+      } else if (readerMediaWrap) {
+        readerMediaWrap.style.display = 'none';
+      }
 
       document.getElementById('readerCategoryTag').textContent = article.category;
       document.getElementById('readerDate').textContent = article.date;

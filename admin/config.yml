@@ -46,6 +46,8 @@ collections:
           required: true 
         }
       - { label: "Excerpt / Teaser", name: "excerpt", widget: "text", rows: 3, required: true, hint: "Brief summary shown on blog cards (2-3 sentences)" }
+      - { label: "Cover Image (Optional)", name: "cover_image", widget: "image", required: false, hint: "Optional header and card cover photograph" }
+      - { label: "Cover Image Alt Text", name: "cover_alt", widget: "string", required: false, hint: "Accessibility description of the cover photo" }
       - { label: "Reading Time", name: "read_time", widget: "string", default: "5 min read", required: false }
       - { label: "Article Body", name: "body", widget: "markdown", required: true, hint: "Full article content with visual rich-text editing" }
       

@@ -3,6 +3,8 @@ title: "Warm Architectural Minimalism: How to Design a Modern Luxury Home in Isl
 date: "2026-10-05"
 author: "The Fifth Wall Studio"
 category: "Architecture & Planning"
+cover_image: "images/warm-minimalism-cover.jpg"
+cover_alt: "Warm Architectural Minimalism luxury modern living lounge with fireplace and outdoor courtyard in Islamabad"
 excerpt: "For decades, luxury home design in Pakistan leaned heavily toward ornate chandeliers and glossy marble. Discover how warm minimalism combines raw limestone, fluted timber, and climate-smart space planning across Islamabad."
 read_time: "7 min read"
 seo:
