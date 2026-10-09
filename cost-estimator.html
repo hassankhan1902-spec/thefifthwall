@@ -548,6 +548,162 @@
       color: var(--br);
     }
 
+    /* ─── BASEMENT CONFIGURATION SELECTOR ─── */
+    .basement-selector-bar {
+      background: var(--pure-wh);
+      border: 1px solid var(--border-subtle);
+      border-radius: 4px;
+      padding: 16px 24px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .basement-selector-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .basement-selector-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--ch);
+      line-height: 1.2;
+    }
+
+    .basement-selector-hint {
+      font-size: 0.8rem;
+      color: var(--sg);
+      line-height: 1.4;
+    }
+
+    .basement-toggle-pills {
+      display: inline-flex;
+      background: #EDEAE5;
+      padding: 4px;
+      border-radius: 30px;
+      gap: 4px;
+      border: 1px solid rgba(31, 31, 31, 0.08);
+    }
+
+    .basement-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 26px;
+      border: none;
+      background: transparent;
+      color: var(--ch);
+      font-family: 'Jost', sans-serif;
+      cursor: pointer;
+      transition: all 0.25s var(--ease);
+      font-size: 0.78rem;
+      letter-spacing: 0.04em;
+    }
+
+    .basement-pill:hover {
+      color: var(--br);
+    }
+
+    .basement-pill.active {
+      background: #FFFFFF;
+      color: var(--ch);
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    }
+
+    .pill-radio-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--sg);
+      transition: all 0.2s;
+    }
+
+    .basement-pill.active .pill-radio-dot {
+      border-color: var(--br);
+      background: var(--br);
+      box-shadow: 0 0 0 2px rgba(140, 106, 59, 0.2);
+    }
+
+    .pill-text-wrap {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+      line-height: 1.2;
+    }
+
+    .pill-text-wrap strong {
+      font-weight: 500;
+      font-size: 0.82rem;
+    }
+
+    .pill-text-wrap small {
+      font-size: 0.68rem;
+      color: var(--sg);
+      letter-spacing: 0;
+    }
+
+    .basement-pill.active .pill-text-wrap strong {
+      color: var(--br);
+    }
+
+    /* Inside plot card: basement selector / tag */
+    .card-basement-switch {
+      display: flex;
+      background: #F0EEEA;
+      border-radius: 3px;
+      padding: 2px;
+      margin-top: 10px;
+      gap: 2px;
+      border: 1px solid rgba(31, 31, 31, 0.06);
+    }
+
+    .card-bsmt-btn {
+      flex: 1;
+      padding: 4px 4px;
+      border: none;
+      background: transparent;
+      color: var(--sg);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.64rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: all 0.2s var(--ease);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .card-bsmt-btn:hover {
+      color: var(--ch);
+    }
+
+    .card-bsmt-btn.active {
+      background: #FFFFFF;
+      color: var(--br);
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+      font-weight: 600;
+    }
+
+    .card-basement-tag {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 500;
+      padding: 1px 6px;
+      border-radius: 2px;
+      background: rgba(140, 106, 59, 0.1);
+      color: var(--br);
+      margin-top: 4px;
+    }
+
     /* ─── LIVE PLOT SPECIFICATION BANNER ─── */
     .plot-spec-banner {
       background: #FFFFFF;
@@ -556,8 +712,8 @@
       border-radius: 4px;
       padding: 20px 28px;
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
       align-items: center;
       box-shadow: 0 4px 18px rgba(0, 0, 0, 0.03);
     }
@@ -1427,7 +1583,7 @@
             <span class="stat-label">Avg Turnkey Rate / sqft</span>
           </div>
           <div class="stat-box">
-            <span class="stat-num">65 / 35</span>
+            <span class="stat-num">48 / 52</span>
             <span class="stat-label">Structure vs Finishes Split</span>
           </div>
           <div class="stat-box">
@@ -1459,7 +1615,31 @@
             </a>
           </div>
 
-          <!-- 6 Pre-rendered Plot Size Cards (Units strictly sqft, no programs) -->
+          <!-- BASEMENT CONFIGURATION SELECTOR -->
+          <div class="basement-selector-bar">
+            <div class="basement-selector-info">
+              <span class="basement-selector-title">Basement Configuration</span>
+              <span class="basement-selector-hint">Choose whether to include a full/partial subterranean level across your chosen plot footprint:</span>
+            </div>
+            <div class="basement-toggle-pills" role="radiogroup" aria-label="Select Basement Configuration">
+              <button type="button" class="basement-pill active" data-basement="no" role="radio" aria-checked="true">
+                <span class="pill-radio-dot"></span>
+                <span class="pill-text-wrap">
+                  <strong>Without Basement</strong>
+                  <small>Standard Ground + 1st Floor + Mumty</small>
+                </span>
+              </button>
+              <button type="button" class="basement-pill" data-basement="yes" role="radio" aria-checked="false">
+                <span class="pill-radio-dot"></span>
+                <span class="pill-text-wrap">
+                  <strong>With Basement</strong>
+                  <small>Subterranean Living + Sump Tanking</small>
+                </span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 6 Pre-rendered Plot Size Cards (Units strictly sqft, with basement options) -->
           <div class="plot-cards-grid" id="plot-cards-grid" role="radiogroup" aria-label="Select Plot Size">
             
             <!-- 5 Marla -->
@@ -1472,12 +1652,17 @@
                 <span class="plot-card-dim">25' &times; 50' &middot; 1,125 sqft Plot</span>
                 <p class="plot-card-meta">
                   Plot Area: <strong>1,125 sqft</strong><br>
-                  Covered Area: <strong>~2,200 sqft</strong>
+                  Covered Area: <strong class="card-covered-txt">~2,200 sqft</strong><br>
+                  <span class="card-basement-tag">Without Basement</span>
                 </p>
+                <div class="card-basement-switch" role="group" aria-label="5 Marla basement toggle">
+                  <button type="button" class="card-bsmt-btn active" data-bsmt="no">No Basement</button>
+                  <button type="button" class="card-bsmt-btn" data-bsmt="yes">+ Basement</button>
+                </div>
               </div>
               <div class="plot-card-base">
                 <span>Base Turnkey</span>
-                <span>₨ 1.50 Cr (₨ 6,818/sqft)</span>
+                <span class="card-base-txt">₨ 1.50 Cr (₨ 6,818/sqft)</span>
               </div>
             </div>
 
@@ -1491,12 +1676,17 @@
                 <span class="plot-card-dim">30' &times; 60' &middot; 1,800 sqft Plot</span>
                 <p class="plot-card-meta">
                   Plot Area: <strong>1,800 sqft</strong><br>
-                  Covered Area: <strong>~3,100 sqft</strong>
+                  Covered Area: <strong class="card-covered-txt">~3,100 sqft</strong><br>
+                  <span class="card-basement-tag">Without Basement</span>
                 </p>
+                <div class="card-basement-switch" role="group" aria-label="7 Marla basement toggle">
+                  <button type="button" class="card-bsmt-btn active" data-bsmt="no">No Basement</button>
+                  <button type="button" class="card-bsmt-btn" data-bsmt="yes">+ Basement</button>
+                </div>
               </div>
               <div class="plot-card-base">
                 <span>Base Turnkey</span>
-                <span>₨ 2.10 Cr (₨ 6,774/sqft)</span>
+                <span class="card-base-txt">₨ 2.10 Cr (₨ 6,774/sqft)</span>
               </div>
             </div>
 
@@ -1510,12 +1700,17 @@
                 <span class="plot-card-dim">35' &times; 70' &middot; 2,450 sqft Plot</span>
                 <p class="plot-card-meta">
                   Plot Area: <strong>2,450 sqft</strong><br>
-                  Covered Area: <strong>~4,200 sqft</strong>
+                  Covered Area: <strong class="card-covered-txt">~4,200 sqft</strong><br>
+                  <span class="card-basement-tag">Without Basement</span>
                 </p>
+                <div class="card-basement-switch" role="group" aria-label="10 Marla basement toggle">
+                  <button type="button" class="card-bsmt-btn active" data-bsmt="no">No Basement</button>
+                  <button type="button" class="card-bsmt-btn" data-bsmt="yes">+ Basement</button>
+                </div>
               </div>
               <div class="plot-card-base">
                 <span>Base Turnkey</span>
-                <span>₨ 2.85 Cr (₨ 6,786/sqft)</span>
+                <span class="card-base-txt">₨ 2.85 Cr (₨ 6,786/sqft)</span>
               </div>
             </div>
 
@@ -1529,12 +1724,17 @@
                 <span class="plot-card-dim">50' &times; 90' &middot; 4,500 sqft Plot</span>
                 <p class="plot-card-meta">
                   Plot Area: <strong>4,500 sqft</strong><br>
-                  Covered Area: <strong>~7,200 sqft</strong>
+                  Covered Area: <strong class="card-covered-txt">~5,400 sqft</strong><br>
+                  <span class="card-basement-tag">Without Basement</span>
                 </p>
+                <div class="card-basement-switch" role="group" aria-label="1 Kanal basement toggle">
+                  <button type="button" class="card-bsmt-btn active" data-bsmt="no">No Basement</button>
+                  <button type="button" class="card-bsmt-btn" data-bsmt="yes">+ Basement</button>
+                </div>
               </div>
               <div class="plot-card-base">
                 <span>Base Turnkey</span>
-                <span>₨ 4.95 Cr (₨ 6,875/sqft)</span>
+                <span class="card-base-txt">₨ 3.70 Cr (₨ 6,852/sqft)</span>
               </div>
             </div>
 
@@ -1548,12 +1748,17 @@
                 <span class="plot-card-dim">75' &times; 120' &middot; 9,000 sqft Plot</span>
                 <p class="plot-card-meta">
                   Plot Area: <strong>9,000 sqft</strong><br>
-                  Covered Area: <strong>~13,500 sqft</strong>
+                  Covered Area: <strong class="card-covered-txt">~9,500 sqft</strong><br>
+                  <span class="card-basement-tag">Without Basement</span>
                 </p>
+                <div class="card-basement-switch" role="group" aria-label="2 Kanal basement toggle">
+                  <button type="button" class="card-bsmt-btn active" data-bsmt="no">No Basement</button>
+                  <button type="button" class="card-bsmt-btn" data-bsmt="yes">+ Basement</button>
+                </div>
               </div>
               <div class="plot-card-base">
                 <span>Base Turnkey</span>
-                <span>₨ 9.40 Cr (₨ 6,963/sqft)</span>
+                <span class="card-base-txt">₨ 6.60 Cr (₨ 6,947/sqft)</span>
               </div>
             </div>
 
@@ -1567,12 +1772,17 @@
                 <span class="plot-card-dim">150' &times; 240'+ &middot; 18,000+ sqft Plot</span>
                 <p class="plot-card-meta">
                   Plot Area: <strong>18,000+ sqft</strong><br>
-                  Covered Area: <strong>~18,000+ sqft</strong>
+                  Covered Area: <strong class="card-covered-txt">~14,000 sqft</strong><br>
+                  <span class="card-basement-tag">Without Basement</span>
                 </p>
+                <div class="card-basement-switch" role="group" aria-label="4 Kanal+ basement toggle">
+                  <button type="button" class="card-bsmt-btn active" data-bsmt="no">No Basement</button>
+                  <button type="button" class="card-bsmt-btn" data-bsmt="yes">+ Basement</button>
+                </div>
               </div>
               <div class="plot-card-base">
                 <span>Base Turnkey</span>
-                <span>₨ 18.50 Cr (₨ 10,278/sqft)</span>
+                <span class="card-base-txt">₨ 14.50 Cr (₨ 10,357/sqft)</span>
               </div>
             </div>
 
@@ -1587,6 +1797,10 @@
             <div class="plot-spec-item">
               <span class="plot-spec-label">Total Covered Area</span>
               <span class="plot-spec-val" id="spec-covered">4,200 sqft (Double Storey + Mumty + Servant)</span>
+            </div>
+            <div class="plot-spec-item">
+              <span class="plot-spec-label">Basement Specification</span>
+              <span class="plot-spec-val" id="spec-basement">Without Basement (Standard Ground + 1st Floor)</span>
             </div>
             <div class="plot-spec-item">
               <span class="plot-spec-label">Zoning Byelaws Compliance</span>
@@ -1721,14 +1935,14 @@
             
             <div class="budget-breakdown-row">
               <div class="breakdown-col">
-                <span class="breakdown-col-label">Grey Structure &amp; Construction (65%)</span>
-                <span class="breakdown-col-val" id="breakdown-const">₨ 1.85 Crore</span>
-                <span class="breakdown-col-sub" id="breakdown-const-rate">~₨ 4,411 / sqft</span>
+                <span class="breakdown-col-label">Grey Structure &amp; Construction (48%)</span>
+                <span class="breakdown-col-val" id="breakdown-const">₨ 1.37 Crore</span>
+                <span class="breakdown-col-sub" id="breakdown-const-rate">~₨ 3,257 / sqft</span>
               </div>
               <div class="breakdown-col">
-                <span class="breakdown-col-label">Interior Architecture &amp; Finishes (35%)</span>
-                <span class="breakdown-col-val" id="breakdown-int">₨ 1.00 Crore</span>
-                <span class="breakdown-col-sub" id="breakdown-int-rate">~₨ 2,375 / sqft</span>
+                <span class="breakdown-col-label">Interior Architecture &amp; Finishes (52%)</span>
+                <span class="breakdown-col-val" id="breakdown-int">₨ 1.48 Crore</span>
+                <span class="breakdown-col-sub" id="breakdown-int-rate">~₨ 3,529 / sqft</span>
               </div>
             </div>
 
@@ -1864,8 +2078,8 @@
               </button>
               <div class="faq-answer">
                 <p>
-                  <strong>Grey Structure (~65% of budget)</strong> covers excavation, foundation, concrete framing, brick masonry, plastering, subterranean waterproofing, and concealed plumbing/electrical piping.<br><br>
-                  <strong>Turnkey Finishes (~35% of budget)</strong> encompasses the architectural experience: imported marble/porcelain tiling, custom solid wood cabinetry, thermal-break double glazing, sanitary fixtures, and lighting installation.
+                  <strong>Grey Structure (~48% of budget)</strong> covers excavation, foundation, concrete framing (Grade 60 rebar &amp; OPC cement), brick masonry, plastering, subterranean waterproofing, and concealed plumbing/electrical piping.<br><br>
+                  <strong>Turnkey Finishes (~52% of budget)</strong> encompasses the luxury architectural experience: imported marble/porcelain tiling, bespoke solid oak cabinetry, thermal-break double glazing, designer sanitary fixtures, architectural lighting, and bespoke interior millwork.
                 </p>
               </div>
             </div>
@@ -1873,12 +2087,12 @@
             <!-- FAQ 3 -->
             <div class="faq-item">
               <button class="faq-trigger" aria-expanded="false">
-                <span>Are basement covered areas included in these figures?</span>
+                <span>Can I choose whether to include a basement or build without a basement?</span>
                 <span class="faq-icon">+</span>
               </button>
               <div class="faq-answer">
                 <p>
-                  Yes, for 1 Kanal, 2 Kanal, and 4 Kanal+ typologies, full or partial basements are incorporated into the covered area formula. For 5 Marla and 7 Marla plots, basements are subject to specific CDA and DHA byelaw restrictions and soil conditions, which can be configured upon custom consultation.
+                  Yes! You can now select <strong>Without Basement</strong> or <strong>With Basement</strong> across every single plot category (5 Marla, 7 Marla, 10 Marla, 1 Kanal, 2 Kanal, and 4 Kanal+). Selecting "With Basement" dynamically incorporates the subterranean floor area along with deep excavation, reinforced RCC retaining walls, sub-soil waterproofing tanking, daylight lightwells, and sump pump infrastructure.
                 </p>
               </div>
             </div>
@@ -2046,60 +2260,108 @@
         label: '5 Marla',
         dims: "25' × 50' · 1,125 sqft Plot Area",
         plotSqft: 1125,
-        coveredSqft: 2200,
-        covered: '2,200 sqft (Ground + 1st Floor)',
-        bylaw: 'Compliant with CDA & DHA Bye-Laws for 5 Marla (25×50)',
-        base: 15000000
+        noBasement: {
+          coveredSqft: 2200,
+          covered: '2,200 sqft (Ground + 1st Floor)',
+          bylaw: 'Compliant with CDA & DHA Bye-Laws for 5 Marla (G + 1)',
+          base: 15000000
+        },
+        withBasement: {
+          coveredSqft: 3100,
+          covered: '3,100 sqft (Basement + Ground + 1st Floor)',
+          bylaw: '5 Marla with Subterranean Retaining & Sub-Soil Tanking',
+          base: 21500000
+        }
       },
       {
         id: '7m',
         label: '7 Marla',
         dims: "30' × 60' · 1,800 sqft Plot Area",
         plotSqft: 1800,
-        coveredSqft: 3100,
-        covered: '3,100 sqft (Ground + 1st Floor + Mumty)',
-        bylaw: 'Compliant with Standard CDA / DHA Setbacks (30×60)',
-        base: 21000000
+        noBasement: {
+          coveredSqft: 3100,
+          covered: '3,100 sqft (Ground + 1st Floor + Mumty)',
+          bylaw: 'Compliant with Standard CDA / DHA Setbacks (30×60)',
+          base: 21000000
+        },
+        withBasement: {
+          coveredSqft: 4400,
+          covered: '4,400 sqft (Basement + Ground + 1st + Mumty)',
+          bylaw: '7 Marla with Subterranean Living / Media Level',
+          base: 30500000
+        }
       },
       {
         id: '10m',
         label: '10 Marla',
         dims: "35' × 70' · 2,450 sqft Plot Area",
         plotSqft: 2450,
-        coveredSqft: 4200,
-        covered: '4,200 sqft (Double Storey + Mumty + Servant)',
-        bylaw: 'Standard 10 Marla Zoning & Society Bylaws',
-        base: 28500000
+        noBasement: {
+          coveredSqft: 4200,
+          covered: '4,200 sqft (Double Storey + Mumty + Servant)',
+          bylaw: 'Standard 10 Marla Zoning & Society Bylaws (G + 1)',
+          base: 28500000
+        },
+        withBasement: {
+          coveredSqft: 6000,
+          covered: '6,000 sqft (Full Basement + G + 1 + Mumty)',
+          bylaw: '10 Marla with Daylight Subterranean Lightwells',
+          base: 41500000
+        }
       },
       {
         id: '1k',
         label: '1 Kanal',
         dims: "50' × 90' · 4,500 sqft Plot Area",
         plotSqft: 4500,
-        coveredSqft: 7200,
-        covered: '7,200 sqft (Basement + G + 1 + Mumty)',
-        bylaw: 'Standard 1 Kanal Bylaws (DHA, CDA, LDA & Nationwide)',
-        base: 49500000
+        noBasement: {
+          coveredSqft: 5400,
+          covered: '5,400 sqft (Ground + 1st Floor + Mumty)',
+          bylaw: 'Standard 1 Kanal Bylaws (DHA, CDA, LDA - No Basement)',
+          base: 37000000
+        },
+        withBasement: {
+          coveredSqft: 7200,
+          covered: '7,200 sqft (Full Basement + G + 1 + Mumty)',
+          bylaw: 'Standard 1 Kanal Bylaws with Full Basement & Lightwells',
+          base: 49500000
+        }
       },
       {
         id: '2k',
         label: '2 Kanal',
         dims: "75' × 120' · 9,000 sqft Plot Area",
         plotSqft: 9000,
-        coveredSqft: 13500,
-        covered: '13,500 sqft (Palatial Luxury Estate)',
-        bylaw: 'Spacious Estate with Front & Rear Lawn Setbacks',
-        base: 94000000
+        noBasement: {
+          coveredSqft: 9500,
+          covered: '9,500 sqft (Palatial Villa Double Storey + Mumty)',
+          bylaw: 'Spacious Estate with Front & Rear Lawn Setbacks',
+          base: 66000000
+        },
+        withBasement: {
+          coveredSqft: 13500,
+          covered: '13,500 sqft (Palatial Estate + Full Basement & Spa)',
+          bylaw: 'Full Subterranean Entertainment Level + Double Storey',
+          base: 94000000
+        }
       },
       {
         id: '4k',
         label: '4 Kanal+ / Farmhouse',
         dims: "150' × 240'+ · 18,000+ sqft Plot Area",
         plotSqft: 18000,
-        coveredSqft: 18000,
-        covered: '18,000+ sqft (Bespoke Country Manor)',
-        bylaw: 'Chak Shahzad, Bani Gala & Gulberg Greens Farmhouses',
-        base: 185000000
+        noBasement: {
+          coveredSqft: 14000,
+          covered: '14,000 sqft (Country Manor Ground + 1st Floor)',
+          bylaw: 'Chak Shahzad, Bani Gala & Gulberg Greens Farmhouses',
+          base: 145000000
+        },
+        withBasement: {
+          coveredSqft: 18000,
+          covered: '18,000+ sqft (Bespoke Manor + Subterranean Spa/Cellar)',
+          bylaw: 'Farmhouse with Private Subterranean Wellness Suite',
+          base: 185000000
+        }
       }
     ];
 
@@ -2112,10 +2374,14 @@
       { id: 'glam',         name: 'Maximalist Glam',       mult: 1.30 }
     ];
 
-    let activePlot = PLOTS[2]; // default: 10 Marla
-    let activeVibe = VIBES[0]; // default: Minimalist
-    let animFrame  = null;
-    let currentVal = 28500000;
+    const CONST_SHARE = 0.48; // 48% Grey Structure & Heavy Construction (~₨ 3,250 - 3,350/sqft)
+    const INT_SHARE   = 0.52; // 52% Luxury Interior Architecture & Finishes (~₨ 3,500 - 3,600/sqft)
+
+    let activePlot  = PLOTS[2]; // default: 10 Marla
+    let hasBasement = false;    // default: Without Basement
+    let activeVibe  = VIBES[0]; // default: Minimalist
+    let animFrame   = null;
+    let currentVal  = 28500000;
 
     function formatPKR(n) {
       if (n >= 10000000) return '₨ ' + (n / 10000000).toFixed(2) + ' Crore';
@@ -2137,8 +2403,8 @@
         const intDisp    = document.getElementById('breakdown-int');
         const stickyDisp = document.getElementById('mobileStickyVal');
         if (budgetDisp) budgetDisp.textContent = formatPKR(currentVal);
-        if (constDisp)  constDisp.textContent  = formatPKR(Math.round(currentVal * 0.65));
-        if (intDisp)    intDisp.textContent    = formatPKR(Math.round(currentVal * 0.35));
+        if (constDisp)  constDisp.textContent  = formatPKR(Math.round(currentVal * CONST_SHARE));
+        if (intDisp)    intDisp.textContent    = formatPKR(Math.round(currentVal * INT_SHARE));
         if (stickyDisp) stickyDisp.textContent = formatPKR(currentVal);
         if (p < 1) animFrame = requestAnimationFrame(tick);
       }
@@ -2146,26 +2412,28 @@
     }
 
     function updateEstimator() {
-      const target = Math.round(activePlot.base * activeVibe.mult);
+      const cfg = hasBasement ? activePlot.withBasement : activePlot.noBasement;
+      const target = Math.round(cfg.base * activeVibe.mult);
       animateTo(target);
 
       const stickyDisp = document.getElementById('mobileStickyVal');
       if (stickyDisp) stickyDisp.textContent = formatPKR(target);
 
       const pureDims = activePlot.dims.split('·')[0].trim();
-      const ratePerSqft = Math.round(target / activePlot.coveredSqft);
-      const constRate = Math.round((target * 0.65) / activePlot.coveredSqft);
-      const intRate = Math.round((target * 0.35) / activePlot.coveredSqft);
+      const ratePerSqft = Math.round(target / cfg.coveredSqft);
+      const constRate = Math.round((target * CONST_SHARE) / cfg.coveredSqft);
+      const intRate = Math.round((target * INT_SHARE) / cfg.coveredSqft);
+      const basementLabel = hasBasement ? 'With Basement' : 'Without Basement';
 
       const budgetSub = document.getElementById('budget-sub');
       if (budgetSub) {
-        budgetSub.textContent = `PKR · ${activePlot.label} (${pureDims} · ${activePlot.plotSqft.toLocaleString('en-PK')} sqft) · ${activeVibe.name}`;
+        budgetSub.textContent = `PKR · ${activePlot.label} (${pureDims} · ${activePlot.plotSqft.toLocaleString('en-PK')} sqft) · ${basementLabel} · ${activeVibe.name}`;
       }
 
       // Update per sqft rate badge
       const budgetRate = document.getElementById('budget-rate');
       if (budgetRate) {
-        budgetRate.textContent = `₨ ${ratePerSqft.toLocaleString('en-PK')} / sqft · ${activePlot.coveredSqft.toLocaleString('en-PK')} sqft Covered Area`;
+        budgetRate.textContent = `₨ ${ratePerSqft.toLocaleString('en-PK')} / sqft · ${cfg.coveredSqft.toLocaleString('en-PK')} sqft Covered Area (${basementLabel})`;
       }
 
       // Update breakdown per sqft sub labels
@@ -2177,24 +2445,56 @@
       // Update Live Plot Spec Banner
       const specDims = document.getElementById('spec-dims');
       const specCovered = document.getElementById('spec-covered');
+      const specBasement = document.getElementById('spec-basement');
       const specBylaw = document.getElementById('spec-bylaw');
       if (specDims) specDims.textContent = activePlot.dims;
-      if (specCovered) specCovered.textContent = activePlot.covered;
-      if (specBylaw) specBylaw.textContent = activePlot.bylaw;
+      if (specCovered) specCovered.textContent = cfg.covered;
+      if (specBasement) {
+        specBasement.textContent = hasBasement 
+          ? 'Subterranean Level Included (RCC Tanking & Lightwells)' 
+          : 'Without Basement (Standard Above-Ground G + 1)';
+      }
+      if (specBylaw) specBylaw.textContent = cfg.bylaw;
 
-      // WhatsApp message with specific sqft choices
-      const msg = encodeURIComponent(`Hi The Fifth Wall! I used your Project Cost Estimator for my ${activePlot.label} plot (${pureDims} · ${activePlot.plotSqft.toLocaleString('en-PK')} sqft) with ~${activePlot.coveredSqft.toLocaleString('en-PK')} sqft covered area in the ${activeVibe.name} aesthetic. The indicative ballpark is ${formatPKR(target)} (~₨ ${ratePerSqft.toLocaleString('en-PK')} / sqft). Can we schedule an initial discovery consultation?`);
+      // WhatsApp message with specific sqft choices & basement mention
+      const msg = encodeURIComponent(`Hi The Fifth Wall! I used your Project Cost Estimator for my ${activePlot.label} plot (${pureDims} · ${activePlot.plotSqft.toLocaleString('en-PK')} sqft) with ~${cfg.coveredSqft.toLocaleString('en-PK')} sqft covered area (${basementLabel}) in the ${activeVibe.name} aesthetic. The indicative ballpark is ${formatPKR(target)} (~₨ ${ratePerSqft.toLocaleString('en-PK')} / sqft). Can we schedule an initial discovery consultation?`);
       const ctaWa = document.getElementById('cta-wa');
       if (ctaWa) ctaWa.href = 'https://wa.me/923437761250?text=' + msg;
 
       const ctaBehance = document.getElementById('cta-behance');
       if (ctaBehance) ctaBehance.textContent = `View ${activeVibe.name} Mood Board`;
 
-      // Update Plot Cards Active State & Accessibility
+      // Update Plot Cards Active State & Content dynamically for all 6 cards
       document.querySelectorAll('.plot-card').forEach(card => {
+        const plotData = PLOTS.find(p => p.id === card.dataset.id);
+        if (plotData) {
+          const plotCfg = hasBasement ? plotData.withBasement : plotData.noBasement;
+          const coveredEl = card.querySelector('.card-covered-txt');
+          const baseEl = card.querySelector('.card-base-txt');
+          const tagEl = card.querySelector('.card-basement-tag');
+          if (coveredEl) coveredEl.textContent = `~${plotCfg.coveredSqft.toLocaleString('en-PK')} sqft`;
+          if (baseEl) {
+            const cardRate = Math.round(plotCfg.base / plotCfg.coveredSqft);
+            baseEl.textContent = `${formatPKR(plotCfg.base)} (₨ ${cardRate.toLocaleString('en-PK')}/sqft)`;
+          }
+          if (tagEl) tagEl.textContent = hasBasement ? 'With Basement' : 'Without Basement';
+
+          card.querySelectorAll('.card-bsmt-btn').forEach(btn => {
+            const isBtnYes = btn.dataset.bsmt === 'yes';
+            btn.classList.toggle('active', isBtnYes === hasBasement);
+          });
+        }
+
         const isActive = card.dataset.id === activePlot.id;
         card.classList.toggle('active', isActive);
         card.setAttribute('aria-checked', isActive ? 'true' : 'false');
+      });
+
+      // Update Master Basement Toggle Pills
+      document.querySelectorAll('.basement-pill').forEach(pill => {
+        const isYes = pill.dataset.basement === 'yes';
+        pill.classList.toggle('active', isYes === hasBasement);
+        pill.setAttribute('aria-checked', isYes === hasBasement ? 'true' : 'false');
       });
 
       // Update Vibe Cards Active State & Accessibility
@@ -2204,6 +2504,32 @@
         card.setAttribute('aria-checked', isActive ? 'true' : 'false');
       });
     }
+
+    // Attach click listeners to master Basement Pills
+    document.querySelectorAll('.basement-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        const wantBasement = pill.dataset.basement === 'yes';
+        if (hasBasement !== wantBasement) {
+          hasBasement = wantBasement;
+          updateEstimator();
+        }
+      });
+    });
+
+    // Attach click listeners to inline card basement switch buttons
+    document.querySelectorAll('.card-bsmt-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation(); // prevent double triggering card click
+        const card = btn.closest('.plot-card');
+        if (card) {
+          const found = PLOTS.find(p => p.id === card.dataset.id);
+          if (found) activePlot = found;
+        }
+        const wantBasement = btn.dataset.bsmt === 'yes';
+        hasBasement = wantBasement;
+        updateEstimator();
+      });
+    });
 
     // Attach click and keyboard listeners to pre-rendered plot cards
     document.querySelectorAll('.plot-card').forEach(card => {
